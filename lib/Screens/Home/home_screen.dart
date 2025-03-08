@@ -52,8 +52,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final String name =
-        Hive.box('settings').get('name', defaultValue: 'Guest') as String;
     final double screenWidth = MediaQuery.sizeOf(context).width;
     final bool rotated = MediaQuery.sizeOf(context).height < screenWidth;
     return SafeArea(
@@ -68,65 +66,12 @@ class _HomeScreenState extends State<HomeScreen> {
             ) {
               return <Widget>[
                 SliverAppBar(
-                  expandedHeight: 50,
-                  backgroundColor: Colors.transparent,
-                  elevation: 0,
-                  // pinned: true,
-                  toolbarHeight: 50,
-                  // floating: true,
-                  automaticallyImplyLeading: false,
-                  flexibleSpace: LayoutBuilder(
-                    builder: (
-                      BuildContext context,
-                      BoxConstraints constraints,
-                    ) {
-                      return FlexibleSpaceBar(
-                        titlePadding: EdgeInsets.zero,
-                        // collapseMode: CollapseMode.parallax,
-                        background: GestureDetector(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              const SizedBox(
-                                height: 15,
-                              ),
-                              Row(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: 45.0,
-                                    ),
-                                    child: Text(
-                                      AppLocalizations.of(
-                                        context,
-                                      )!
-                                          .homeGreet,
-                                      style: TextStyle(
-                                        letterSpacing: 2,
-                                        color: Theme.of(
-                                          context,
-                                        ).colorScheme.secondary,
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                SliverAppBar(
                   automaticallyImplyLeading: false,
                   pinned: true,
                   backgroundColor: Colors.transparent,
                   elevation: 0,
                   stretch: true,
-                  toolbarHeight: 50,
+                  toolbarHeight: 65,
                   title: Align(
                     alignment: Alignment.centerRight,
                     child: AnimatedBuilder(
@@ -134,17 +79,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       builder: (context, child) {
                         return GestureDetector(
                           child: AnimatedContainer(
-                            width: (!_scrollController.hasClients ||
-                                    _scrollController.positions.length > 1)
-                                ? MediaQuery.sizeOf(context).width
-                                : max(
-                                    MediaQuery.sizeOf(context).width -
-                                        _scrollController.offset
-                                            .roundToDouble(),
-                                    MediaQuery.sizeOf(context).width -
-                                        (rotated ? 0 : 75),
-                                  ),
-                            height: 50.0,
+                            width: MediaQuery.sizeOf(context).width -
+                                (rotated ? 0 : 75),
+                            height: 55.0,
                             duration: const Duration(
                               milliseconds: 150,
                             ),
