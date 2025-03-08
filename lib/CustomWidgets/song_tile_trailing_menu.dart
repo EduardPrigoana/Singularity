@@ -18,15 +18,14 @@
  */
 
 import 'package:audio_service/audio_service.dart';
-import 'package:blackhole/APIs/api.dart';
 import 'package:blackhole/CustomWidgets/add_playlist.dart';
 import 'package:blackhole/Helpers/add_mediaitem_to_queue.dart';
 import 'package:blackhole/Helpers/mediaitem_converter.dart';
 import 'package:blackhole/Helpers/radio.dart';
 import 'package:blackhole/Screens/Common/song_list.dart';
-import 'package:blackhole/Screens/Search/artists.dart';
 import 'package:blackhole/Screens/Search/search.dart';
 import 'package:blackhole/Services/yt_music.dart';
+import 'package:blackhole/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -215,19 +214,10 @@ class _SongTileTrailingMenuState extends State<SongTileTrailingMenu> {
           case 2:
             playNext(mediaItem, context);
           default:
-            final artistInfo = await SaavnAPI().getArtistDetails(
-              mediaItem.extras?['album_id'] as String,
-              value.toString(),
-            );
-            Navigator.push(
+            navigateToArtistPage(
               context,
-              PageRouteBuilder(
-                opaque: false,
-                pageBuilder: (_, __, ___) => ArtistSearchPage(
-                  data: artistInfo,
-                  artistId: artistInfo['id'].toString(),
-                ),
-              ),
+              albumId: mediaItem.extras?['album_id'] as String,
+              artistName: value.toString(),
             );
         }
       },
