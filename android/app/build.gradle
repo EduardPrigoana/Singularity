@@ -66,3 +66,19 @@ dependencies {
 flutter {
     source = "../.."
 }
+
+android {
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def builtType = variant.buildType.name
+            def versionName = variant.versionName
+
+            def abi = output.getFilter("ABI")
+            if (abi != null) {
+                outputFileName = "singularity-${versionName}-${abi}.apk"
+            } else {
+                outputFileName = "singularity-${versionName}.apk"
+            }
+        }
+    }
+}
