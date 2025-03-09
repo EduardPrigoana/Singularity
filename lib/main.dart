@@ -33,7 +33,6 @@ import 'package:blackhole/providers/audio_service_provider.dart';
 import 'package:blackhole/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
@@ -42,6 +41,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:logging/logging.dart';
 import 'package:metadata_god/metadata_god.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import 'package:sizer/sizer.dart';
 
@@ -62,31 +62,30 @@ Future<void> main() async {
       limit: box['limit'] as bool? ?? false,
     );
   }
+
   if (Platform.isAndroid) {
-    setOptimalDisplayMode();
+    _requestStoragePermissions();
   }
   await startService();
   runApp(MyApp());
 }
 
-Future<void> setOptimalDisplayMode() async {
-  await FlutterDisplayMode.setHighRefreshRate();
-  // final List<DisplayMode> supported = await FlutterDisplayMode.supported;
-  // final DisplayMode active = await FlutterDisplayMode.active;
+/// Request storage permissions for Android.
+/// For Android 13 (API 33) and above, request granular media permissions.
+Future<void> _requestStoragePermissions() async {
+  // For media files, request the granular permissions.
+  final statuses = await [
+    Permission.audio,
+    // Permission.manageExternalStorage,
+  ].request();
 
-  // final List<DisplayMode> sameResolution = supported
-  //     .where(
-  //       (DisplayMode m) => m.width == active.width && m.height == active.height,
-  //     )
-  //     .toList()
-  //   ..sort(
-  //     (DisplayMode a, DisplayMode b) => b.refreshRate.compareTo(a.refreshRate),
-  //   );
-
-  // final DisplayMode mostOptimalMode =
-  //     sameResolution.isNotEmpty ? sameResolution.first : active;
-
-  // await FlutterDisplayMode.setPreferredMode(mostOptimalMode);
+  final bool allGranted = statuses.values.every((status) => status.isGranted);
+  if (!allGranted) {
+    Logger.root.warning('permissions not granted.');
+    // TODO: Add dialog or redirect the user to app settings.
+  } else {
+    Logger.root.info('permissions granted.');
+  }
 }
 
 Future<void> startService() async {

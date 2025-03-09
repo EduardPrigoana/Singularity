@@ -23,7 +23,6 @@ import 'package:audiotagger/audiotagger.dart';
 import 'package:audiotagger/models/tag.dart';
 // import 'package:blackhole/CustomWidgets/snackbar.dart';
 import 'package:blackhole/Helpers/lyrics.dart';
-import 'package:blackhole/Services/ext_storage_provider.dart';
 import 'package:blackhole/Services/youtube_services.dart';
 // import 'package:ffmpeg_kit_flutter_audio/ffmpeg_kit.dart';
 import 'package:flutter/foundation.dart';
@@ -133,12 +132,9 @@ class Download with ChangeNotifier {
 
     filename = '${filename.replaceAll(avoid, "").replaceAll("  ", " ")}.m4a';
     if (dlPath == '') {
-      Logger.root.info('Cached Download path is empty, getting new path');
-      final String? temp = await ExtStorageProvider.getExtStorage(
-        dirName: 'Music',
-        writeAccess: true,
-      );
-      dlPath = temp!;
+      Logger.root.info(
+          'Cached Download path is empty, using /storage/emulated/0/Music');
+      dlPath = '/storage/emulated/0/Music';
     }
     Logger.root.info('New Download path: $dlPath');
     if (data['url'].toString().contains('google') && createYoutubeFolder) {
