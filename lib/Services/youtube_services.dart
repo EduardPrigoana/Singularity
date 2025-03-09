@@ -22,7 +22,6 @@ import 'dart:io';
 
 import 'package:blackhole/Services/yt_music.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:html_unescape/html_unescape_small.dart';
 import 'package:http/http.dart';
 import 'package:logging/logging.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
@@ -207,11 +206,8 @@ class YouTubeServices {
       if (response.statusCode != 200) {
         return [];
       }
-      final unescape = HtmlUnescape();
-      // final Map res = jsonDecode(response.body) as Map;
       final List res = (jsonDecode(response.body) as List)[1] as List;
-      // return (res['suggestions'] as List).map((e) => unescape.convert(e.toString())).toList();
-      return res.map((e) => unescape.convert(e.toString())).toList();
+      return res.map((e) => e.toString()).toList();
     } catch (e) {
       Logger.root.severe('Error in getSearchSuggestions: $e');
       return [];
