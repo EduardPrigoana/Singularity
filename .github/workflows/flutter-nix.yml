@@ -20,7 +20,7 @@ jobs:
       - name: Install Nix
         uses: nixbuild/nix-quick-install-action@v29
 
-      - name: Setup Cache
+      - name: Setup Nix Cache
         uses: nix-community/cache-nix-action@v6
         with:
           primary-key: nix-${{ runner.os }}-${{ hashFiles('**/*.nix', '**/flake.lock') }}
@@ -31,13 +31,24 @@ jobs:
           purge-created: 0
           purge-primary-key: never
 
+      - name: Setup Flutter Cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.pub-cache
+            build/
+            .dart_tool/
+          key: ${{ runner.os }}-flutter-${{ hashFiles('**/pubspec.yaml', '**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-flutter-
+
       - name: Install Dependencies
         run: nix develop --command flutter pub get
 
       - name: Build APK
         run: nix develop --command flutter build apk --release
 
-      - name: Build APK (split ABI)
+      - name: Build APK (Split ABI)
         run: nix develop --command flutter build apk --release --split-per-abi
 
       - name: Upload APKs as Artifacts
