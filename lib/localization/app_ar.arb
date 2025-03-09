@@ -99,6 +99,8 @@
     "@unlike": {},
     "update": "تحديث",
     "@update": {},
+    "updateAvailable": "التحديث متاح!",
+    "@updateAvailable": {},
     "viewAll": "عرض الكل",
     "@viewAll": {},
     "watchVideo": "مشاهدة الفيديو",

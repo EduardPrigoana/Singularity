@@ -397,6 +397,8 @@
     "@unknown": {},
     "unlike": "いいね取り消し",
     "@unlike": {},
+    "updateAvailable": "最新版があります!",
+    "@updateAvailable": {},
     "viewAlbum": "アルバムを表示",
     "@viewAlbum": {},
     "streamQualitySub": "高品質はより多くのデータを消費します",

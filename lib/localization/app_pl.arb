@@ -127,6 +127,8 @@
     "@unknown": {},
     "update": "Aktualizuj",
     "@update": {},
+    "updateAvailable": "Aktualizacja dostępna!",
+    "@updateAvailable": {},
     "yesReplace": "Tak, ale zamień stary",
     "@yesReplace": {},
     "ipAdd": "Adres IP",

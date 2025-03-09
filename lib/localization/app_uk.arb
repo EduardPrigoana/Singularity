@@ -353,6 +353,8 @@
     "@unlike": {},
     "update": "Оновлення",
     "@update": {},
+    "updateAvailable": "Доступно оновлення!",
+    "@updateAvailable": {},
     "upNext": "Наступне",
     "@upNext": {},
     "useAmoled": "Використовувати налаштування темного режиму Amoled",

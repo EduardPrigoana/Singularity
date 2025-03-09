@@ -457,6 +457,8 @@
     "@unlike": {},
     "update": "Обновления",
     "@update": {},
+    "updateAvailable": "Доступно обновление!",
+    "@updateAvailable": {},
     "useAmoled": "Использовать настройки темного режима Amoled",
     "@useAmoled": {},
     "useDenseMini": "Используйте плотный миниплеер",

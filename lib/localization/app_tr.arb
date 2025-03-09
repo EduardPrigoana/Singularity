@@ -427,6 +427,8 @@
     "@unlike": {},
     "update": "Güncelle",
     "@update": {},
+    "updateAvailable": "Güncelleme mevcut!",
+    "@updateAvailable": {},
     "songPath": "Şarkının konumu",
     "@songPath": {},
     "supportEq": "Ekolayzır desteği",

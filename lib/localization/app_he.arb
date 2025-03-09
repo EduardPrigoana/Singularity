@@ -493,6 +493,8 @@
     "@unlike": {},
     "update": "עדכון",
     "@update": {},
+    "updateAvailable": "יש עדכון!",
+    "@updateAvailable": {},
     "upNext": "הבא בתור",
     "@upNext": {},
     "useSystemTheme": "להשתמש בערכת העיצוב של המערכת",

@@ -525,6 +525,8 @@
     "@useDownSub": {},
     "useHome": "ਬਿਹਤਰ ਕੁਆਲਿਟੀ ਅਤੇ ਡਾਊਨਲੋਡ ਸਪੋਰਟ ਲਈ ਮੁੱਖ ਸੈਕਸ਼ਨ ਦੀ ਵਰਤੋਂ ਕਰੋ",
     "@useHome": {},
+    "updateAvailable": "ਅੱਪਡੇਟ ਉਪਲਬਧ ਹੈ!",
+    "@updateAvailable": {},
     "useProxy": "ਪ੍ਰੌਕਸੀ ਦੀ ਵਰਤੋਂ ਕਰੋ",
     "@useProxy": {},
     "useDenseMiniSub": "ਮਿਨੀ ਪਲੇਅਰ ਦੀ ਉਚਾਈ ਘਟਾਈ ਜਾਵੇਗੀ",

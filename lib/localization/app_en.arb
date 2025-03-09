@@ -551,6 +551,8 @@
     "@unlike": {},
     "update": "Update",
     "@update": {},
+    "updateAvailable": "Update Available!",
+    "@updateAvailable": {},
     "upNext": "Up Next",
     "@upNext": {},
     "useAmoled": "Use Amoled Dark Mode Settings",

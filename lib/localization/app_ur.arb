@@ -417,6 +417,8 @@
     "@unknown": {},
     "update": "اپ ڈیٹ",
     "@update": {},
+    "updateAvailable": "اپ ڈیٹ دستیاب ہے!",
+    "@updateAvailable": {},
     "useDenseMiniSub": "منی پلیئر کی اونچائی کم ہو جائے گی",
     "@useDenseMiniSub": {},
     "useDown": "اگر دستیاب ہو تو ڈاؤن لوڈ کردہ گانوں کو سٹریم کریں",

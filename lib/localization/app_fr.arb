@@ -459,6 +459,8 @@
     "@unlike": {},
     "update": "Mettre à jour",
     "@update": {},
+    "updateAvailable": "Mise à jour disponible !",
+    "@updateAvailable": {},
     "useAmoled": "Utiliser les paramètres du mode sombre AMOLED",
     "@useAmoled": {},
     "useDenseMini": "Utiliser un mini-lecteur compact",

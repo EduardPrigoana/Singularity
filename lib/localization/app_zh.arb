@@ -477,6 +477,8 @@
     "@unlike": {},
     "update": "更新",
     "@update": {},
+    "updateAvailable": "有更新可用！",
+    "@updateAvailable": {},
     "useAmoled": "使用 Amoled 深色模式设置",
     "@useAmoled": {},
     "useDenseMini": "密集显示音乐通知",

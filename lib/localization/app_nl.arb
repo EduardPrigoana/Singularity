@@ -485,6 +485,8 @@
     "@unlike": {},
     "update": "Updaten",
     "@update": {},
+    "updateAvailable": "Er is een update beschikbaar!",
+    "@updateAvailable": {},
     "upNext": "Hierna",
     "@upNext": {},
     "useAmoled": "Amoledthema gebruiken",

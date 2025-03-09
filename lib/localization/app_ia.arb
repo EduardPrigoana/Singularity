@@ -327,6 +327,8 @@
     "@proxySet": {},
     "sleepAfter": "Dormir depost de N cantos",
     "@sleepAfter": {},
+    "updateAvailable": "Actualisation disponibile!",
+    "@updateAvailable": {},
     "useProxy": "Usar proxy",
     "@useProxy": {},
     "selectExportLocation": "Selige un location pro exportar",

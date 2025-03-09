@@ -473,6 +473,8 @@
     "@songInfo": {},
     "songs": "곡",
     "@songs": {},
+    "updateAvailable": "새 버전 설치 가능!",
+    "@updateAvailable": {},
     "useAmoled": "AMOLDED 다크 모드 사용하기",
     "@useAmoled": {},
     "downQuality": "음질 설정",

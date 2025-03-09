@@ -443,6 +443,8 @@
     "@sleepAfter": {},
     "showHistorySub": "Hiển thị Lịch sử tìm kiếm bên dưới Thanh tìm kiếm",
     "@showHistorySub": {},
+    "updateAvailable": "Cập nhật có sẵn!",
+    "@updateAvailable": {},
     "useLessDataImageSub": "Điều này sẽ làm giảm chất lượng hình ảnh trong ứng dụng nhưng sẽ tiết kiệm dữ liệu của bạn",
     "@useLessDataImageSub": {},
     "useProxy": "Sử dụng proxy",

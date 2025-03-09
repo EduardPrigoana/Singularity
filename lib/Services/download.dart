@@ -133,7 +133,7 @@ class Download with ChangeNotifier {
     filename = '${filename.replaceAll(avoid, "").replaceAll("  ", " ")}.m4a';
     if (dlPath == '') {
       Logger.root.info(
-          'Cached Download path is empty, using /storage/emulated/0/Music');
+          'Cached Download path is empty, using /storage/emulated/0/Music',);
       dlPath = '/storage/emulated/0/Music';
     }
     Logger.root.info('New Download path: $dlPath');

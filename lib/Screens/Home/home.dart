@@ -23,9 +23,12 @@ import 'package:blackhole/CustomWidgets/bottom_nav_bar.dart';
 import 'package:blackhole/CustomWidgets/drawer.dart';
 import 'package:blackhole/CustomWidgets/gradient_containers.dart';
 import 'package:blackhole/CustomWidgets/miniplayer.dart';
+import 'package:blackhole/CustomWidgets/snackbar.dart';
 import 'package:blackhole/Helpers/backup_restore.dart';
 import 'package:blackhole/Helpers/downloads_checker.dart';
+import 'package:blackhole/Helpers/github.dart';
 import 'package:blackhole/Helpers/route_handler.dart';
+import 'package:blackhole/Helpers/update.dart';
 import 'package:blackhole/Screens/Common/routes.dart';
 import 'package:blackhole/Screens/Home/home_screen.dart';
 import 'package:blackhole/Screens/Library/library.dart';
@@ -37,9 +40,11 @@ import 'package:blackhole/Services/ext_storage_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:logging/logging.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -104,6 +109,56 @@ class _HomePageState extends State<HomePage> {
   void checkVersion() {
     PackageInfo.fromPlatform().then((PackageInfo packageInfo) {
       appVersion = packageInfo.version;
+
+      if (checkUpdate) {
+        Logger.root.info('Checking for update');
+        GitHub.getLatestVersion().then((String version) async {
+          if (compareVersion(
+            version,
+            appVersion!,
+          )) {
+            Logger.root.info('Update available');
+            ShowSnackBar().showSnackBar(
+              context,
+              AppLocalizations.of(context)!.updateAvailable,
+              duration: const Duration(seconds: 15),
+              action: SnackBarAction(
+                textColor: Theme.of(context).colorScheme.secondary,
+                label: AppLocalizations.of(context)!.update,
+                onPressed: () async {
+                  // String arch = '';
+                  // if (Platform.isAndroid) {
+                  //   List? abis = await Hive.box('settings').get('supportedAbis')
+                  //       as List?;
+
+                  //   if (abis == null) {
+                  //     final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+                  //     final AndroidDeviceInfo androidDeviceInfo =
+                  //         await deviceInfo.androidInfo;
+                  //     abis = androidDeviceInfo.supportedAbis;
+                  //     await Hive.box('settings').put('supportedAbis', abis);
+                  //   }
+                  //   if (abis.contains('arm64')) {
+                  //     arch = 'arm64';
+                  //   } else if (abis.contains('armeabi')) {
+                  //     arch = 'armeabi';
+                  //   }
+                  // }
+                  Navigator.pop(context);
+                  launchUrl(
+                    Uri.parse(
+                      'https://github.com/atinba/Singularity/releases/latest',
+                    ),
+                    mode: LaunchMode.externalApplication,
+                  );
+                },
+              ),
+            );
+          } else {
+            Logger.root.info('No update available');
+          }
+        });
+      }
 
       if (autoBackup) {
         final List<String> checked = [

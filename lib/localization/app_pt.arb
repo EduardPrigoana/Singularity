@@ -457,6 +457,8 @@
     "@unlike": {},
     "update": "Atualizar",
     "@update": {},
+    "updateAvailable": "Atualização disponível!",
+    "@updateAvailable": {},
     "useAmoled": "Modo Escuro Amoled",
     "@useAmoled": {},
     "useDenseMini": "Miniplayer Compacto",

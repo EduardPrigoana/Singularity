@@ -457,6 +457,8 @@
     "@unlike": {},
     "update": "Pembaruan",
     "@update": {},
+    "updateAvailable": "Pembaruan tersedia!",
+    "@updateAvailable": {},
     "useAmoled": "Gunakan Pengaturan Mode Gelap Amoled",
     "@useAmoled": {},
     "useDenseMini": "Gunakan miniplayer kompak",

@@ -351,6 +351,8 @@
     "@streamQualitySub": {},
     "theme": "Motiv",
     "@theme": {},
+    "updateAvailable": "Je dostupná aktualizace!",
+    "@updateAvailable": {},
     "useSystemTheme": "Použít systémový motiv",
     "@useSystemTheme": {},
     "viewAlbum": "Zobrazit album",

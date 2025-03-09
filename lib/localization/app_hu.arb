@@ -545,6 +545,8 @@
     "@unlike": {},
     "update": "Frissítés",
     "@update": {},
+    "updateAvailable": "Frissítés elérhető!",
+    "@updateAvailable": {},
     "upNext": "Következő",
     "@upNext": {},
     "useAmoled": "Amoled sötét mód beállításainak használata",

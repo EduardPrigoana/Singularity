@@ -475,6 +475,8 @@
     "@unlike": {},
     "update": "Абнаўленне",
     "@update": {},
+    "updateAvailable": "Даступна абнаўленне!",
+    "@updateAvailable": {},
     "upNext": "Далей",
     "@upNext": {},
     "useDenseMiniSub": "Вышыня міні-плэера будзе зменшана",

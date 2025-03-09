@@ -515,6 +515,8 @@
     "@useDenseMini": {},
     "yesReplace": "हाँ, लेकिन पुराने को बदल दे",
     "@yesReplace": {},
+    "updateAvailable": "अद्यतनीकरण उपलब्ध!",
+    "@updateAvailable": {},
     "ytDownQuality": "यूट्यूब डाउनलोड गुणवत्ता",
     "@ytDownQuality": {},
     "useDominant": "प्ले स्क्रीन के लिए प्रमुख रंग का प्रयोग करें",

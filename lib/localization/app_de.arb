@@ -275,6 +275,8 @@
     "@unlike": {},
     "update": "Aktualisieren",
     "@update": {},
+    "updateAvailable": "Aktualisierung verfügbar!",
+    "@updateAvailable": {},
     "useAmoled": "AMOLED Dunkel Modus verwenden",
     "@useAmoled": {},
     "useDenseMini": "Dense Mini-Player verwenden",

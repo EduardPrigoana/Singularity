@@ -243,6 +243,8 @@
     "@showHere": {},
     "showHistory": "Mostra la cronologia di ricerca",
     "@showHistory": {},
+    "updateAvailable": "Aggiornamento disponibile!",
+    "@updateAvailable": {},
     "update": "Aggiorna",
     "@update": {},
     "displayName": "Nome visualizzato",

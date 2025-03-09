@@ -29,6 +29,8 @@
     "@unlike": {},
     "update": "Actualitza",
     "@update": {},
+    "updateAvailable": "Hi ha una actualització disponible.",
+    "@updateAvailable": {},
     "upNext": "A continuació",
     "@upNext": {},
     "useAmoled": "Utilitza la configuració del mode fosc AMOLED",

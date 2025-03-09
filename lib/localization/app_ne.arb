@@ -493,6 +493,8 @@
     "@theme": {},
     "title": "शीर्षक",
     "@title": {},
+    "updateAvailable": "अपडेट उपलब्ध छ!",
+    "@updateAvailable": {},
     "useAmoled": "Amoled गाढा मोड सेटिङहरू प्रयोग गर्नुहोस्",
     "@useAmoled": {},
     "useDenseMini": "Dense Miniplayer प्रयोग गर्नुहोस्",

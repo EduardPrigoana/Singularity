@@ -259,6 +259,8 @@
     "@unknown": {},
     "unlike": "விருப்பம்நீக்கு",
     "@unlike": {},
+    "updateAvailable": "புதுப்பிப்பு உள்ளது!",
+    "@updateAvailable": {},
     "useDenseMiniSub": "சிறு இயக்கி உயரம் குறைக்கப்படும்",
     "@useDenseMiniSub": {},
     "useProxy": "பதிலியைப் பயன்படுத்து",

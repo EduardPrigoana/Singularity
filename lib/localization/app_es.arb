@@ -513,6 +513,8 @@
     "@successTagEdit": {},
     "supportEqSub": "Desactivar si no se reproduce música (tanto en línea cómo sin conexión)",
     "@supportEqSub": {},
+    "updateAvailable": "¡Actualización disponible!",
+    "@updateAvailable": {},
     "useVpn": "¿No eres de la India? Prueba utilizando un proxy o una VPN con servidor indio",
     "@useVpn": {},
     "viewArtist": "Ver artista",
