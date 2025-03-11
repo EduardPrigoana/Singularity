@@ -1,13 +1,11 @@
 # Singularity
-Fork of BlackHole with stuff *removed*.
-
-![Release](https://img.shields.io/github/v/release/atinba/Singularity) ![Downloads](https://img.shields.io/github/downloads/atinba/Singularity/total)
-[![Flutter Build](https://github.com/atinba/Singularity/actions/workflows/flutter-nix.yml/badge.svg)](https://github.com/atinba/Singularity/actions/workflows/flutter-nix.yml)
+Fork of [Blackhole](https://github.com/BrightDV/BlackHole/).
 
 ## Changes
 
 ### Improvements
 - Better Artist Search (Goes directly to the artist page (whenever possible) when clicking "View Artist" )
+- Fix Perms for Android 15
 - Dependency Cleanup (removed some unsed ones and upgraded most)
 - Minimal and upgraded dependencies
 - Upgraded Flutter, Gradle etc
