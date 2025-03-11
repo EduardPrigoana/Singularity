@@ -18,6 +18,9 @@ Fork of [Blackhole](https://github.com/BrightDV/BlackHole/).
 - Dependency Cleanup (removed some unsed ones and upgraded most)
 - Android Only, Removed other platform related code
 
+## Download
+[Github Release](https://github.com/atinba/Singularity/releases/latest)
+
 ## Features
 
 - High Streaming Quality (320kbps AAC)
