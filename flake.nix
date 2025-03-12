@@ -19,8 +19,8 @@
       };
 
       androidComposition = pkgs.androidenv.composeAndroidPackages {
-        buildToolsVersions = ["34.0.0" "33.0.1"];
-        platformVersions = ["34" "33" "31"];
+        buildToolsVersions = ["35.0.0" "33.0.1"];
+        platformVersions = ["35" "33" "31"];
         abiVersions = [];
         includeNDK = true;
         ndkVersions = ["21.4.7075529"];
