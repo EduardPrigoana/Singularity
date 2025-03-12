@@ -17,13 +17,11 @@
  * Copyright (c) 2021-2023, Ankit Sangwan
  */
 
-import 'package:blackhole/APIs/api.dart';
 import 'package:blackhole/CustomWidgets/collage.dart';
 import 'package:blackhole/CustomWidgets/horizontal_albumlist.dart';
 import 'package:blackhole/CustomWidgets/horizontal_albumlist_separated.dart';
 import 'package:blackhole/CustomWidgets/on_hover.dart';
 import 'package:blackhole/Helpers/extensions.dart';
-import 'package:blackhole/Helpers/format.dart';
 import 'package:blackhole/Screens/Library/liked.dart';
 import 'package:blackhole/Screens/Search/artists.dart';
 import 'package:blackhole/Services/player_service.dart';
@@ -32,12 +30,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 bool fetched = false;
-List preferredLanguage = Hive.box('settings')
-    .get('preferredLanguage', defaultValue: ['Hindi']) as List;
-List likedRadio =
-    Hive.box('settings').get('likedRadio', defaultValue: []) as List;
-Map data = Hive.box('cache').get('homepage', defaultValue: {}) as Map;
-List lists = ['recent', 'playlist', ...?data['collections'] as List?];
+List lists = ['recent', 'playlist'];
 
 class SaavnHomePage extends StatefulWidget {
   @override
@@ -50,8 +43,6 @@ class _SaavnHomePageState extends State<SaavnHomePage>
       Hive.box('cache').get('recentSongs', defaultValue: []) as List;
   Map likedArtists =
       Hive.box('settings').get('likedArtists', defaultValue: {}) as Map;
-  List blacklistedHomeSections = Hive.box('settings')
-      .get('blacklistedHomeSections', defaultValue: []) as List;
   List playlistNames =
       Hive.box('settings').get('playlistNames')?.toList() as List? ??
           ['Favorite Songs'];
@@ -59,25 +50,6 @@ class _SaavnHomePageState extends State<SaavnHomePage>
       Hive.box('settings').get('playlistDetails', defaultValue: {}) as Map;
   int recentIndex = 0;
   int playlistIndex = 1;
-
-  Future<void> getHomePageData() async {
-    Map recievedData = await SaavnAPI().fetchHomePageData();
-    if (recievedData.isNotEmpty) {
-      Hive.box('cache').put('homepage', recievedData);
-      data = recievedData;
-      lists = ['recent', 'playlist', ...?data['collections'] as List?];
-      lists.insert((lists.length / 2).round(), 'likedArtists');
-    }
-    setState(() {});
-    recievedData = await FormatResponse.formatPromoLists(data);
-    if (recievedData.isNotEmpty) {
-      Hive.box('cache').put('homepage', recievedData);
-      data = recievedData;
-      lists = ['recent', 'playlist', ...?data['collections'] as List?];
-      lists.insert((lists.length / 2).round(), 'likedArtists');
-    }
-    setState(() {});
-  }
 
   String getSubTitle(Map item) {
     final type = item['type'];
@@ -122,10 +94,6 @@ class _SaavnHomePageState extends State<SaavnHomePage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    if (!fetched) {
-      getHomePageData();
-      fetched = true;
-    }
     double boxSize =
         MediaQuery.sizeOf(context).height > MediaQuery.sizeOf(context).width
             ? MediaQuery.sizeOf(context).width / 2
@@ -138,7 +106,7 @@ class _SaavnHomePageState extends State<SaavnHomePage>
       recentIndex = 1;
       playlistIndex = 0;
     }
-    return (data.isEmpty && recentList.isEmpty)
+    return (recentList.isEmpty)
         ? const Center(
             child: CircularProgressIndicator(),
           )
@@ -146,7 +114,7 @@ class _SaavnHomePageState extends State<SaavnHomePage>
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-            itemCount: data.isEmpty ? 2 : lists.length,
+            itemCount: 2,
             itemBuilder: (context, idx) {
               if (idx == recentIndex) {
                 return ValueListenableBuilder(
@@ -403,6 +371,7 @@ class _SaavnHomePageState extends State<SaavnHomePage>
                       );
               }
               return null;
+              // return null;
             },
           );
   }
