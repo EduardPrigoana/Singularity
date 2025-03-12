@@ -76,7 +76,9 @@ Future<void> _requestStoragePermissions() async {
   // For media files, request the granular permissions.
   final statuses = await [
     Permission.audio,
-    // Permission.manageExternalStorage,
+    Permission.notification,
+    Permission.ignoreBatteryOptimizations,
+    Permission.manageExternalStorage,
   ].request();
 
   final bool allGranted = statuses.values.every((status) => status.isGranted);
