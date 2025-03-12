@@ -1,21 +1,3 @@
-/*
- *  This file is part of BlackHole (https://github.com/atinba/Singularity).
- * 
- * BlackHole is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * BlackHole is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with BlackHole.  If not, see <http://www.gnu.org/licenses/>.
- * 
- * Copyright (c) 2021-2023, Ankit Sangwan
- */
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -41,7 +23,7 @@ class _BackupAndRestorePageState extends State<BackupAndRestorePage> {
   final MyTheme currentTheme = GetIt.I<MyTheme>();
   String autoBackPath = Hive.box('settings').get(
     'autoBackPath',
-    defaultValue: '/storage/emulated/0/BlackHole/Backups',
+    defaultValue: '/storage/emulated/0/Singularity/Backups',
   ) as String;
 
   @override
@@ -329,10 +311,10 @@ class _BackupAndRestorePageState extends State<BackupAndRestorePage> {
                 ),
                 onPressed: () async {
                   autoBackPath = await ExtStorageProvider.getExtStorage(
-                        dirName: 'BlackHole/Backups',
+                        dirName: 'Singularity/Backups',
                         writeAccess: true,
                       ) ??
-                      '/storage/emulated/0/BlackHole/Backups';
+                      '/storage/emulated/0/Singularity/Backups';
                   Hive.box('settings').put('autoBackPath', autoBackPath);
                   setState(
                     () {},

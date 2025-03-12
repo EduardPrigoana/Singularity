@@ -27,7 +27,7 @@
             android:resource="@xml/automotive_app_desc" />
         
         <receiver
-            android:name=".BlackHoleMusicWidget"
+            android:name=".SingularityMusicWidget"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

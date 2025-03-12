@@ -47,7 +47,7 @@
     "@accent": {},
     "confirmViewable": "Pastikan senarai main boleh dilihat",
     "@confirmViewable": {},
-    "checkUpdateSub": "Jika anda muat turun BlackHole dari mana-mana repositori aplikasi seperti 'F-Droid', 'IzzyOnDroid', dan sebagainya yang menyediakan pilihan kemas kini, pastikan ini OFF. Manakala, Jika anda muat turun dari 'GitHub' atau mana-mana sumber lain yang tidak menyediakan kemas kini automatik maka pilih ON, untuk menerima makluman kemas kini\n",
+    "checkUpdateSub": "Jika anda muat turun Singularity dari mana-mana repositori aplikasi seperti 'F-Droid', 'IzzyOnDroid', dan sebagainya yang menyediakan pilihan kemas kini, pastikan ini OFF. Manakala, Jika anda muat turun dari 'GitHub' atau mana-mana sumber lain yang tidak menyediakan kemas kini automatik maka pilih ON, untuk menerima makluman kemas kini\n",
     "@checkUpdateSub": {},
     "cancel": "Batal",
     "@cancel": {},

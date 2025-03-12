@@ -1,7 +1,7 @@
 {
     "accent": "Kiemelő szín és árnyalat",
     "@accent": {},
-    "appTitle": "BlackHole",
+    "appTitle": "Singularity",
     "@appTitle": {},
     "artist": "Előadó",
     "@artist": {},
@@ -233,7 +233,7 @@
     "@albums": {},
     "cache": "Gyorsítótár",
     "@cache": {},
-    "checkUpdateSub": "Ha a BlackHole-t olyan alkalmazás-tárhelyről töltötted le, mint az 'F-Droid', 'IzzyOnDroid' stb., amelyek frissítési lehetőségeket biztosítanak, tartsd ezt KIKAPCSOLVA. Ha viszont a 'GitHub'-ról vagy bármely más forrásból töltötte le, amely nem biztosít automatikus frissítési lehetőséget, akkor kapcsold be, hogy frissítési értesítést kapj.\n",
+    "checkUpdateSub": "Ha a Singularity-t olyan alkalmazás-tárhelyről töltötted le, mint az 'F-Droid', 'IzzyOnDroid' stb., amelyek frissítési lehetőségeket biztosítanak, tartsd ezt KIKAPCSOLVA. Ha viszont a 'GitHub'-ról vagy bármely más forrásból töltötte le, amely nem biztosít automatikus frissítési lehetőséget, akkor kapcsold be, hogy frissítési értesítést kapj.\n",
     "@checkUpdateSub": {},
     "darkMode": "Sötét mód",
     "@darkMode": {},

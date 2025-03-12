@@ -1,21 +1,3 @@
-/*
- *  This file is part of BlackHole (https://github.com/atinba/Singularity).
- * 
- * BlackHole is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * BlackHole is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with BlackHole.  If not, see <http://www.gnu.org/licenses/>.
- * 
- * Copyright (c) 2021-2023, Ankit Sangwan
- */
 
 import 'dart:io';
 
@@ -203,7 +185,7 @@ class _HomePageState extends State<HomePage> {
         ) as String;
         if (autoBackPath == '') {
           ExtStorageProvider.getExtStorage(
-            dirName: 'BlackHole/Backups',
+            dirName: 'Singularity/Backups',
             writeAccess: true,
           ).then((value) {
             Hive.box('settings').put('autoBackPath', value);
@@ -212,7 +194,7 @@ class _HomePageState extends State<HomePage> {
               checked,
               boxNames,
               path: value,
-              fileName: 'BlackHole_AutoBackup',
+              fileName: 'Singularity_AutoBackup',
               showDialog: false,
             );
           });
@@ -222,14 +204,14 @@ class _HomePageState extends State<HomePage> {
             checked,
             boxNames,
             path: autoBackPath,
-            fileName: 'BlackHole_AutoBackup',
+            fileName: 'Singularity_AutoBackup',
             showDialog: false,
           ).then(
             (value) => {
               if (value.contains('No such file or directory'))
                 {
                   ExtStorageProvider.getExtStorage(
-                    dirName: 'BlackHole/Backups',
+                    dirName: 'Singularity/Backups',
                     writeAccess: true,
                   ).then(
                     (value) {
@@ -239,7 +221,7 @@ class _HomePageState extends State<HomePage> {
                         checked,
                         boxNames,
                         path: value,
-                        fileName: 'BlackHole_AutoBackup',
+                        fileName: 'Singularity_AutoBackup',
                       );
                     },
                   ),

@@ -1,21 +1,3 @@
-/*
- *  This file is part of BlackHole (https://github.com/atinba/Singularity).
- * 
- * BlackHole is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * BlackHole is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with BlackHole.  If not, see <http://www.gnu.org/licenses/>.
- * 
- * Copyright (c) 2021-2023, Ankit Sangwan
- */
 
 import 'dart:async';
 import 'dart:io';
@@ -49,7 +31,7 @@ Future<void> main() async {
   // Paint.enableDithering = true; No longer needed
 
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-    await Hive.initFlutter('BlackHole/Database');
+    await Hive.initFlutter('Singularity/Database');
   } else if (Platform.isIOS) {
     await Hive.initFlutter('Database');
   } else {
@@ -106,8 +88,8 @@ Future<void> openHiveBox(String boxName, {bool limit = false}) async {
     File dbFile = File('$dirPath/$boxName.hive');
     File lockFile = File('$dirPath/$boxName.lock');
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-      dbFile = File('$dirPath/BlackHole/$boxName.hive');
-      lockFile = File('$dirPath/BlackHole/$boxName.lock');
+      dbFile = File('$dirPath/Singularity/$boxName.hive');
+      lockFile = File('$dirPath/Singularity/$boxName.lock');
     }
     await dbFile.delete();
     await lockFile.delete();
@@ -143,7 +125,7 @@ Future<void> openHiveBox(String boxName, {bool limit = false}) async {
 //     //   'subtitle',
 //     //   audioHandler?.mediaItem.value?.displaySubtitle,
 //     // );
-//     // await HomeWidget.updateWidget(name: 'BlackHoleMusicWidget');
+//     // await HomeWidget.updateWidget(name: 'SingularityMusicWidget');
 //   }
 // }
 
@@ -298,7 +280,7 @@ class _MyAppState extends State<MyApp> {
             builder: (context, orientation) {
               SizerUtil.setScreenSize(constraints, orientation);
               return MaterialApp(
-                title: 'BlackHole',
+                title: 'Singularity',
                 restorationScopeId: 'singularity',
                 debugShowCheckedModeBanner: false,
                 themeMode: AppTheme.themeMode,

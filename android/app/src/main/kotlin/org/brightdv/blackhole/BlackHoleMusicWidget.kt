@@ -22,7 +22,7 @@ import io.flutter.plugin.common.MethodChannel
 /**
  * Implementation of App Widget functionality.
  */
-class BlackHoleMusicWidget : AppWidgetProvider() {
+class SingularityMusicWidget : AppWidgetProvider() {
     // private lateinit var mediaSessionToken: MediaSession.Token
     // private lateinit var mediaController: MediaController
 
@@ -96,7 +96,7 @@ class BlackHoleMusicWidget : AppWidgetProvider() {
         // }
 
         // // appWidgetManager.updateAppWidget(appWidgetId, views)
-        // val componentName = ComponentName(context, BlackHoleMusicWidget::class.java)
+        // val componentName = ComponentName(context, SingularityMusicWidget::class.java)
         // appWidgetManager.updateAppWidget(componentName, views)
     }
 }
