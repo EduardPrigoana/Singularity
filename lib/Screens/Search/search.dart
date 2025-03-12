@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,30 +17,30 @@
  * Copyright (c) 2021-2023, Ankit Sangwan
  */
 
-import 'package:blackhole/APIs/api.dart';
-import 'package:blackhole/CustomWidgets/download_button.dart';
-import 'package:blackhole/CustomWidgets/empty_screen.dart';
-import 'package:blackhole/CustomWidgets/gradient_containers.dart';
-import 'package:blackhole/CustomWidgets/image_card.dart';
-import 'package:blackhole/CustomWidgets/like_button.dart';
-import 'package:blackhole/CustomWidgets/media_tile.dart';
-import 'package:blackhole/CustomWidgets/search_bar.dart' as searchbar;
-import 'package:blackhole/CustomWidgets/snackbar.dart';
-import 'package:blackhole/CustomWidgets/song_tile_trailing_menu.dart';
-import 'package:blackhole/Helpers/extensions.dart';
-import 'package:blackhole/Screens/Common/song_list.dart';
-import 'package:blackhole/Screens/Common/song_list_view.dart';
-import 'package:blackhole/Screens/Search/albums.dart';
-import 'package:blackhole/Screens/Search/artists.dart';
-import 'package:blackhole/Screens/YouTube/youtube_artist.dart';
-import 'package:blackhole/Screens/YouTube/youtube_playlist.dart';
-import 'package:blackhole/Services/player_service.dart';
-import 'package:blackhole/Services/youtube_services.dart';
-import 'package:blackhole/Services/yt_music.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive/hive.dart';
 import 'package:logging/logging.dart';
+import 'package:singularity/APIs/api.dart';
+import 'package:singularity/CustomWidgets/download_button.dart';
+import 'package:singularity/CustomWidgets/empty_screen.dart';
+import 'package:singularity/CustomWidgets/gradient_containers.dart';
+import 'package:singularity/CustomWidgets/image_card.dart';
+import 'package:singularity/CustomWidgets/like_button.dart';
+import 'package:singularity/CustomWidgets/media_tile.dart';
+import 'package:singularity/CustomWidgets/search_bar.dart' as searchbar;
+import 'package:singularity/CustomWidgets/snackbar.dart';
+import 'package:singularity/CustomWidgets/song_tile_trailing_menu.dart';
+import 'package:singularity/Helpers/extensions.dart';
+import 'package:singularity/Screens/Common/song_list.dart';
+import 'package:singularity/Screens/Common/song_list_view.dart';
+import 'package:singularity/Screens/Search/albums.dart';
+import 'package:singularity/Screens/Search/artists.dart';
+import 'package:singularity/Screens/YouTube/youtube_artist.dart';
+import 'package:singularity/Screens/YouTube/youtube_playlist.dart';
+import 'package:singularity/Services/player_service.dart';
+import 'package:singularity/Services/youtube_services.dart';
+import 'package:singularity/Services/yt_music.dart';
 
 class SearchPage extends StatefulWidget {
   final String query;

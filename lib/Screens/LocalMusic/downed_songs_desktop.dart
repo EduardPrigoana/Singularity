@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -19,22 +19,22 @@
 
 import 'dart:io';
 
-// import 'package:blackhole/CustomWidgets/add_playlist.dart';
-import 'package:blackhole/CustomWidgets/custom_physics.dart';
-// import 'package:blackhole/CustomWidgets/data_search.dart';
-import 'package:blackhole/CustomWidgets/empty_screen.dart';
-import 'package:blackhole/CustomWidgets/gradient_containers.dart';
-import 'package:blackhole/CustomWidgets/playlist_head.dart';
-// import 'package:blackhole/CustomWidgets/snackbar.dart';
-import 'package:blackhole/Helpers/audio_query.dart';
-// import 'package:blackhole/Screens/LocalMusic/localplaylists.dart';
-import 'package:blackhole/Services/player_service.dart';
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive/hive.dart';
 import 'package:logging/logging.dart';
 import 'package:path_provider/path_provider.dart';
+// import 'package:singularity/CustomWidgets/add_playlist.dart';
+import 'package:singularity/CustomWidgets/custom_physics.dart';
+// import 'package:singularity/CustomWidgets/data_search.dart';
+import 'package:singularity/CustomWidgets/empty_screen.dart';
+import 'package:singularity/CustomWidgets/gradient_containers.dart';
+import 'package:singularity/CustomWidgets/playlist_head.dart';
+// import 'package:singularity/CustomWidgets/snackbar.dart';
+import 'package:singularity/Helpers/audio_query.dart';
+// import 'package:singularity/Screens/LocalMusic/localplaylists.dart';
+import 'package:singularity/Services/player_service.dart';
 
 class DownloadedSongsDesktop extends StatefulWidget {
   final List<Map>? cachedSongs;

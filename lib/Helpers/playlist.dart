@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -18,9 +18,9 @@
  */
 
 import 'package:audio_service/audio_service.dart';
-import 'package:blackhole/Helpers/mediaitem_converter.dart';
-import 'package:blackhole/Helpers/songs_count.dart' as songs_count;
 import 'package:hive/hive.dart';
+import 'package:singularity/Helpers/mediaitem_converter.dart';
+import 'package:singularity/Helpers/songs_count.dart' as songs_count;
 
 bool checkPlaylist(String name, String key) {
   if (name != 'Favorite Songs') {

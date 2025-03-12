@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -19,14 +19,14 @@
 
 import 'dart:async';
 
-import 'package:blackhole/CustomWidgets/bouncy_playlist_header_scroll_view.dart';
-import 'package:blackhole/CustomWidgets/copy_clipboard.dart';
-import 'package:blackhole/CustomWidgets/gradient_containers.dart';
-import 'package:blackhole/CustomWidgets/image_card.dart';
-import 'package:blackhole/Models/song_item.dart';
-import 'package:blackhole/Models/url_image_generator.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
+import 'package:singularity/CustomWidgets/bouncy_playlist_header_scroll_view.dart';
+import 'package:singularity/CustomWidgets/copy_clipboard.dart';
+import 'package:singularity/CustomWidgets/gradient_containers.dart';
+import 'package:singularity/CustomWidgets/image_card.dart';
+import 'package:singularity/Models/song_item.dart';
+import 'package:singularity/Models/url_image_generator.dart';
 
 class SongsListViewPage extends StatefulWidget {
   final String? imageUrl;

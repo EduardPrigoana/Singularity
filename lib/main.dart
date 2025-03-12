@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -20,17 +20,6 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:blackhole/Helpers/config.dart';
-import 'package:blackhole/Helpers/handle_native.dart';
-import 'package:blackhole/Helpers/import_export_playlist.dart';
-import 'package:blackhole/Helpers/logging.dart';
-import 'package:blackhole/Helpers/route_handler.dart';
-import 'package:blackhole/Screens/Common/routes.dart';
-import 'package:blackhole/Screens/Player/audioplayer.dart';
-import 'package:blackhole/constants/constants.dart';
-import 'package:blackhole/constants/languagecodes.dart';
-import 'package:blackhole/providers/audio_service_provider.dart';
-import 'package:blackhole/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -39,10 +28,20 @@ import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 // import 'package:home_widget/home_widget.dart';
 import 'package:logging/logging.dart';
-import 'package:metadata_god/metadata_god.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
+import 'package:singularity/Helpers/config.dart';
+import 'package:singularity/Helpers/handle_native.dart';
+import 'package:singularity/Helpers/import_export_playlist.dart';
+import 'package:singularity/Helpers/logging.dart';
+import 'package:singularity/Helpers/route_handler.dart';
+import 'package:singularity/Screens/Common/routes.dart';
+import 'package:singularity/Screens/Player/audioplayer.dart';
+import 'package:singularity/constants/constants.dart';
+import 'package:singularity/constants/languagecodes.dart';
+import 'package:singularity/providers/audio_service_provider.dart';
+import 'package:singularity/theme/app_theme.dart';
 import 'package:sizer/sizer.dart';
 
 Future<void> main() async {
@@ -92,7 +91,6 @@ Future<void> _requestStoragePermissions() async {
 
 Future<void> startService() async {
   await initializeLogging();
-  MetadataGod.initialize();
   final audioHandlerHelper = AudioHandlerHelper();
   final AudioPlayerHandler audioHandler =
       await audioHandlerHelper.getAudioHandler();
@@ -172,7 +170,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    // HomeWidget.setAppGroupId('com.shadow.blackhole');
+    // HomeWidget.setAppGroupId('com.shadow.singularity');
     // HomeWidget.registerBackgroundCallback(backgroundCallback);
     final String systemLangCode = Platform.localeName.substring(0, 2);
     final String? lang = Hive.box('settings').get('lang') as String?;
@@ -301,7 +299,7 @@ class _MyAppState extends State<MyApp> {
               SizerUtil.setScreenSize(constraints, orientation);
               return MaterialApp(
                 title: 'BlackHole',
-                restorationScopeId: 'blackhole',
+                restorationScopeId: 'singularity',
                 debugShowCheckedModeBanner: false,
                 themeMode: AppTheme.themeMode,
                 theme: AppTheme.lightTheme(

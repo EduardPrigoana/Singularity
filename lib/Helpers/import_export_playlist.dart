@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -20,9 +20,6 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:blackhole/CustomWidgets/snackbar.dart';
-import 'package:blackhole/Helpers/picker.dart';
-import 'package:blackhole/Helpers/songs_count.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive/hive.dart';
@@ -30,6 +27,9 @@ import 'package:logging/logging.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:singularity/CustomWidgets/snackbar.dart';
+import 'package:singularity/Helpers/picker.dart';
+import 'package:singularity/Helpers/songs_count.dart';
 
 Future<void> exportPlaylist(
   BuildContext context,

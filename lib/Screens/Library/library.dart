@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -19,13 +19,13 @@
 
 import 'dart:io';
 
-import 'package:blackhole/CustomWidgets/drawer.dart';
-import 'package:blackhole/Screens/Library/liked.dart';
-import 'package:blackhole/Screens/LocalMusic/downed_songs.dart';
-import 'package:blackhole/Screens/LocalMusic/downed_songs_desktop.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:singularity/CustomWidgets/drawer.dart';
+import 'package:singularity/Screens/Library/liked.dart';
+import 'package:singularity/Screens/LocalMusic/downed_songs.dart';
+import 'package:singularity/Screens/LocalMusic/downed_songs_desktop.dart';
 
 class LibraryPage extends StatefulWidget {
   const LibraryPage({super.key});

@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,16 +17,16 @@
  * Copyright (c) 2021-2023, Ankit Sangwan
  */
 
-import 'package:blackhole/CustomWidgets/bouncy_sliver_scroll_view.dart';
-import 'package:blackhole/CustomWidgets/copy_clipboard.dart';
-import 'package:blackhole/CustomWidgets/gradient_containers.dart';
-import 'package:blackhole/CustomWidgets/image_card.dart';
-import 'package:blackhole/CustomWidgets/song_tile_trailing_menu.dart';
-import 'package:blackhole/Services/player_service.dart';
-import 'package:blackhole/Services/yt_music.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:logging/logging.dart';
+import 'package:singularity/CustomWidgets/bouncy_sliver_scroll_view.dart';
+import 'package:singularity/CustomWidgets/copy_clipboard.dart';
+import 'package:singularity/CustomWidgets/gradient_containers.dart';
+import 'package:singularity/CustomWidgets/image_card.dart';
+import 'package:singularity/CustomWidgets/song_tile_trailing_menu.dart';
+import 'package:singularity/Services/player_service.dart';
+import 'package:singularity/Services/yt_music.dart';
 
 class YouTubeArtist extends StatefulWidget {
   final String artistId;

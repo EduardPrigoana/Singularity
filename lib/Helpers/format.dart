@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -20,12 +20,12 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:blackhole/APIs/api.dart';
-import 'package:blackhole/Helpers/extensions.dart';
-import 'package:blackhole/Helpers/image_resolution_modifier.dart';
 import 'package:dart_des/dart_des.dart';
 import 'package:hive/hive.dart';
 import 'package:logging/logging.dart';
+import 'package:singularity/APIs/api.dart';
+import 'package:singularity/Helpers/extensions.dart';
+import 'package:singularity/Helpers/image_resolution_modifier.dart';
 
 // ignore: avoid_classes_with_only_static_members
 class FormatResponse {

@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -18,9 +18,9 @@
  */
 
 import 'package:audio_service/audio_service.dart';
-import 'package:blackhole/Screens/Player/audioplayer.dart';
-import 'package:blackhole/Services/audio_service.dart';
 import 'package:flutter/material.dart';
+import 'package:singularity/Screens/Player/audioplayer.dart';
+import 'package:singularity/Services/audio_service.dart';
 
 class AudioHandlerHelper {
   static final AudioHandlerHelper _instance = AudioHandlerHelper._internal();

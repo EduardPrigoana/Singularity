@@ -87,7 +87,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="blackhole" />
+                <data android:scheme="singularity" />
             </intent-filter>
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
@@ -96,7 +96,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="blackhole"
+                    android:host="singularity"
                     android:pathPrefix="/play"
                     android:scheme="app" />
             </intent-filter>

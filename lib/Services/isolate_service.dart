@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -20,12 +20,12 @@
 import 'dart:io';
 import 'dart:isolate';
 
-import 'package:blackhole/Screens/Player/audioplayer.dart';
-import 'package:blackhole/Services/youtube_services.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:logging/logging.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:singularity/Screens/Player/audioplayer.dart';
+import 'package:singularity/Services/youtube_services.dart';
 
 SendPort? isolateSendPort;
 

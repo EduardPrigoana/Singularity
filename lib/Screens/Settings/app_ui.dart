@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,14 +17,14 @@
  * Copyright (c) 2021-2023, Ankit Sangwan
  */
 
-import 'package:blackhole/CustomWidgets/box_switch_tile.dart';
-import 'package:blackhole/CustomWidgets/gradient_containers.dart';
-import 'package:blackhole/CustomWidgets/textinput_dialog.dart';
-import 'package:blackhole/Screens/Settings/player_gradient.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive/hive.dart';
+import 'package:singularity/CustomWidgets/box_switch_tile.dart';
+import 'package:singularity/CustomWidgets/gradient_containers.dart';
+import 'package:singularity/CustomWidgets/textinput_dialog.dart';
+import 'package:singularity/Screens/Settings/player_gradient.dart';
 
 class AppUIPage extends StatefulWidget {
   final Function? callback;

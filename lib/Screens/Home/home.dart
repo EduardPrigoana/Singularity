@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -19,24 +19,6 @@
 
 import 'dart:io';
 
-import 'package:blackhole/CustomWidgets/bottom_nav_bar.dart';
-import 'package:blackhole/CustomWidgets/drawer.dart';
-import 'package:blackhole/CustomWidgets/gradient_containers.dart';
-import 'package:blackhole/CustomWidgets/miniplayer.dart';
-import 'package:blackhole/CustomWidgets/snackbar.dart';
-import 'package:blackhole/Helpers/backup_restore.dart';
-import 'package:blackhole/Helpers/downloads_checker.dart';
-import 'package:blackhole/Helpers/github.dart';
-import 'package:blackhole/Helpers/route_handler.dart';
-import 'package:blackhole/Helpers/update.dart';
-import 'package:blackhole/Screens/Common/routes.dart';
-import 'package:blackhole/Screens/Home/home_screen.dart';
-import 'package:blackhole/Screens/Library/library.dart';
-import 'package:blackhole/Screens/LocalMusic/downed_songs.dart';
-import 'package:blackhole/Screens/LocalMusic/downed_songs_desktop.dart';
-import 'package:blackhole/Screens/Player/audioplayer.dart';
-import 'package:blackhole/Screens/Settings/new_settings_page.dart';
-import 'package:blackhole/Services/ext_storage_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -44,6 +26,24 @@ import 'package:logging/logging.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:singularity/CustomWidgets/bottom_nav_bar.dart';
+import 'package:singularity/CustomWidgets/drawer.dart';
+import 'package:singularity/CustomWidgets/gradient_containers.dart';
+import 'package:singularity/CustomWidgets/miniplayer.dart';
+import 'package:singularity/CustomWidgets/snackbar.dart';
+import 'package:singularity/Helpers/backup_restore.dart';
+import 'package:singularity/Helpers/downloads_checker.dart';
+import 'package:singularity/Helpers/github.dart';
+import 'package:singularity/Helpers/route_handler.dart';
+import 'package:singularity/Helpers/update.dart';
+import 'package:singularity/Screens/Common/routes.dart';
+import 'package:singularity/Screens/Home/home_screen.dart';
+import 'package:singularity/Screens/Library/library.dart';
+import 'package:singularity/Screens/LocalMusic/downed_songs.dart';
+import 'package:singularity/Screens/LocalMusic/downed_songs_desktop.dart';
+import 'package:singularity/Screens/Player/audioplayer.dart';
+import 'package:singularity/Screens/Settings/new_settings_page.dart';
+import 'package:singularity/Services/ext_storage_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {

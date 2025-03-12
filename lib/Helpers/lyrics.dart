@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -21,11 +21,11 @@ import 'dart:convert';
 
 import 'package:audiotagger/audiotagger.dart';
 import 'package:audiotagger/models/tag.dart';
-import 'package:blackhole/APIs/spotify_api.dart';
-import 'package:blackhole/Helpers/matcher.dart';
-import 'package:blackhole/Helpers/spotify_helper.dart';
 import 'package:http/http.dart';
 import 'package:logging/logging.dart';
+import 'package:singularity/APIs/spotify_api.dart';
+import 'package:singularity/Helpers/matcher.dart';
+import 'package:singularity/Helpers/spotify_helper.dart';
 
 // ignore: avoid_classes_with_only_static_members
 class Lyrics {

@@ -1,8 +1,8 @@
-import 'package:blackhole/APIs/api.dart';
-import 'package:blackhole/Screens/Search/albums.dart';
-import 'package:blackhole/Screens/Search/artists.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:singularity/APIs/api.dart';
+import 'package:singularity/Screens/Search/albums.dart';
+import 'package:singularity/Screens/Search/artists.dart';
 
 Future<void> navigateToArtistPage(
   BuildContext context, {

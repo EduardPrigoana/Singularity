@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,17 +17,17 @@
  * Copyright (c) 2021-2023, Ankit Sangwan
  */
 
-import 'package:blackhole/CustomWidgets/collage.dart';
-import 'package:blackhole/CustomWidgets/horizontal_albumlist.dart';
-import 'package:blackhole/CustomWidgets/horizontal_albumlist_separated.dart';
-import 'package:blackhole/CustomWidgets/on_hover.dart';
-import 'package:blackhole/Helpers/extensions.dart';
-import 'package:blackhole/Screens/Library/liked.dart';
-import 'package:blackhole/Screens/Search/artists.dart';
-import 'package:blackhole/Services/player_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:singularity/CustomWidgets/collage.dart';
+import 'package:singularity/CustomWidgets/horizontal_albumlist.dart';
+import 'package:singularity/CustomWidgets/horizontal_albumlist_separated.dart';
+import 'package:singularity/CustomWidgets/on_hover.dart';
+import 'package:singularity/Helpers/extensions.dart';
+import 'package:singularity/Screens/Library/liked.dart';
+import 'package:singularity/Screens/Search/artists.dart';
+import 'package:singularity/Services/player_service.dart';
 
 bool fetched = false;
 List lists = ['recent', 'playlist'];

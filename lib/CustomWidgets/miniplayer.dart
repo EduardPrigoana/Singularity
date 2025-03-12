@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -20,15 +20,15 @@
 import 'dart:io';
 
 import 'package:audio_service/audio_service.dart';
-import 'package:blackhole/CustomWidgets/gradient_containers.dart';
-import 'package:blackhole/CustomWidgets/image_card.dart';
-import 'package:blackhole/Helpers/config.dart';
-import 'package:blackhole/Helpers/dominant_color.dart';
-import 'package:blackhole/Screens/Player/audioplayer.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:singularity/CustomWidgets/gradient_containers.dart';
+import 'package:singularity/CustomWidgets/image_card.dart';
+import 'package:singularity/Helpers/config.dart';
+import 'package:singularity/Helpers/dominant_color.dart';
+import 'package:singularity/Screens/Player/audioplayer.dart';
 
 class MiniPlayer extends StatefulWidget {
   static const MiniPlayer _instance = MiniPlayer._internal();

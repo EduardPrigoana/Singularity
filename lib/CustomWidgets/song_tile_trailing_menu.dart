@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -18,18 +18,18 @@
  */
 
 import 'package:audio_service/audio_service.dart';
-import 'package:blackhole/CustomWidgets/add_playlist.dart';
-import 'package:blackhole/Helpers/add_mediaitem_to_queue.dart';
-import 'package:blackhole/Helpers/mediaitem_converter.dart';
-import 'package:blackhole/Helpers/radio.dart';
-import 'package:blackhole/Screens/Common/song_list.dart';
-import 'package:blackhole/Screens/Search/search.dart';
-import 'package:blackhole/Services/yt_music.dart';
-import 'package:blackhole/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:singularity/CustomWidgets/add_playlist.dart';
+import 'package:singularity/Helpers/add_mediaitem_to_queue.dart';
+import 'package:singularity/Helpers/mediaitem_converter.dart';
+import 'package:singularity/Helpers/radio.dart';
+import 'package:singularity/Screens/Common/song_list.dart';
+import 'package:singularity/Screens/Search/search.dart';
+import 'package:singularity/Services/yt_music.dart';
+import 'package:singularity/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SongTileTrailingMenu extends StatefulWidget {

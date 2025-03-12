@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -23,24 +23,6 @@ import 'dart:math';
 
 import 'package:audio_service/audio_service.dart';
 import 'package:audiotagger/audiotagger.dart';
-import 'package:blackhole/CustomWidgets/add_playlist.dart';
-import 'package:blackhole/CustomWidgets/animated_text.dart';
-import 'package:blackhole/CustomWidgets/copy_clipboard.dart';
-import 'package:blackhole/CustomWidgets/download_button.dart';
-import 'package:blackhole/CustomWidgets/empty_screen.dart';
-import 'package:blackhole/CustomWidgets/equalizer.dart';
-import 'package:blackhole/CustomWidgets/like_button.dart';
-import 'package:blackhole/CustomWidgets/seek_bar.dart';
-import 'package:blackhole/CustomWidgets/snackbar.dart';
-import 'package:blackhole/CustomWidgets/textinput_dialog.dart';
-import 'package:blackhole/Helpers/audio_query.dart';
-import 'package:blackhole/Helpers/audio_service_helper.dart';
-import 'package:blackhole/Helpers/config.dart';
-import 'package:blackhole/Helpers/dominant_color.dart';
-import 'package:blackhole/Helpers/lyrics.dart';
-import 'package:blackhole/Helpers/mediaitem_converter.dart';
-import 'package:blackhole/Screens/Common/song_list.dart';
-import 'package:blackhole/utils.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/cupertino.dart';
@@ -60,6 +42,24 @@ import 'package:on_audio_query/on_audio_query.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:singularity/CustomWidgets/add_playlist.dart';
+import 'package:singularity/CustomWidgets/animated_text.dart';
+import 'package:singularity/CustomWidgets/copy_clipboard.dart';
+import 'package:singularity/CustomWidgets/download_button.dart';
+import 'package:singularity/CustomWidgets/empty_screen.dart';
+import 'package:singularity/CustomWidgets/equalizer.dart';
+import 'package:singularity/CustomWidgets/like_button.dart';
+import 'package:singularity/CustomWidgets/seek_bar.dart';
+import 'package:singularity/CustomWidgets/snackbar.dart';
+import 'package:singularity/CustomWidgets/textinput_dialog.dart';
+import 'package:singularity/Helpers/audio_query.dart';
+import 'package:singularity/Helpers/audio_service_helper.dart';
+import 'package:singularity/Helpers/config.dart';
+import 'package:singularity/Helpers/dominant_color.dart';
+import 'package:singularity/Helpers/lyrics.dart';
+import 'package:singularity/Helpers/mediaitem_converter.dart';
+import 'package:singularity/Screens/Common/song_list.dart';
+import 'package:singularity/utils.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:url_launcher/url_launcher.dart';
 

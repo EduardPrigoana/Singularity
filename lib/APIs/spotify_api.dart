@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -34,7 +34,7 @@ class SpotifyApi {
   /// You can signup for spotify developer account and get your own clientID and clientSecret incase you don't want to use these
   final String clientID = '8c387be1433544abab52e52272f4d41a';
   final String clientSecret = 'ad2076caca304dc8950df11cce667456';
-  final String redirectUrl = 'blackhole://spotify/auth';
+  final String redirectUrl = 'singularity://spotify/auth';
   final String spotifyApiUrl = 'https://accounts.spotify.com/api';
   final String spotifyApiBaseUrl = 'https://api.spotify.com/v1';
   final String spotifyUserPlaylistEndpoint = '/me/playlists';

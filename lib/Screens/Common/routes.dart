@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,14 +17,14 @@
  * Copyright (c) 2021-2023, Ankit Sangwan
  */
 
-import 'package:blackhole/Screens/Home/home.dart';
-import 'package:blackhole/Screens/Library/downloads.dart';
-import 'package:blackhole/Screens/Library/nowplaying.dart';
-import 'package:blackhole/Screens/Library/playlists.dart';
-import 'package:blackhole/Screens/Library/recent.dart';
-import 'package:blackhole/Screens/Library/stats.dart';
-import 'package:blackhole/Screens/Settings/new_settings_page.dart';
 import 'package:flutter/material.dart';
+import 'package:singularity/Screens/Home/home.dart';
+import 'package:singularity/Screens/Library/downloads.dart';
+import 'package:singularity/Screens/Library/nowplaying.dart';
+import 'package:singularity/Screens/Library/playlists.dart';
+import 'package:singularity/Screens/Library/recent.dart';
+import 'package:singularity/Screens/Library/stats.dart';
+import 'package:singularity/Screens/Settings/new_settings_page.dart';
 
 Widget initialFuntion() {
   return HomePage();

@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -18,10 +18,10 @@
  */
 
 import 'package:audio_service/audio_service.dart';
-import 'package:blackhole/CustomWidgets/gradient_containers.dart';
-import 'package:blackhole/CustomWidgets/popup.dart';
-import 'package:blackhole/Helpers/mediaitem_converter.dart';
 import 'package:flutter/material.dart';
+import 'package:singularity/CustomWidgets/gradient_containers.dart';
+import 'package:singularity/CustomWidgets/popup.dart';
+import 'package:singularity/Helpers/mediaitem_converter.dart';
 
 void showSongInfo(MediaItem mediaItem, BuildContext context) {
   final Map details = MediaItemConverter.mediaItemToMap(

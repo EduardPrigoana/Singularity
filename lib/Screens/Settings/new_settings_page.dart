@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,19 +17,19 @@
  * Copyright (c) 2021-2023, Ankit Sangwan
  */
 
-import 'package:blackhole/CustomWidgets/drawer.dart';
-import 'package:blackhole/CustomWidgets/gradient_containers.dart';
-import 'package:blackhole/Screens/Settings/app_ui.dart';
-import 'package:blackhole/Screens/Settings/backup_and_restore.dart';
-import 'package:blackhole/Screens/Settings/download.dart';
-import 'package:blackhole/Screens/Settings/music_playback.dart';
-import 'package:blackhole/Screens/Settings/others.dart';
-import 'package:blackhole/Screens/Settings/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:singularity/CustomWidgets/drawer.dart';
+import 'package:singularity/CustomWidgets/gradient_containers.dart';
+import 'package:singularity/Screens/Settings/app_ui.dart';
+import 'package:singularity/Screens/Settings/backup_and_restore.dart';
+import 'package:singularity/Screens/Settings/download.dart';
+import 'package:singularity/Screens/Settings/music_playback.dart';
+import 'package:singularity/Screens/Settings/others.dart';
+import 'package:singularity/Screens/Settings/theme.dart';
 
 class NewSettingsPage extends StatefulWidget {
   final Function? callback;

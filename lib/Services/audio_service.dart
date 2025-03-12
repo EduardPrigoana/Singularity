@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -23,18 +23,18 @@ import 'dart:io';
 
 import 'package:audio_service/audio_service.dart';
 import 'package:audio_session/audio_session.dart';
-import 'package:blackhole/APIs/api.dart';
-import 'package:blackhole/Helpers/mediaitem_converter.dart';
-import 'package:blackhole/Helpers/playlist.dart';
-import 'package:blackhole/Screens/Player/audioplayer.dart';
-import 'package:blackhole/Services/isolate_service.dart';
-import 'package:blackhole/Services/yt_music.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:logging/logging.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:singularity/APIs/api.dart';
+import 'package:singularity/Helpers/mediaitem_converter.dart';
+import 'package:singularity/Helpers/playlist.dart';
+import 'package:singularity/Screens/Player/audioplayer.dart';
+import 'package:singularity/Services/isolate_service.dart';
+import 'package:singularity/Services/yt_music.dart';
 
 class AudioPlayerHandlerImpl extends BaseAudioHandler
     with QueueHandler, SeekHandler

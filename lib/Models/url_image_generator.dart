@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,8 +17,8 @@
  * Copyright (c) 2021-2023, Ankit Sangwan
  */
 
-import 'package:blackhole/Models/image_quality.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:singularity/Models/image_quality.dart';
 
 class UrlImageGetter {
   final List<String?> _imageUrls;

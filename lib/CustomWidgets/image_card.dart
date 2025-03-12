@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -19,10 +19,10 @@
 
 import 'dart:io';
 
-import 'package:blackhole/Models/image_quality.dart';
-import 'package:blackhole/Models/url_image_generator.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:singularity/Models/image_quality.dart';
+import 'package:singularity/Models/url_image_generator.dart';
 
 Widget imageCard({
   required String imageUrl,

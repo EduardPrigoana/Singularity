@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,24 +17,24 @@
  * Copyright (c) 2021-2023, Ankit Sangwan
  */
 
-import 'package:blackhole/CustomWidgets/collage.dart';
-import 'package:blackhole/CustomWidgets/custom_physics.dart';
-import 'package:blackhole/CustomWidgets/data_search.dart';
-import 'package:blackhole/CustomWidgets/download_button.dart';
-import 'package:blackhole/CustomWidgets/empty_screen.dart';
-import 'package:blackhole/CustomWidgets/gradient_containers.dart';
-import 'package:blackhole/CustomWidgets/image_card.dart';
-import 'package:blackhole/CustomWidgets/like_button.dart';
-import 'package:blackhole/CustomWidgets/playlist_head.dart';
-import 'package:blackhole/CustomWidgets/song_tile_trailing_menu.dart';
-import 'package:blackhole/Helpers/songs_count.dart' as songs_count;
-import 'package:blackhole/Screens/Library/show_songs.dart';
-import 'package:blackhole/Services/player_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive/hive.dart';
+import 'package:singularity/CustomWidgets/collage.dart';
+import 'package:singularity/CustomWidgets/custom_physics.dart';
+import 'package:singularity/CustomWidgets/data_search.dart';
+import 'package:singularity/CustomWidgets/download_button.dart';
+import 'package:singularity/CustomWidgets/empty_screen.dart';
+import 'package:singularity/CustomWidgets/gradient_containers.dart';
+import 'package:singularity/CustomWidgets/image_card.dart';
+import 'package:singularity/CustomWidgets/like_button.dart';
+import 'package:singularity/CustomWidgets/playlist_head.dart';
+import 'package:singularity/CustomWidgets/song_tile_trailing_menu.dart';
+import 'package:singularity/Helpers/songs_count.dart' as songs_count;
+import 'package:singularity/Screens/Library/show_songs.dart';
+import 'package:singularity/Services/player_service.dart';
 // import 'package:path_provider/path_provider.dart';
 
 final ValueNotifier<bool> selectMode = ValueNotifier<bool>(false);

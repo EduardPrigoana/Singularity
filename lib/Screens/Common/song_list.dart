@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -19,27 +19,27 @@
 
 import 'dart:async';
 
-import 'package:blackhole/APIs/api.dart';
-import 'package:blackhole/CustomWidgets/bouncy_playlist_header_scroll_view.dart';
-import 'package:blackhole/CustomWidgets/copy_clipboard.dart';
-import 'package:blackhole/CustomWidgets/download_button.dart';
-import 'package:blackhole/CustomWidgets/gradient_containers.dart';
-import 'package:blackhole/CustomWidgets/image_card.dart';
-import 'package:blackhole/CustomWidgets/like_button.dart';
-import 'package:blackhole/CustomWidgets/on_hover.dart';
-import 'package:blackhole/CustomWidgets/playlist_popupmenu.dart';
-import 'package:blackhole/CustomWidgets/snackbar.dart';
-import 'package:blackhole/CustomWidgets/song_tile_trailing_menu.dart';
-import 'package:blackhole/Helpers/extensions.dart';
-import 'package:blackhole/Helpers/image_resolution_modifier.dart';
-import 'package:blackhole/Models/image_quality.dart';
-import 'package:blackhole/Models/url_image_generator.dart';
-import 'package:blackhole/Screens/Shows/show.dart';
-import 'package:blackhole/Services/player_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:logging/logging.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:singularity/APIs/api.dart';
+import 'package:singularity/CustomWidgets/bouncy_playlist_header_scroll_view.dart';
+import 'package:singularity/CustomWidgets/copy_clipboard.dart';
+import 'package:singularity/CustomWidgets/download_button.dart';
+import 'package:singularity/CustomWidgets/gradient_containers.dart';
+import 'package:singularity/CustomWidgets/image_card.dart';
+import 'package:singularity/CustomWidgets/like_button.dart';
+import 'package:singularity/CustomWidgets/on_hover.dart';
+import 'package:singularity/CustomWidgets/playlist_popupmenu.dart';
+import 'package:singularity/CustomWidgets/snackbar.dart';
+import 'package:singularity/CustomWidgets/song_tile_trailing_menu.dart';
+import 'package:singularity/Helpers/extensions.dart';
+import 'package:singularity/Helpers/image_resolution_modifier.dart';
+import 'package:singularity/Models/image_quality.dart';
+import 'package:singularity/Models/url_image_generator.dart';
+import 'package:singularity/Screens/Shows/show.dart';
+import 'package:singularity/Services/player_service.dart';
 
 class SongsListPage extends StatefulWidget {
   final Map listItem;

@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -18,8 +18,8 @@
  */
 
 import 'package:audio_service/audio_service.dart';
-import 'package:blackhole/Models/song_item.dart';
-import 'package:blackhole/Models/url_image_generator.dart';
+import 'package:singularity/Models/song_item.dart';
+import 'package:singularity/Models/url_image_generator.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 
 // ignore: avoid_classes_with_only_static_members

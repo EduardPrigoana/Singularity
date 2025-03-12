@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,13 +17,13 @@
  * Copyright (c) 2021-2023, Ankit Sangwan
  */
 
-import 'package:blackhole/CustomWidgets/copy_clipboard.dart';
-import 'package:blackhole/Helpers/format.dart';
-import 'package:blackhole/Models/url_image_generator.dart';
-import 'package:blackhole/Screens/Common/song_list.dart';
-import 'package:blackhole/Services/player_service.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:singularity/CustomWidgets/copy_clipboard.dart';
+import 'package:singularity/Helpers/format.dart';
+import 'package:singularity/Models/url_image_generator.dart';
+import 'package:singularity/Screens/Common/song_list.dart';
+import 'package:singularity/Services/player_service.dart';
 
 class SeasonsList extends StatelessWidget {
   final List seasons;

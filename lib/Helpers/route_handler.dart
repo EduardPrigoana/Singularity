@@ -1,5 +1,5 @@
 /*
- *  This file is part of BlackHole (https://github.com/BrightDV/BlackHole).
+ *  This file is part of BlackHole (https://github.com/atinba/Singularity).
  * 
  * BlackHole is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,28 +17,28 @@
  * Copyright (c) 2021-2023, Ankit Sangwan
  */
 
-import 'package:blackhole/APIs/api.dart';
-import 'package:blackhole/APIs/spotify_api.dart';
-import 'package:blackhole/Helpers/audio_query.dart';
-import 'package:blackhole/Helpers/matcher.dart';
-import 'package:blackhole/Helpers/spotify_helper.dart';
-import 'package:blackhole/Screens/Common/song_list.dart';
-import 'package:blackhole/Screens/Player/audioplayer.dart';
-import 'package:blackhole/Screens/Search/search.dart';
-import 'package:blackhole/Screens/YouTube/youtube_playlist.dart';
-import 'package:blackhole/Services/player_service.dart';
-import 'package:blackhole/Services/youtube_services.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:on_audio_query/on_audio_query.dart';
+import 'package:singularity/APIs/api.dart';
+import 'package:singularity/APIs/spotify_api.dart';
+import 'package:singularity/Helpers/audio_query.dart';
+import 'package:singularity/Helpers/matcher.dart';
+import 'package:singularity/Helpers/spotify_helper.dart';
+import 'package:singularity/Screens/Common/song_list.dart';
+import 'package:singularity/Screens/Player/audioplayer.dart';
+import 'package:singularity/Screens/Search/search.dart';
+import 'package:singularity/Screens/YouTube/youtube_playlist.dart';
+import 'package:singularity/Services/player_service.dart';
+import 'package:singularity/Services/youtube_services.dart';
 
 // ignore: avoid_classes_with_only_static_members
 class HandleRoute {
   static Route? handleRoute(String? url) {
     Logger.root.info('received route url: $url');
     if (url == null) return null;
-    // blackhole specific url
-    // blackhole://blackhole/search?q=stay+with+me
+    // singularity specific url
+    // singularity://singularity/search?q=stay+with+me
     if (url.startsWith('/search')) {
       final uri = Uri.parse(url);
       final String? title = uri.queryParameters['title']?.toString();

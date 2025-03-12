@@ -77,19 +77,19 @@ class BlackHoleMusicWidget : AppWidgetProvider() {
 
         // // val skipNextIntent = HomeWidgetBackgroundIntent.getBroadcast(
         // //         context,
-        // //         Uri.parse("blackhole://controls/skipNext")
+        // //         Uri.parse("singularity://controls/skipNext")
         // // )
         // // setOnClickPendingIntent(R.id.widget_button_next, skipNextIntent)
 
         // // val skipPreviousIntent = HomeWidgetBackgroundIntent.getBroadcast(
         // //         context,
-        // //         Uri.parse("blackhole://controls/skipPrevious")
+        // //         Uri.parse("singularity://controls/skipPrevious")
         // // )
         // // setOnClickPendingIntent(R.id.widget_button_prev, skipPreviousIntent)
 
         // // val playPauseIntent = HomeWidgetBackgroundIntent.getBroadcast(
         // //         context,
-        // //         Uri.parse("blackhole://controls/playPause")
+        // //         Uri.parse("singularity://controls/playPause")
         // // )
         // // setOnClickPendingIntent(R.id.widget_button_play_pause, playPauseIntent)
 
