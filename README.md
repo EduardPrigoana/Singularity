@@ -4,8 +4,10 @@ Fork of [Blackhole](https://github.com/BrightDV/BlackHole/).
 ## Changes
 
 ### Improvements
+- Better metadata support (replace audiotagger/metadata_god with audiotags)
+  - Cover image, song metadata works with youtube downloads as well now
 - Better Artist Search (Goes directly to the artist page (whenever possible) when clicking "View Artist" )
-- Fix Perms for Android 15
+- Fix Perms and notification related issues for Android 13+
 - Dependency Cleanup (removed some unsed ones and upgraded most)
 - Minimal and upgraded dependencies
 - Upgraded Flutter, Gradle etc
