@@ -1,10 +1,9 @@
-
 import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
 import 'package:audio_service/audio_service.dart';
-import 'package:audiotagger/audiotagger.dart';
+import 'package:audiotags/audiotags.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/cupertino.dart';
@@ -1583,7 +1582,7 @@ class _ArtWorkWidgetState extends State<ArtWorkWidget> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    color: Theme.of(context).cardColor.withOpacity(0.6),
+                    color: Theme.of(context).cardColor.withValues(alpha: 0.6),
                     clipBehavior: Clip.antiAlias,
                     child: IconButton(
                       tooltip: AppLocalizations.of(context)!.copy,
@@ -1595,8 +1594,10 @@ class _ArtWorkWidgetState extends State<ArtWorkWidget> {
                         );
                       },
                       icon: const Icon(Icons.copy_rounded),
-                      color:
-                          Theme.of(context).iconTheme.color!.withOpacity(0.6),
+                      color: Theme.of(context)
+                          .iconTheme
+                          .color!
+                          .withValues(alpha: 0.6),
                     ),
                   ),
                 ),
@@ -1647,7 +1648,7 @@ class _ArtWorkWidgetState extends State<ArtWorkWidget> {
                                         inactiveTrackColor: Theme.of(context)
                                             .colorScheme
                                             .secondary
-                                            .withOpacity(0.4),
+                                            .withValues(alpha: 0.4),
                                         trackShape:
                                             const RoundedRectSliderTrackShape(),
                                         disabledActiveTrackColor:
@@ -1658,7 +1659,7 @@ class _ArtWorkWidgetState extends State<ArtWorkWidget> {
                                             Theme.of(context)
                                                 .colorScheme
                                                 .secondary
-                                                .withOpacity(0.4),
+                                                .withValues(alpha: 0.4),
                                       ),
                                       child: ExcludeSemantics(
                                         child: Slider(
@@ -1849,8 +1850,8 @@ class _ArtWorkWidgetState extends State<ArtWorkWidget> {
                                 decoration: BoxDecoration(
                                   gradient: RadialGradient(
                                     colors: [
-                                      Colors.black.withOpacity(0.4),
-                                      Colors.black.withOpacity(0.7),
+                                      Colors.black.withValues(alpha: 0.4),
+                                      Colors.black.withValues(alpha: 0.7),
                                     ],
                                   ),
                                 ),
@@ -1967,12 +1968,16 @@ class _ArtWorkWidgetState extends State<ArtWorkWidget> {
                                         colors: value == 1
                                             ? [
                                                 Colors.transparent,
-                                                Colors.black.withOpacity(0.4),
-                                                Colors.black.withOpacity(0.7),
+                                                Colors.black
+                                                    .withValues(alpha: 0.4),
+                                                Colors.black
+                                                    .withValues(alpha: 0.7),
                                               ]
                                             : [
-                                                Colors.black.withOpacity(0.7),
-                                                Colors.black.withOpacity(0.4),
+                                                Colors.black
+                                                    .withValues(alpha: 0.7),
+                                                Colors.black
+                                                    .withValues(alpha: 0.4),
                                                 Colors.transparent,
                                               ],
                                       ),
@@ -2565,7 +2570,7 @@ class _LyricsProviderState extends State<LyricsProvider> {
         artist: widget.mediaItem.artist.toString(),
         album: widget.mediaItem.album?.toString() ?? '',
         duration: (widget.mediaItem.duration?.inSeconds ?? 180).toString(),
-      ).then((Map value) {
+      ).then((Map value) async {
         if (widget.mediaItem.id != value['id']) {
           done.value = true;
           return;
@@ -2583,17 +2588,26 @@ class _LyricsProviderState extends State<LyricsProvider> {
         // always save lyrics for offline songs if not present
         if (widget.offline) {
           Logger.root.info('Started lyrics tag editing');
-          final tagger = Audiotagger();
-          tagger
-              .writeTag(
-            path: widget.mediaItem.extras!['url'].toString(),
-            tagField: 'lyrics',
-            value: lyrics['lyrics'].toString(),
-          )
-              .then(
-            (bool? result) {
-              Logger.root.info('Finished lyrics tag editing');
-            },
+          final Tag? tag =
+              await AudioTags.read(widget.mediaItem.extras!['url'].toString());
+          final Tag newTags = Tag(
+            title: tag?.title,
+            trackArtist: tag?.trackArtist,
+            album: tag?.album,
+            albumArtist: tag?.albumArtist,
+            genre: tag?.genre,
+            year: tag?.year,
+            trackNumber: tag?.trackNumber,
+            trackTotal: tag?.trackTotal,
+            discNumber: tag?.discNumber,
+            discTotal: tag?.discTotal,
+            pictures: tag!.pictures,
+            lyrics: lyrics['lyrics'].toString(),
+          );
+
+          await AudioTags.write(
+            widget.mediaItem.extras!['url'].toString(),
+            newTags,
           );
         }
       });
@@ -2618,7 +2632,7 @@ class _LyricsProviderState extends State<LyricsProvider> {
           height: value ? 431 : 0,
           child: Card(
             margin: const EdgeInsets.only(left: 20, right: 20),
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             elevation: 0.5,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -2647,7 +2661,9 @@ class _LyricsProviderState extends State<LyricsProvider> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
-                          color: Theme.of(context).cardColor.withOpacity(0.4),
+                          color: Theme.of(context)
+                              .cardColor
+                              .withValues(alpha: 0.4),
                           clipBehavior: Clip.antiAlias,
                           child: IconButton(
                             tooltip:
@@ -2660,7 +2676,7 @@ class _LyricsProviderState extends State<LyricsProvider> {
                             color: Theme.of(context)
                                 .iconTheme
                                 .color!
-                                .withOpacity(0.6),
+                                .withValues(alpha: 0.6),
                           ),
                         ),
                       ),
@@ -2672,7 +2688,9 @@ class _LyricsProviderState extends State<LyricsProvider> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
-                          color: Theme.of(context).cardColor.withOpacity(0.4),
+                          color: Theme.of(context)
+                              .cardColor
+                              .withValues(alpha: 0.4),
                           clipBehavior: Clip.antiAlias,
                           child: IconButton(
                             tooltip: AppLocalizations.of(context)!.copy,
@@ -2687,7 +2705,7 @@ class _LyricsProviderState extends State<LyricsProvider> {
                             color: Theme.of(context)
                                 .iconTheme
                                 .color!
-                                .withOpacity(0.6),
+                                .withValues(alpha: 0.6),
                           ),
                         ),
                       ),

@@ -1,8 +1,6 @@
-
 import 'dart:io';
 
-import 'package:audiotagger/audiotagger.dart';
-import 'package:audiotagger/models/tag.dart';
+import 'package:audiotags/audiotags.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -533,8 +531,6 @@ Future<Map> editTags(Map song, BuildContext context) async {
   await showDialog(
     context: context,
     builder: (BuildContext context) {
-      final tagger = Audiotagger();
-
       FileImage songImage = FileImage(File(song['image'].toString()));
 
       final titlecontroller =
@@ -578,20 +574,25 @@ Future<Map> editTags(Map song, BuildContext context) async {
                       songImage = FileImage(File(imagePath));
 
                       final Tag tag = Tag(
-                        artwork: imagePath,
+                        pictures: [
+                          Picture(
+                            pictureType: PictureType.other,
+                            bytes: songImage.file.readAsBytesSync(),
+                          ),
+                        ],
                       );
                       try {
                         await [
                           Permission.manageExternalStorage,
                         ].request();
-                        await tagger.writeTags(
-                          path: song['path'].toString(),
-                          tag: tag,
+                        await AudioTags.write(
+                          song['path'].toString(),
+                          tag,
                         );
                       } catch (e) {
-                        await tagger.writeTags(
-                          path: song['path'].toString(),
-                          tag: tag,
+                        await AudioTags.write(
+                          song['path'].toString(),
+                          tag,
                         );
                       }
                     }
@@ -768,25 +769,26 @@ Future<Map> editTags(Map song, BuildContext context) async {
               song['path'] = pathcontroller.text;
               final tag = Tag(
                 title: titlecontroller.text,
-                artist: artistcontroller.text,
+                trackArtist: artistcontroller.text,
                 album: albumcontroller.text,
                 genre: genrecontroller.text,
-                year: yearcontroller.text,
+                year: int.parse(yearcontroller.text),
                 albumArtist: albumArtistController.text,
+                pictures: [],
               );
               try {
                 try {
                   await [
                     Permission.manageExternalStorage,
                   ].request();
-                  tagger.writeTags(
-                    path: song['path'].toString(),
-                    tag: tag,
+                  await AudioTags.write(
+                    song['path'].toString(),
+                    tag,
                   );
                 } catch (e) {
-                  await tagger.writeTags(
-                    path: song['path'].toString(),
-                    tag: tag,
+                  await AudioTags.write(
+                    song['path'].toString(),
+                    tag,
                   );
                   ShowSnackBar().showSnackBar(
                     context,
@@ -846,10 +848,9 @@ class _DownSongsTabState extends State<DownSongsTab>
 
     try {
       await file.create();
-      final image = await Audiotagger().readArtwork(path: songFilePath);
-      if (image != null) {
-        file.writeAsBytesSync(image);
-      }
+      final Tag? tag = await AudioTags.read(songFilePath);
+      final image = tag!.pictures.first.bytes;
+      file.writeAsBytesSync(image);
     } catch (e) {
       final HttpClientRequest request2 =
           await HttpClient().getUrl(Uri.parse(url));

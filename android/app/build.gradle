@@ -72,6 +72,7 @@ android {
         variant.outputs.all { output ->
             def builtType = variant.buildType.name
             def versionName = variant.versionName
+            def versionCode = variant.versionCode
 
             def abi = output.getFilter("ABI")
             if (abi != null) {

@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
@@ -170,7 +169,7 @@ class _OthersPageState extends State<OthersPage> {
                                           selectedColor: Theme.of(context)
                                               .colorScheme
                                               .secondary
-                                              .withOpacity(0.2),
+                                              .withValues(alpha: 0.2),
                                           labelStyle: TextStyle(
                                             color: !value
                                                 ? Theme.of(context)
@@ -206,7 +205,7 @@ class _OthersPageState extends State<OthersPage> {
                                           selectedColor: Theme.of(context)
                                               .colorScheme
                                               .secondary
-                                              .withOpacity(0.2),
+                                              .withValues(alpha: 0.2),
                                           labelStyle: TextStyle(
                                             color: value
                                                 ? Theme.of(context)

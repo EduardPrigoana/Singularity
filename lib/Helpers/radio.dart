@@ -1,4 +1,3 @@
-
 import 'package:logging/logging.dart';
 import 'package:singularity/APIs/api.dart';
 import 'package:singularity/Services/player_service.dart';

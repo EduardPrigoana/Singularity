@@ -1,4 +1,3 @@
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -151,7 +150,7 @@ class _VerticalSliderState extends State<VerticalSlider> {
           child: Slider(
             activeColor: Theme.of(context).colorScheme.secondary,
             inactiveColor:
-                Theme.of(context).colorScheme.secondary.withOpacity(0.4),
+                Theme.of(context).colorScheme.secondary.withValues(alpha: 0.4),
             value: sliderValue ?? widget.value!,
             min: widget.min!,
             max: widget.max!,

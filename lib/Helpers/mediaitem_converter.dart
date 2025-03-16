@@ -1,4 +1,3 @@
-
 import 'package:audio_service/audio_service.dart';
 import 'package:singularity/Models/song_item.dart';
 import 'package:singularity/Models/url_image_generator.dart';
