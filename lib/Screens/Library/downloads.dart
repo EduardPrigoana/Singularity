@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import 'package:audiotags/audiotags.dart';
@@ -576,7 +575,10 @@ Future<Map> editTags(Map song, BuildContext context) async {
 
                       final Tag tag = Tag(
                         pictures: [
-                          Picture(pictureType: PictureType.other, bytes: songImage.file.readAsBytesSync()),
+                          Picture(
+                            pictureType: PictureType.other,
+                            bytes: songImage.file.readAsBytesSync(),
+                          ),
                         ],
                       );
                       try {
@@ -848,9 +850,7 @@ class _DownSongsTabState extends State<DownSongsTab>
       await file.create();
       final Tag? tag = await AudioTags.read(songFilePath);
       final image = tag!.pictures.first.bytes;
-      if (image != null) {
-        file.writeAsBytesSync(image);
-      }
+      file.writeAsBytesSync(image);
     } catch (e) {
       final HttpClientRequest request2 =
           await HttpClient().getUrl(Uri.parse(url));

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:singularity/Screens/Home/home.dart';
 import 'package:singularity/Screens/Library/downloads.dart';

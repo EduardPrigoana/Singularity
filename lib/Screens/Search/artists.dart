@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:share_plus/share_plus.dart';
@@ -423,7 +422,7 @@ class _ArtistSearchPageState extends State<ArtistSearchPage> {
                                                 selectedColor: Theme.of(context)
                                                     .colorScheme
                                                     .secondary
-                                                    .withOpacity(0.2),
+                                                    .withValues(alpha: 0.2),
                                                 labelStyle: TextStyle(
                                                   color: category == ''
                                                       ? Theme.of(context)
@@ -460,7 +459,7 @@ class _ArtistSearchPageState extends State<ArtistSearchPage> {
                                                 selectedColor: Theme.of(context)
                                                     .colorScheme
                                                     .secondary
-                                                    .withOpacity(0.2),
+                                                    .withValues(alpha: 0.2),
                                                 labelStyle: TextStyle(
                                                   color: category == 'latest'
                                                       ? Theme.of(context)
@@ -498,7 +497,7 @@ class _ArtistSearchPageState extends State<ArtistSearchPage> {
                                                 selectedColor: Theme.of(context)
                                                     .colorScheme
                                                     .secondary
-                                                    .withOpacity(0.2),
+                                                    .withValues(alpha: 0.2),
                                                 labelStyle: TextStyle(
                                                   color:
                                                       category == 'alphabetical'

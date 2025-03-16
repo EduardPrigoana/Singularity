@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:singularity/CustomWidgets/custom_physics.dart';
 import 'package:singularity/CustomWidgets/image_card.dart';

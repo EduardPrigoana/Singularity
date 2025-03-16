@@ -1,4 +1,3 @@
-
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
@@ -127,10 +126,10 @@ class _SeekBarState extends State<SeekBar> {
                       overlayShape: SliderComponentShape.noThumb,
                       activeTrackColor:
                           (widget.color ?? Theme.of(context).iconTheme.color!)
-                              .withOpacity(0.5),
+                              .withValues(alpha: 0.5),
                       inactiveTrackColor:
                           (widget.color ?? Theme.of(context).iconTheme.color!)
-                              .withOpacity(0.3),
+                              .withValues(alpha: 0.3),
                       // trackShape: RoundedRectSliderTrackShape(),
                       trackShape: const RectangularSliderTrackShape(),
                     ),
@@ -297,7 +296,7 @@ void showSliderDialog({
                 ),
                 Slider(
                   inactiveColor:
-                      Theme.of(context).iconTheme.color!.withOpacity(0.4),
+                      Theme.of(context).iconTheme.color!.withValues(alpha: 0.4),
                   activeColor: Theme.of(context).iconTheme.color,
                   divisions: divisions,
                   min: min,

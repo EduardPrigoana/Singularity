@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:singularity/CustomWidgets/copy_clipboard.dart';
 

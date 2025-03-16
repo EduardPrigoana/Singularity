@@ -14,7 +14,7 @@ class MusicPlaybackPage extends StatefulWidget {
 
 class _MusicPlaybackPageState extends State<MusicPlaybackPage> {
   String streamingMobileQuality = Hive.box('settings')
-      .get('streamingQuality', defaultValue: '320 kbps') as String;
+      .get('streamQuality', defaultValue: '320 kbps') as String;
   String ytQuality =
       Hive.box('settings').get('ytQuality', defaultValue: 'High') as String;
 
@@ -71,7 +71,7 @@ class _MusicPlaybackPageState extends State<MusicPlaybackPage> {
                     setState(
                       () {
                         streamingMobileQuality = newValue;
-                        Hive.box('settings').put('streamingQuality', newValue);
+                        Hive.box('settings').put('streamQuality', newValue);
                       },
                     );
                   }

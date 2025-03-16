@@ -1,4 +1,3 @@
-
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
@@ -134,7 +133,7 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
     });
 
     preferredQuality = Hive.box('settings')
-        .get('streamingQuality', defaultValue: '320 kbps')
+        .get('streamQuality', defaultValue: '320 kbps')
         .toString();
     resetOnSkip =
         Hive.box('settings').get('resetOnSkip', defaultValue: false) as bool;
@@ -524,7 +523,7 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
 
   List<AudioSource> _itemsToSources(List<MediaItem> mediaItems) {
     preferredQuality = Hive.box('settings')
-        .get('streamingQuality', defaultValue: '96 kbps')
+        .get('streamQuality', defaultValue: '320 kbps')
         .toString();
     cacheSong =
         Hive.box('settings').get('cacheSong', defaultValue: true) as bool;

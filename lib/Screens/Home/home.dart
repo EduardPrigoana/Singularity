@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -305,8 +304,8 @@ class _HomePageState extends State<HomePage> {
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                           colors: [
-                            Colors.black.withOpacity(0.8),
-                            Colors.black.withOpacity(0.1),
+                            Colors.black.withValues(alpha: 0.8),
+                            Colors.black.withValues(alpha: 0.1),
                           ],
                         ).createShader(
                           Rect.fromLTRB(0, 0, rect.width, rect.height),
@@ -493,7 +492,7 @@ class _HomePageState extends State<HomePage> {
                     indicatorColor: Theme.of(context)
                         .colorScheme
                         .secondary
-                        .withOpacity(0.2),
+                        .withValues(alpha: 0.2),
                     leading: homeDrawer(
                       context: context,
                       padding: const EdgeInsets.symmetric(vertical: 5.0),
@@ -555,8 +554,8 @@ class _HomePageState extends State<HomePage> {
                                 currentIndex: indexValue,
                                 backgroundColor: Theme.of(context).brightness ==
                                         Brightness.dark
-                                    ? Colors.black.withOpacity(0.93)
-                                    : Colors.white.withOpacity(0.93),
+                                    ? Colors.black.withValues(alpha: 0.93)
+                                    : Colors.white.withValues(alpha: 0.93),
                                 onTap: (index) {
                                   onItemTapped(index);
                                 },
