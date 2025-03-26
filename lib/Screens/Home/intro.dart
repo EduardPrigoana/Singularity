@@ -75,8 +75,10 @@ class _IntroScreenState extends State<IntroScreen> {
     }
     return Scaffold(
       appBar: AppBar(
-        title: Text('Permissions Required',
-            style: Theme.of(context).textTheme.titleLarge),
+        title: Text(
+          'Permissions Required',
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       ),
       body: Padding(

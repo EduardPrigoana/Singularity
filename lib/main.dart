@@ -46,7 +46,6 @@ Future<void> main() async {
   runApp(MyApp());
 }
 
-
 Future<void> startService() async {
   await initializeLogging();
   final audioHandlerHelper = AudioHandlerHelper();

@@ -425,7 +425,7 @@ class Download with ChangeNotifier {
   Future<String> getYtThumbnail(Map data) async {
     Logger.root.info('Getting yt thumbnail');
     final videoId = data['id'].toString();
-    final maxResUrl = 'https://img.youtube.com/vi/$videoId/maxresdefault.jpg';
+    // final maxResUrl = 'https://img.youtube.com/vi/$videoId/maxresdefault.jpg';
     final highResUrl = 'https://img.youtube.com/vi/$videoId/hqdefault.jpg';
     // try {
     //   final client = HttpClient();
@@ -441,12 +441,13 @@ class Download with ChangeNotifier {
 
   Future<Uint8List> getCover(Map data, String filepath) async {
     Logger.root.info('Downloading cover');
-    final imageUrl = data['url'].toString().contains('google')
-        ? await getYtThumbnail(data)
-        : data['image'].toString();
+    if (data['url'].toString().contains('google')) {
+      data['image'] = await getYtThumbnail(data);
+    }
 
     final client = HttpClient();
-    final HttpClientRequest req = await client.getUrl(Uri.parse(imageUrl));
+    final HttpClientRequest req =
+        await client.getUrl(Uri.parse(data['image'].toString()));
     final HttpClientResponse res = await req.close();
 
     final coverBytes = await consolidateHttpClientResponseBytes(res);
@@ -509,7 +510,7 @@ class Download with ChangeNotifier {
     }
   }
 
-  void saveSongDataInDB(Map data, String filepath, String filepath2) {
+  void saveSongDataInDB(Map data, String filepath, String coverPath) {
     Logger.root.info('Putting data to downloads database');
     final songData = {
       'id': data['id'].toString(),
@@ -528,7 +529,7 @@ class Download with ChangeNotifier {
       'perma_url': data['perma_url'].toString(),
       'quality': preferredDownloadQuality,
       'path': filepath,
-      'image': filepath2,
+      'image': coverPath,
       'image_url': data['image'].toString(),
       'from_yt': data['language'].toString() == 'YouTube',
       'dateAdded': DateTime.now().toString(),
