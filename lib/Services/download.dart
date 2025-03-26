@@ -294,7 +294,7 @@ class Download with ChangeNotifier {
     progress = null;
     notifyListeners();
     String? filepath;
-    late String filepath2;
+    late String coverPath;
     String? appPath;
     final List<int> bytes = [];
     final artname = fileName.replaceAll('.m4a', '.jpg');
@@ -315,7 +315,7 @@ class Download with ChangeNotifier {
       Logger.root.info('Creating image file $appPath/$artname');
       await File('$appPath/$artname')
           .create(recursive: true)
-          .then((value) => filepath2 = value.path);
+          .then((value) => coverPath = value.path);
     } catch (e) {
       Logger.root
           .info('Error creating files, requesting additional permission');
@@ -346,7 +346,7 @@ class Download with ChangeNotifier {
       Logger.root.info('Retrying to create image file');
       await File('$appPath/$artname')
           .create(recursive: true)
-          .then((value) => filepath2 = value.path);
+          .then((value) => coverPath = value.path);
     }
     String kUrl = data['url'].toString();
 
@@ -365,9 +365,9 @@ class Download with ChangeNotifier {
     // Download from yt
     if (data['url'].toString().contains('google')) {
       // Use preferredYtDownloadQuality to check for quality first
-      final AudioOnlyStreamInfo streamInfo =
-          (await YouTubeServices.instance.getStreamInfo(data['id'].toString()))
-              .last;
+      final AudioOnlyStreamInfo streamInfo = (await YouTubeServices.instance
+              .getStreamInfo(data['id'].toString(), onlyMp4: true))
+          .last;
       total = streamInfo.size.totalBytes;
       // Get the actual stream
       stream = YouTubeServices.instance.getStreamClient(streamInfo);
@@ -398,25 +398,16 @@ class Download with ChangeNotifier {
         final file = File(filepath!);
         await file.writeAsBytes(bytes);
 
-        final client = HttpClient();
-        final HttpClientRequest request2 =
-            await client.getUrl(Uri.parse(data['image'].toString()));
-        final HttpClientResponse response2 = await request2.close();
-        final bytes2 = await consolidateHttpClientResponseBytes(response2);
-        final File file2 = File(filepath2);
-
-        file2.writeAsBytesSync(bytes2);
-
+        final coverBytes = await getCover(data, coverPath);
         data['lyrics'] = await getLyrics(data);
-        writeTags(filepath!, data, bytes2);
+        writeTags(filepath!, data, coverBytes);
 
         Logger.root.info('Closing connection & notifying listeners');
-        client.close();
         lastDownloadId = data['id'].toString();
         progress = 0.0;
         notifyListeners();
 
-        saveSongDataInDB(data, filepath!, filepath2);
+        saveSongDataInDB(data, filepath!, coverPath);
         Logger.root.info('Everything Done!');
         // ShowSnackBar().showSnackBar(
         //   context,
@@ -426,9 +417,45 @@ class Download with ChangeNotifier {
         download = true;
         progress = 0.0;
         File(filepath!).delete();
-        File(filepath2).delete();
+        File(coverPath).delete();
       }
     });
+  }
+
+  Future<String> getYtThumbnail(Map data) async {
+    Logger.root.info('Getting yt thumbnail');
+    final videoId = data['id'].toString();
+    final maxResUrl = 'https://img.youtube.com/vi/$videoId/maxresdefault.jpg';
+    final highResUrl = 'https://img.youtube.com/vi/$videoId/hqdefault.jpg';
+    // try {
+    //   final client = HttpClient();
+    //   final req = await client.getUrl(Uri.parse(maxResUrl));
+    //   final res = await req.close();
+    //   client.close();
+    //   return res.statusCode == 200 ? maxResUrl : highResUrl;
+    // } catch (_) {
+    //   return highResUrl;
+    // }
+    return highResUrl;
+  }
+
+  Future<Uint8List> getCover(Map data, String filepath) async {
+    Logger.root.info('Downloading cover');
+    final imageUrl = data['url'].toString().contains('google')
+        ? await getYtThumbnail(data)
+        : data['image'].toString();
+
+    final client = HttpClient();
+    final HttpClientRequest req = await client.getUrl(Uri.parse(imageUrl));
+    final HttpClientResponse res = await req.close();
+
+    final coverBytes = await consolidateHttpClientResponseBytes(res);
+
+    final File file = File(filepath);
+    file.writeAsBytesSync(coverBytes);
+
+    client.close();
+    return coverBytes;
   }
 
   Future<void> writeTags(String filepath, Map data, Uint8List bytes) async {

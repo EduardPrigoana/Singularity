@@ -366,8 +366,8 @@ class YouTubeServices {
       'artist': (data?['artist'] ?? '') != ''
           ? data!['artist']
           : video.author.replaceAll('- Topic', '').trim(),
-      'image': video.thumbnails.maxResUrl,
-      'secondImage': video.thumbnails.highResUrl,
+      'image': video.thumbnails.highResUrl,
+      'secondImage': video.thumbnails.maxResUrl,
       'language': 'YouTube',
       'genre': 'YouTube',
       'expire_at': expireAt,
@@ -530,7 +530,7 @@ class YouTubeServices {
           } else {
             // giving cache link
             Logger.root.info('cache found for $videoId');
-            urlData = cachedData as List<Map>;
+            urlData = cachedData.cast<Map<dynamic, dynamic>>();
           }
         } else {
           // old version cache is present
@@ -587,7 +587,7 @@ class YouTubeServices {
 
   Future<List<AudioOnlyStreamInfo>> getStreamInfo(
     String videoId, {
-    bool onlyMp4 = true,
+    bool onlyMp4 = false,
   }) async {
     final StreamManifest manifest =
         await yt.videos.streamsClient.getManifest(VideoId(videoId));
