@@ -647,10 +647,31 @@ class _SearchPageState extends State<SearchPage> {
                                                                     'song' ||
                                                                 itemType ==
                                                                     'video')
-                                                            ? YtSongTileTrailingMenu(
-                                                                data:
-                                                                    items[index]
+                                                            ? Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .min,
+                                                                children: [
+                                                                  DownloadButton(
+                                                                    data: items[
+                                                                            index]
                                                                         as Map,
+                                                                    icon:
+                                                                        'download',
+                                                                  ),
+                                                                  LikeButton(
+                                                                    mediaItem:
+                                                                        null,
+                                                                    data: items[
+                                                                            index]
+                                                                        as Map,
+                                                                  ),
+                                                                  YtSongTileTrailingMenu(
+                                                                    data: items[
+                                                                            index]
+                                                                        as Map,
+                                                                  ),
+                                                                ],
                                                               )
                                                             : null)
                                                         : title != 'Albums'

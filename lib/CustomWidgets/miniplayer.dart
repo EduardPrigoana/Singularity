@@ -59,7 +59,7 @@ class _MiniPlayerState extends State<MiniPlayer> {
               'Previous',
               'Play/Pause',
               'Next',
-              'Download'
+              'Download',
             ],
           )?.toList() as List;
 

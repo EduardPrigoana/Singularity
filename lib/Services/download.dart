@@ -115,7 +115,7 @@ class Download with ChangeNotifier {
       dlPath = '/storage/emulated/0/Music';
     }
     Logger.root.info('New Download path: $dlPath');
-    if (data['url'].toString().contains('google') && createYoutubeFolder) {
+    if (isYouTubeMedia(data) && createYoutubeFolder) {
       Logger.root.info('Youtube audio detected, creating Youtube folder');
       dlPath = '$dlPath/YouTube';
       if (!await Directory(dlPath).exists()) {
@@ -350,7 +350,7 @@ class Download with ChangeNotifier {
     }
     String kUrl = data['url'].toString();
 
-    if (!data['url'].toString().contains('google')) {
+    if (!isYouTubeMedia(data)) {
       Logger.root.info('Fetching jiosaavn download url with preferred quality');
       kUrl = kUrl.replaceAll(
         '_96.',
@@ -363,7 +363,7 @@ class Download with ChangeNotifier {
     Client? client;
     Stream<List<int>> stream;
     // Download from yt
-    if (data['url'].toString().contains('google')) {
+    if (isYouTubeMedia(data)) {
       // Use preferredYtDownloadQuality to check for quality first
       final AudioOnlyStreamInfo streamInfo = (await YouTubeServices.instance
               .getStreamInfo(data['id'].toString(), onlyMp4: true))
@@ -439,9 +439,20 @@ class Download with ChangeNotifier {
     return highResUrl;
   }
 
+  bool isYouTubeMedia(Map data) {
+    if (data['url'].toString().contains('google') ||
+        data['perma_url'].toString().contains('youtube') ||
+        data['genre'].toString().toLowerCase() == 'youtube' ||
+        data['language'].toString().toLowerCase() == 'youtube') {
+      return true;
+    }
+
+    return false;
+  }
+
   Future<Uint8List> getCover(Map data, String filepath) async {
     Logger.root.info('Downloading cover');
-    if (data['url'].toString().contains('google')) {
+    if (isYouTubeMedia(data)) {
       data['image'] = await getYtThumbnail(data);
     }
 
