@@ -10,7 +10,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 // import 'package:home_widget/home_widget.dart';
 import 'package:logging/logging.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import 'package:singularity/Helpers/config.dart';
 import 'package:singularity/Helpers/handle_native.dart';
@@ -43,32 +42,10 @@ Future<void> main() async {
     );
   }
 
-  if (Platform.isAndroid) {
-    _requestStoragePermissions();
-  }
   await startService();
   runApp(MyApp());
 }
 
-/// Request storage permissions for Android.
-/// For Android 13 (API 33) and above, request granular media permissions.
-Future<void> _requestStoragePermissions() async {
-  // For media files, request the granular permissions.
-  final statuses = await [
-    Permission.audio,
-    Permission.notification,
-    Permission.ignoreBatteryOptimizations,
-    Permission.manageExternalStorage,
-  ].request();
-
-  final bool allGranted = statuses.values.every((status) => status.isGranted);
-  if (!allGranted) {
-    Logger.root.warning('permissions not granted.');
-    // TODO: Add dialog or redirect the user to app settings.
-  } else {
-    Logger.root.info('permissions granted.');
-  }
-}
 
 Future<void> startService() async {
   await initializeLogging();

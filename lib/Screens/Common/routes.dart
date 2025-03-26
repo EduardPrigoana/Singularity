@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:singularity/Screens/Home/home.dart';
+import 'package:singularity/Screens/Home/intro.dart';
 import 'package:singularity/Screens/Library/downloads.dart';
 import 'package:singularity/Screens/Library/nowplaying.dart';
 import 'package:singularity/Screens/Library/playlists.dart';
@@ -8,7 +8,7 @@ import 'package:singularity/Screens/Library/stats.dart';
 import 'package:singularity/Screens/Settings/new_settings_page.dart';
 
 Widget initialFuntion() {
-  return HomePage();
+  return const IntroScreen();
 }
 
 final Map<String, Widget Function(BuildContext)> namedRoutes = {
