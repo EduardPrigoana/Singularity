@@ -26,7 +26,7 @@ class _NewSettingsPageState extends State<NewSettingsPage>
   final ValueNotifier<String> searchQuery = ValueNotifier<String>('');
   final List sectionsToShow = Hive.box('settings').get(
     'sectionsToShow',
-    defaultValue: ['Home', 'Library'],
+    defaultValue: ['Home', 'Library', 'Settings'],
   ) as List;
 
   @override

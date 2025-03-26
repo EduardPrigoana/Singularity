@@ -54,7 +54,7 @@ class _MiniPlayerState extends State<MiniPlayer> {
 
           final List preferredMiniButtons = Hive.box('settings').get(
             'preferredMiniButtons',
-            defaultValue: ['Like', 'Play/Pause', 'Next'],
+    defaultValue: ['Like', 'Previous', 'Play/Pause', 'Next', 'Download'],
           )?.toList() as List;
 
           final bool isLocal =

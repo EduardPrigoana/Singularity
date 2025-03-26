@@ -25,7 +25,7 @@ class _AppUIPageState extends State<AppUIPage> {
   ) as List;
   List preferredMiniButtons = Hive.box('settings').get(
     'preferredMiniButtons',
-    defaultValue: ['Like', 'Play/Pause', 'Next'],
+    defaultValue: ['Like', 'Previous', 'Play/Pause', 'Next', 'Download'],
   )?.toList() as List;
   List<int> preferredCompactNotificationButtons = Hive.box('settings').get(
     'preferredCompactNotificationButtons',
@@ -33,7 +33,7 @@ class _AppUIPageState extends State<AppUIPage> {
   ) as List<int>;
   List sectionsToShow = Hive.box('settings').get(
     'sectionsToShow',
-    defaultValue: ['Home', 'Library'],
+    defaultValue: ['Home', 'Library', 'Settings'],
   ) as List;
   final List sectionsAvailableToShow = Hive.box('settings').get(
     'sectionsAvailableToShow',
@@ -675,7 +675,7 @@ class _AppUIPageState extends State<AppUIPage> {
                         BuildContext context,
                         StateSetter setStt,
                       ) {
-                        const Set persist = {'Home', 'Library'};
+                        const Set persist = {'Home'};
                         return AlertDialog(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(
@@ -822,24 +822,24 @@ class _AppUIPageState extends State<AppUIPage> {
                                     Theme.of(context).colorScheme.secondary,
                               ),
                               onPressed: () {
-                                final List newSectionsToShow = ['Home'];
-                                int remaining = 4 - checked.length;
-                                for (int i = 0;
-                                    i < sectionsAvailableToShow.length;
-                                    i++) {
-                                  if (checked
-                                      .contains(sectionsAvailableToShow[i])) {
-                                    newSectionsToShow
-                                        .add(sectionsAvailableToShow[i]);
-                                  } else {
-                                    if (remaining > 0) {
-                                      newSectionsToShow
-                                          .add(sectionsAvailableToShow[i]);
-                                      remaining--;
-                                    }
-                                  }
-                                }
-                                sectionsToShow = newSectionsToShow;
+                                // final List newSectionsToShow = checked;
+                                // int remaining = 4 - checked.length;
+                                // for (int i = 0;
+                                //     i < sectionsAvailableToShow.length;
+                                //     i++) {
+                                //   if (checked
+                                //       .contains(sectionsAvailableToShow[i])) {
+                                //     newSectionsToShow
+                                //         .add(sectionsAvailableToShow[i]);
+                                //   } else {
+                                //     if (remaining > 0) {
+                                //       newSectionsToShow
+                                //           .add(sectionsAvailableToShow[i]);
+                                //       remaining--;
+                                //     }
+                                //   }
+                                // }
+                                sectionsToShow = checked;
                                 Navigator.pop(context);
                                 Hive.box('settings').put(
                                   'sectionsToShow',
