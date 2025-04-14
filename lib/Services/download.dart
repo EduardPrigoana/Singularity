@@ -45,7 +45,7 @@ class Download with ChangeNotifier {
       Hive.box('settings').get('createAlbumFolder', defaultValue: true) as bool;
   bool createYoutubeFolder = Hive.box('settings')
       .get('createYoutubeFolder', defaultValue: false) as bool;
-  bool numberSongTitlsInAlbum =
+  bool numberAlbumSongs =
       Hive.box('settings').get('numberAlbumSongs', defaultValue: true) as bool;
   bool cleanSongTitle =
       Hive.box('settings').get('cleanSongTitle', defaultValue: true) as bool;
@@ -98,20 +98,13 @@ class Download with ChangeNotifier {
     }
 
     if (createAlbumFolder) {
-      if (data.containsKey('trackNumber') && numberSongTitlsInAlbum) {
+      if (data.containsKey('trackNumber') && numberAlbumSongs) {
         filename =
             "${data["trackNumber"].toString().padLeft(2, '0')} - ${data["title"]!}";
       } else {
         filename = "${data["title"]!}";
       }
     }
-
-    // if (data.containsKey('trackNumber') &&
-    //     createAlbumFolder &&
-    //     numberSongTitlsInAlbum) {
-    //   filename =
-    //       "${data["trackNumber"].toString().padLeft(2, '0')} - ${data["title"]!}";
-    // }
 
     String dlPath =
         Hive.box('settings').get('downloadPath', defaultValue: '') as String;
@@ -566,8 +559,10 @@ class Download with ChangeNotifier {
 
   String cleanTitle(String title) {
     // This regex matches (Remastered), (Remastered 2011), (Remastered - 2011), etc.
-    final regex = RegExp(r'\s*\(remaster(ed)?(?:\s*[-–]?\s*\d{4})?\)',
-        caseSensitive: false,);
+    final regex = RegExp(
+      r'\s*\(remaster(ed)?(?:\s*[-–]?\s*\d{4})?\)',
+      caseSensitive: false,
+    );
     return title.replaceAll(regex, '').trim();
   }
 }

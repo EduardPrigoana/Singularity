@@ -214,10 +214,15 @@ class _MultiDownloadButtonState extends State<MultiDownloadButton> {
                       iconSize: 25.0,
                       tooltip: AppLocalizations.of(context)!.down,
                       onPressed: () async {
+                        var trackNumber = 1;
                         for (final items in widget.data) {
+                          final songData = items as Map;
+                          songData['trackNumber'] = trackNumber;
+                          songData['trackTotal'] = widget.data.length;
+                          trackNumber += 1;
                           down.prepareDownload(
                             context,
-                            items as Map,
+                            songData,
                             createFolder: true,
                             folderName: widget.playlistName,
                           );

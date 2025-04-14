@@ -29,8 +29,8 @@ class _ThemePageState extends State<ThemePage> {
   Map userThemes =
       Hive.box('settings').get('userThemes', defaultValue: {}) as Map;
   String themeColor =
-      Hive.box('settings').get('themeColor', defaultValue: 'Teal') as String;
-  int colorHue = Hive.box('settings').get('colorHue', defaultValue: 400) as int;
+      Hive.box('settings').get('themeColor', defaultValue: 'Orange') as String;
+  int colorHue = Hive.box('settings').get('colorHue', defaultValue: 700) as int;
 
   @override
   Widget build(BuildContext context) {

@@ -9,7 +9,7 @@ class MyTheme with ChangeNotifier {
       Hive.box('settings').get('useSystemTheme', defaultValue: false) as bool;
 
   String accentColor =
-      Hive.box('settings').get('themeColor', defaultValue: 'Teal') as String;
+      Hive.box('settings').get('themeColor', defaultValue: 'Orange') as String;
   String canvasColor =
       Hive.box('settings').get('canvasColor', defaultValue: 'Grey') as String;
   String cardColor =
@@ -20,7 +20,7 @@ class MyTheme with ChangeNotifier {
   int bottomGrad =
       Hive.box('settings').get('bottomGrad', defaultValue: 3) as int;
 
-  int colorHue = Hive.box('settings').get('colorHue', defaultValue: 400) as int;
+  int colorHue = Hive.box('settings').get('colorHue', defaultValue: 700) as int;
   List<Color?>? playGradientColor;
 
   List<List<Color>> get backOpt => _backOpt;
