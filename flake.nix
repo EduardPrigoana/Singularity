@@ -51,7 +51,6 @@
           DART_ROOT = "${flutter}/bin/cache/dart-sdk";
           GRADLE_OPTS = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${androidSdk}/libexec/android-sdk/build-tools/34.0.0/aapt2";
           QT_QPA_PLATFORM = "wayland;xcb";
-          ANDROID_AVD_HOME = "/home/ab/.config/.android/avd";
 
           buildInputs = [
             flutter
