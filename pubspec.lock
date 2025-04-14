@@ -92,10 +92,11 @@ packages:
   audiotags:
     dependency: "direct main"
     description:
-      path: audiotags
-      relative: true
-    source: path
-    version: "1.4.3"
+      name: audiotags
+      sha256: "1c7001a20c7c983e7c5803b2bfa940a7cc30e7e749766301b91efae51d376a7f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.4.4"
   boolean_selector:
     dependency: transitive
     description:

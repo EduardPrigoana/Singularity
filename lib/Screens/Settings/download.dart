@@ -298,9 +298,9 @@ class _DownloadPageState extends State<DownloadPage> {
                 )!
                     .createAlbumFoldSub,
               ),
-              keyName: 'createDownloadFolder',
+              keyName: 'createAlbumFolder',
               isThreeLine: true,
-              defaultValue: false,
+              defaultValue: true,
             ),
             BoxSwitchTile(
               title: Text(
@@ -317,7 +317,7 @@ class _DownloadPageState extends State<DownloadPage> {
               ),
               keyName: 'numberAlbumSongs',
               isThreeLine: true,
-              defaultValue: false,
+              defaultValue: true,
             ),
             BoxSwitchTile(
               title: Text(
@@ -335,6 +335,23 @@ class _DownloadPageState extends State<DownloadPage> {
               keyName: 'createYoutubeFolder',
               isThreeLine: true,
               defaultValue: false,
+            ),
+            BoxSwitchTile(
+              title: Text(
+                AppLocalizations.of(
+                  context,
+                )!
+                    .cleanSongTitle,
+              ),
+              subtitle: Text(
+                AppLocalizations.of(
+                  context,
+                )!
+                    .cleanSongTitleSub,
+              ),
+              keyName: 'cleanSongTitle',
+              isThreeLine: true,
+              defaultValue: true,
             ),
           ],
         ),

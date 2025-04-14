@@ -41,12 +41,15 @@ class Download with ChangeNotifier {
   String downloadFormat = Hive.box('settings')
       .get('downloadFormat', defaultValue: 'm4a')
       .toString();
-  bool createDownloadFolder = Hive.box('settings')
-      .get('createDownloadFolder', defaultValue: false) as bool;
+  bool createAlbumFolder =
+      Hive.box('settings').get('createAlbumFolder', defaultValue: true) as bool;
   bool createYoutubeFolder = Hive.box('settings')
       .get('createYoutubeFolder', defaultValue: false) as bool;
   bool numberSongTitlsInAlbum =
-      Hive.box('settings').get('numberAlbumSongs', defaultValue: false) as bool;
+      Hive.box('settings').get('numberAlbumSongs', defaultValue: true) as bool;
+  bool cleanSongTitle =
+      Hive.box('settings').get('cleanSongTitle', defaultValue: true) as bool;
+
   double? progress = 0.0;
   String lastDownloadId = '';
   bool download = true;
@@ -79,6 +82,10 @@ class Download with ChangeNotifier {
     final RegExp avoid = RegExp(r'[\.\\\*\:\"\?#/;\|]');
     data['title'] = data['title'].toString().split('(From')[0].trim();
 
+    if (cleanSongTitle) {
+      data['title'] = cleanTitle(data['title'].toString());
+    }
+
     String filename = '';
     final int downFilename =
         Hive.box('settings').get('downFilename', defaultValue: 1) as int;
@@ -90,13 +97,22 @@ class Download with ChangeNotifier {
       filename = '${data["title"]}';
     }
 
-    if (data.containsKey('trackNumber') &&
-        createDownloadFolder &&
-        numberSongTitlsInAlbum) {
-      filename =
-          "${data["trackNumber"].toString().padLeft(2, '0')} - ${data["title"]!}";
+    if (createAlbumFolder) {
+      if (data.containsKey('trackNumber') && numberSongTitlsInAlbum) {
+        filename =
+            "${data["trackNumber"].toString().padLeft(2, '0')} - ${data["title"]!}";
+      } else {
+        filename = "${data["title"]!}";
+      }
     }
-    // String filename = '${data["title"]} - ${data["artist"]}';
+
+    // if (data.containsKey('trackNumber') &&
+    //     createAlbumFolder &&
+    //     numberSongTitlsInAlbum) {
+    //   filename =
+    //       "${data["trackNumber"].toString().padLeft(2, '0')} - ${data["title"]!}";
+    // }
+
     String dlPath =
         Hive.box('settings').get('downloadPath', defaultValue: '') as String;
     Logger.root.info('Cached Download path: $dlPath');
@@ -124,7 +140,7 @@ class Download with ChangeNotifier {
       }
     }
 
-    if (createFolder && createDownloadFolder && folderName != null) {
+    if (createFolder && createAlbumFolder && folderName != null) {
       final String foldername = folderName.replaceAll(avoid, '');
       dlPath = '$dlPath/$foldername';
       if (!await Directory(dlPath).exists()) {
@@ -546,5 +562,12 @@ class Download with ChangeNotifier {
       'dateAdded': DateTime.now().toString(),
     };
     Hive.box('downloads').put(songData['id'].toString(), songData);
+  }
+
+  String cleanTitle(String title) {
+    // This regex matches (Remastered), (Remastered 2011), (Remastered - 2011), etc.
+    final regex = RegExp(r'\s*\(remaster(ed)?(?:\s*[-–]?\s*\d{4})?\)',
+        caseSensitive: false,);
+    return title.replaceAll(regex, '').trim();
   }
 }
