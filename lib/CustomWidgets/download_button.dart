@@ -225,6 +225,7 @@ class _MultiDownloadButtonState extends State<MultiDownloadButton> {
                             songData,
                             createFolder: true,
                             folderName: widget.playlistName,
+                            isAlbum: true,
                           );
                           await _waitUntilDone(items['id'].toString());
                           setState(() {
@@ -347,6 +348,7 @@ class _AlbumDownloadButtonState extends State<AlbumDownloadButton> {
                             songData,
                             createFolder: true,
                             folderName: widget.albumName,
+                            isAlbum: true,
                           );
                           await _waitUntilDone(items['id'].toString());
                           setState(() {

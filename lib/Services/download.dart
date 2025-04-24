@@ -59,6 +59,7 @@ class Download with ChangeNotifier {
     Map data, {
     bool createFolder = false,
     String? folderName,
+    bool isAlbum = false,
   }) async {
     Logger.root.info('Preparing download for ${data['title']}');
     download = true;
@@ -97,7 +98,7 @@ class Download with ChangeNotifier {
       filename = '${data["title"]}';
     }
 
-    if (createAlbumFolder) {
+    if (isAlbum && createAlbumFolder) {
       if (data.containsKey('trackNumber') && numberAlbumSongs) {
         filename =
             "${data["trackNumber"].toString().padLeft(2, '0')} - ${data["title"]!}";
