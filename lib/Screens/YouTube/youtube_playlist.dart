@@ -6,8 +6,10 @@ import 'package:logging/logging.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:singularity/CustomWidgets/bouncy_playlist_header_scroll_view.dart';
 import 'package:singularity/CustomWidgets/copy_clipboard.dart';
+import 'package:singularity/CustomWidgets/download_button.dart';
 import 'package:singularity/CustomWidgets/gradient_containers.dart';
 import 'package:singularity/CustomWidgets/image_card.dart';
+import 'package:singularity/CustomWidgets/like_button.dart';
 import 'package:singularity/CustomWidgets/playlist_popupmenu.dart';
 import 'package:singularity/CustomWidgets/song_tile_trailing_menu.dart';
 import 'package:singularity/Services/player_service.dart';
@@ -141,6 +143,8 @@ class _YouTubePlaylistState extends State<YouTubePlaylist> {
                 secondarySubtitle: playlistSecondarySubtitle,
                 imageUrl: playlistImage,
                 actions: [
+                  MultiDownloadButton(
+                      data: searchedList, playlistName: playlistName),
                   IconButton(
                     icon: const Icon(Icons.share_rounded),
                     tooltip: AppLocalizations.of(context)!.share,
@@ -301,7 +305,21 @@ class _YouTubePlaylistState extends State<YouTubePlaylist> {
                                 //   });
                                 // }
                               },
-                              trailing: YtSongTileTrailingMenu(data: entry),
+                              trailing: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    DownloadButton(
+                                      data: entry,
+                                      icon: 'download',
+                                    ),
+                                    LikeButton(
+                                      mediaItem: null,
+                                      data: entry,
+                                    ),
+                                    YtSongTileTrailingMenu(
+                                      data: entry,
+                                    ),
+                                  ]),
                             ),
                           );
                         },

@@ -168,7 +168,7 @@ class _AlbumSearchPageState extends State<AlbumSearchPage> {
                                 ),
                                 trailing: widget.type != 'Albums'
                                     ? null
-                                    : AlbumDownloadButton(
+                                    : SaavnAlbumDownloadButton(
                                         albumName: entry['title'].toString(),
                                         albumId: entry['id'].toString(),
                                       ),

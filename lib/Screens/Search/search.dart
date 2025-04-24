@@ -700,7 +700,7 @@ class _SearchPageState extends State<SearchPage> {
                                                                     ],
                                                                   )
                                                                 : null
-                                                            : AlbumDownloadButton(
+                                                            : SaavnAlbumDownloadButton(
                                                                 albumName: items[
                                                                             index]
                                                                         [

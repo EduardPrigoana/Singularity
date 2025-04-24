@@ -269,20 +269,20 @@ class _MultiDownloadButtonState extends State<MultiDownloadButton> {
   }
 }
 
-class AlbumDownloadButton extends StatefulWidget {
+class SaavnAlbumDownloadButton extends StatefulWidget {
   final String albumId;
   final String albumName;
-  const AlbumDownloadButton({
+  const SaavnAlbumDownloadButton({
     super.key,
     required this.albumId,
     required this.albumName,
   });
 
   @override
-  _AlbumDownloadButtonState createState() => _AlbumDownloadButtonState();
+  _SaavnAlbumDownloadButtonState createState() => _SaavnAlbumDownloadButtonState();
 }
 
-class _AlbumDownloadButtonState extends State<AlbumDownloadButton> {
+class _SaavnAlbumDownloadButtonState extends State<SaavnAlbumDownloadButton> {
   late Download down;
   int done = 0;
   List data = [];
