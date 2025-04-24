@@ -449,16 +449,17 @@ class Download with ChangeNotifier {
     return highResUrl;
   }
 
-  bool isYouTubeMedia(Map data) {
-    if (data['url'].toString().contains('google') ||
-        data['perma_url'].toString().contains('youtube') ||
-        data['genre'].toString().toLowerCase() == 'youtube' ||
-        data['language'].toString().toLowerCase() == 'youtube') {
-      return true;
-    }
+bool isYouTubeMedia(Map data) {
+  String s(String? key) => data[key]?.toString().toLowerCase() ?? '';
+  return [
+      () => s('url').contains('google'),
+      () => s('perma_url').contains('youtube'),
+      () => s('genre') == 'youtube',
+      () => s('language') == 'youtube',
+      () => s('image').contains('google'),
+    ].any((check) => check());
+}
 
-    return false;
-  }
 
   Future<Uint8List> getCover(Map data, String filepath) async {
     Logger.root.info('Downloading cover');
@@ -502,7 +503,7 @@ class Download with ChangeNotifier {
           Picture(
             bytes: bytes,
             mimeType: MimeType.jpeg,
-            pictureType: PictureType.coverFront,
+            pictureType: PictureType.other,
           ),
         ],
       );

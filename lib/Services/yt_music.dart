@@ -15,6 +15,7 @@ class YtMusicService {
     'alt': 'json',
     'key': 'AIzaSyC9XL3ZjWddXya6X74dJoCTL-WEYFDNX30',
   };
+  
   static const userAgent =
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0';
   static const Map<String, String> endpoints = {
@@ -101,10 +102,10 @@ class YtMusicService {
   }
 
   Future<Map> sendRequest(
-    String endpoint,
-    Map body,
-    Map<String, String>? headers,
-  ) async {
+      String endpoint, Map body, Map<String, String>? headers,
+      {Map? params,}) async {
+    params ??= {};
+    params.addAll(ytmParams);
     final Uri uri = Uri.https(ytmDomain, baseApiEndpoint + endpoint, ytmParams);
     final response = await post(uri, headers: headers, body: jsonEncode(body));
     if (response.statusCode == 200) {
@@ -763,31 +764,32 @@ class YtMusicService {
           await sendRequest(endpoints['browse']!, body, headers);
       final String? heading = NavClass.nav(
         response,
-        [...NavClass.headerDetail, ...NavClass.titleText],
+        [...NavClass.musicResponsiveHeader, ...NavClass.titleText],
       ) as String?;
       final String subtitle = NavClass.joinRunTexts(
         NavClass.nav(response, [
-              ...NavClass.headerDetail,
+              ...NavClass.musicResponsiveHeader,
               ...NavClass.subtitleRuns,
             ]) as List? ??
             [],
       );
       final String description = NavClass.joinRunTexts(
         NavClass.nav(response, [
-              ...NavClass.headerDetail,
+              ...NavClass.musicResponsiveHeader,
               ...NavClass.secondSubtitleRuns,
             ]) as List? ??
             [],
       );
       final List images = NavClass.runUrls(
         NavClass.nav(response, [
-              ...NavClass.headerDetail,
-              ...NavClass.thumbnailCropped,
+              ...NavClass.musicResponsiveHeader,
+              ...NavClass.thumbnails,
             ]) as List? ??
             [],
       );
       final List finalResults = NavClass.nav(response, [
-            ...NavClass.singleColumnTab,
+            ...NavClass.twoColumnRenderer,
+            NavClass.secondaryContents,
             ...NavClass.sectionListItem,
             ...NavClass.musicShelf,
             'contents',

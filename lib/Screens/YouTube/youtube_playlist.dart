@@ -79,7 +79,7 @@ class _YouTubePlaylistState extends State<YouTubePlaylist> {
               playlistImage = (value['images'] as List?)?.last as String? ?? '';
               fetched = true;
             } catch (e) {
-              Logger.root.severe('Error in fetching playlist details', e);
+              Logger.root.severe('Error in fetching album details', e);
               fetched = true;
             }
           });
@@ -95,7 +95,7 @@ class _YouTubePlaylistState extends State<YouTubePlaylist> {
               playlistImage = (value['images'] as List?)?.last as String? ?? '';
               fetched = true;
             } catch (e) {
-              Logger.root.severe('Error in fetching playlist details', e);
+              Logger.root.severe('Error in fetching artist details', e);
               fetched = true;
             }
           });

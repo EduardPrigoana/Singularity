@@ -80,6 +80,16 @@ class NavClass {
     'runs',
     0,
   ];
+  static const twoColumnRenderer = [
+    'contents',
+    'twoColumnBrowseResultsRenderer',
+  ];
+  static const musicResponsiveHeader = [
+    ...twoColumnRenderer,
+    ...tabContent,
+    ...sectionListItem,
+    'musicResponsiveHeaderRenderer',
+  ];
   static const frameworkMutations = [
     'frameworkUpdates',
     'entityBatchUpdate',
@@ -94,6 +104,7 @@ class NavClass {
   static const textRunText = [...textRun, 'text'];
   static const subtitle = ['subtitle', runText];
   static const subtitleRuns = ['subtitle', 'runs'];
+  static const secondaryContents = 'secondaryContents';
   static const secondSubtitleRuns = ['secondSubtitle', 'runs'];
   static const subtitle2 = ['subtitle', 'runs', 2, 'text'];
   static const subtitle3 = ['subtitle', 'runs', 4, 'text'];
