@@ -1,21 +1,24 @@
 # Singularity
 Fork of [Blackhole](https://github.com/BrightDV/BlackHole/).
 
-## todos
+> The main aim of this app is to fetch music for offline listening, so I’ll prioritize features related to that and might remove other features if they’re not needed. I wouldn’t recommend using this as your main player. I’d suggest using VLC, Retro Music, or just search GitHub—there are many great music players out there.
+
+## Todos
 - handle text too long
 - (code cleanup) remove unused stuff
 - better log handling?
+- Remove everything spotify related
 - Linux
   - audiotags not working
   - just_audio not working
 
 ## Improvements
 - Better metadata support
-- Easier navigation
+- Better navigation
+- Better YT support
 - Several bug fixes
 - Minimal and upgraded dependencies
 - Better build system
-
 
 ## Download
 [Github Release](https://github.com/atinba/Singularity/releases/latest)
