@@ -1,7 +1,7 @@
 {    
     "configurations": [
         {
-            "name": "Emulator - w/ debugger",
+            "name": "Emulator",
             "request": "launch",
             "type": "dart",
             "program": "lib/main.dart",
@@ -12,7 +12,7 @@
             "deviceId": "sdk gphone64",
         },
         {
-            "name": "Local - w/ debugger",
+            "name": "Local",
             "request": "launch",
             "type": "dart",
             "program": "lib/main.dart",
@@ -23,16 +23,12 @@
             "deviceId": "",
         },
         {
-            "name": "Emulator - w/out debugger",
+            "name": "Linux",
             "request": "launch",
             "type": "dart",
             "program": "lib/main.dart",
-            "args": [
-                "--device-user=0"
-            ],
             "flutterMode": "debug",
-            "deviceId": "sdk gphone64",
-            "noDebug": true,
+            "deviceId": "Linux",
         },
     ],
 }

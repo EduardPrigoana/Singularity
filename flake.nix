@@ -57,6 +57,9 @@
             androidSdk
             gradle
             jdk17
+            gtk3
+            pkg-config
+            xdg-user-dirs
           ];
 
           LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath [vulkan-loader libGL]}";

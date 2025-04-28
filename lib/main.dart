@@ -27,9 +27,9 @@ import 'package:sizer/sizer.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Paint.enableDithering = true; No longer needed
-
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-    await Hive.initFlutter('Singularity/Database');
+    final home = Platform.environment['HOME']!;
+    Hive.init('$home/.local/share/Singularity/Database');
   } else if (Platform.isIOS) {
     await Hive.initFlutter('Database');
   } else {
