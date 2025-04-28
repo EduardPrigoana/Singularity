@@ -279,7 +279,8 @@ class SaavnAlbumDownloadButton extends StatefulWidget {
   });
 
   @override
-  _SaavnAlbumDownloadButtonState createState() => _SaavnAlbumDownloadButtonState();
+  _SaavnAlbumDownloadButtonState createState() =>
+      _SaavnAlbumDownloadButtonState();
 }
 
 class _SaavnAlbumDownloadButtonState extends State<SaavnAlbumDownloadButton> {

@@ -144,7 +144,9 @@ class _YouTubePlaylistState extends State<YouTubePlaylist> {
                 imageUrl: playlistImage,
                 actions: [
                   MultiDownloadButton(
-                      data: searchedList, playlistName: playlistName),
+                    data: searchedList,
+                    playlistName: playlistName,
+                  ),
                   IconButton(
                     icon: const Icon(Icons.share_rounded),
                     tooltip: AppLocalizations.of(context)!.share,
@@ -306,20 +308,21 @@ class _YouTubePlaylistState extends State<YouTubePlaylist> {
                                 // }
                               },
                               trailing: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    DownloadButton(
-                                      data: entry,
-                                      icon: 'download',
-                                    ),
-                                    LikeButton(
-                                      mediaItem: null,
-                                      data: entry,
-                                    ),
-                                    YtSongTileTrailingMenu(
-                                      data: entry,
-                                    ),
-                                  ]),
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  DownloadButton(
+                                    data: entry,
+                                    icon: 'download',
+                                  ),
+                                  LikeButton(
+                                    mediaItem: null,
+                                    data: entry,
+                                  ),
+                                  YtSongTileTrailingMenu(
+                                    data: entry,
+                                  ),
+                                ],
+                              ),
                             ),
                           );
                         },

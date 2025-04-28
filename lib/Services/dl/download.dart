@@ -1,7 +1,6 @@
 import 'dart:io';
 
 // import 'package:ffmpeg_kit_flutter_audio/ffmpeg_kit.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -123,9 +122,9 @@ class Download with ChangeNotifier {
       );
       dlPath = '/storage/emulated/0/Music';
       if (Platform.isLinux) {
-        Logger.root.info("Setting Linux DL PATH.");
-        var xdg_music_dir = Platform.environment['XDG_MUSIC_DIR']!;
-        dlPath = '$xdg_music_dir/singularity';
+        Logger.root.info('Setting Linux DL PATH.');
+        final xdgMusicDir = Platform.environment['XDG_MUSIC_DIR']!;
+        dlPath = '$xdgMusicDir/singularity';
       }
     }
     Logger.root.info('New Download path: $dlPath');
@@ -435,6 +434,4 @@ class Download with ChangeNotifier {
       }
     });
   }
-
-
 }

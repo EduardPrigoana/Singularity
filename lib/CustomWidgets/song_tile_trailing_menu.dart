@@ -315,20 +315,20 @@ class _YtSongTileTrailingMenuState extends State<YtSongTileTrailingMenu> {
             ],
           ),
         ),
-        if (widget.data.containsKey('albumId')) 
-        PopupMenuItem(
-          value: 6,
-          child: Row(
-            children: [
-              Icon(
-                Icons.album_sharp,
-                color: Theme.of(context).iconTheme.color,
-              ),
-              const SizedBox(width: 10.0),
-              const Text('Go to Album'),
-            ],
+        if (widget.data.containsKey('albumId'))
+          PopupMenuItem(
+            value: 6,
+            child: Row(
+              children: [
+                Icon(
+                  Icons.album_sharp,
+                  color: Theme.of(context).iconTheme.color,
+                ),
+                const SizedBox(width: 10.0),
+                const Text('Go to Album'),
+              ],
+            ),
           ),
-        ),
       ],
       onSelected: (int? value) {
         if (value == 0) {
