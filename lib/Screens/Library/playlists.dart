@@ -428,17 +428,6 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                     : name,
                               );
                             }
-                            if (value == 2) {
-                              sharePlaylist(
-                                context,
-                                name,
-                                playlistDetails.containsKey(name)
-                                    ? playlistDetails[name]['name']
-                                            ?.toString() ??
-                                        name
-                                    : name,
-                              );
-                            }
                             if (value == 0) {
                               ShowSnackBar().showSnackBar(
                                 context,
@@ -612,18 +601,6 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                   const SizedBox(width: 10.0),
                                   Text(
                                     AppLocalizations.of(context)!.export,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            PopupMenuItem(
-                              value: 2,
-                              child: Row(
-                                children: [
-                                  Icon(MdiIcons.share),
-                                  const SizedBox(width: 10.0),
-                                  Text(
-                                    AppLocalizations.of(context)!.share,
                                   ),
                                 ],
                               ),

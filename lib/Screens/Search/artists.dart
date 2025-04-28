@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:singularity/APIs/api.dart';
 import 'package:singularity/CustomWidgets/artist_like_button.dart';
 import 'package:singularity/CustomWidgets/bouncy_sliver_scroll_view.dart';
@@ -85,15 +84,6 @@ class _ArtistSearchPageState extends State<ArtistSearchPage> {
                 : BouncyImageSliverScrollView(
                     scrollController: _scrollController,
                     actions: [
-                      IconButton(
-                        icon: const Icon(Icons.share_rounded),
-                        tooltip: AppLocalizations.of(context)!.share,
-                        onPressed: () {
-                          Share.share(
-                            widget.data['perma_url'].toString(),
-                          );
-                        },
-                      ),
                       ArtistLikeButton(
                         data: widget.data,
                         size: 27.0,

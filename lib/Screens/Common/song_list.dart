@@ -1,9 +1,7 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:logging/logging.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:singularity/APIs/api.dart';
 import 'package:singularity/CustomWidgets/bouncy_playlist_header_scroll_view.dart';
 import 'package:singularity/CustomWidgets/copy_clipboard.dart';
@@ -275,23 +273,6 @@ class _SongsListPageState extends State<SongsListPage> {
                       playlistName:
                           widget.listItem['title']?.toString() ?? 'Songs',
                     ),
-                  IconButton(
-                    icon: const Icon(Icons.share_rounded),
-                    tooltip: AppLocalizations.of(context)!.share,
-                    onPressed: () {
-                      if (!isSharePopupShown) {
-                        isSharePopupShown = true;
-
-                        Share.share(
-                          widget.listItem['perma_url'].toString(),
-                        ).whenComplete(() {
-                          Timer(const Duration(milliseconds: 500), () {
-                            isSharePopupShown = false;
-                          });
-                        });
-                      }
-                    },
-                  ),
                   PlaylistPopupMenu(
                     data: songList,
                     title: widget.listItem['title']?.toString() ?? 'Songs',

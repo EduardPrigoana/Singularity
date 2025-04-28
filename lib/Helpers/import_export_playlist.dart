@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive/hive.dart';
 import 'package:logging/logging.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:singularity/CustomWidgets/snackbar.dart';
 import 'package:singularity/Helpers/picker.dart';
 import 'package:singularity/Helpers/songs_count.dart';
@@ -56,31 +54,6 @@ Future<void> exportPlaylist(
       context,
       AppLocalizations.of(context)!.failedExport,
     );
-  }
-}
-
-Future<void> sharePlaylist(
-  BuildContext context,
-  String playlistName,
-  String showName,
-) async {
-  final Directory appDir = await getApplicationDocumentsDirectory();
-  final String temp = appDir.path;
-
-  await Hive.openBox(playlistName);
-  final Box playlistBox = Hive.box(playlistName);
-  final Map songsMap = playlistBox.toMap();
-  final String songs = json.encode(songsMap);
-  final File file = await File('$temp/$showName.json').create(recursive: true);
-  await file.writeAsString(songs);
-  final files = <XFile>[XFile(file.path)];
-  await Share.shareXFiles(
-    files,
-    text: AppLocalizations.of(context)!.playlistShareText,
-  );
-  await Future.delayed(const Duration(seconds: 10), () {});
-  if (await file.exists()) {
-    await file.delete();
   }
 }
 

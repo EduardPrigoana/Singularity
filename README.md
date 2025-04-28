@@ -4,6 +4,7 @@ Fork of [Blackhole](https://github.com/BrightDV/BlackHole/).
 ## todos
 - handle text too long
 - (code cleanup) remove unused stuff
+- better log handling?
 - Linux
   - audiotags not working
   - just_audio not working

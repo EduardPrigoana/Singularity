@@ -2,7 +2,6 @@ import 'package:audio_service/audio_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:singularity/CustomWidgets/add_playlist.dart';
 import 'package:singularity/Helpers/add_mediaitem_to_queue.dart';
 import 'package:singularity/Helpers/mediaitem_converter.dart';
@@ -151,25 +150,9 @@ class _SongTileTrailingMenuState extends State<SongTileTrailingMenu> {
             ],
           ),
         ),
-        PopupMenuItem(
-          value: 3,
-          child: Row(
-            children: [
-              Icon(
-                Icons.share_rounded,
-                color: Theme.of(context).iconTheme.color,
-              ),
-              const SizedBox(width: 10.0),
-              Text(AppLocalizations.of(context)!.share),
-            ],
-          ),
-        ),
       ],
       onSelected: (value) async {
         switch (value) {
-          case 3:
-            Share.share(widget.data['perma_url'].toString());
-
           case 4:
             Navigator.push(
               context,
@@ -302,19 +285,6 @@ class _YtSongTileTrailingMenuState extends State<YtSongTileTrailingMenu> {
             ],
           ),
         ),
-        PopupMenuItem(
-          value: 5,
-          child: Row(
-            children: [
-              Icon(
-                Icons.share_rounded,
-                color: Theme.of(context).iconTheme.color,
-              ),
-              const SizedBox(width: 10.0),
-              Text(AppLocalizations.of(context)!.share),
-            ],
-          ),
-        ),
         if (widget.data.containsKey('albumId'))
           PopupMenuItem(
             value: 6,
@@ -367,10 +337,6 @@ class _YtSongTileTrailingMenuState extends State<YtSongTileTrailingMenu> {
             mode: LaunchMode.externalApplication,
           );
         }
-        if (value == 5) {
-          Share.share('https://youtube.com/watch?v=${widget.data["id"]}');
-        }
-
         if (value == 6) {
           Navigator.push(
             context,

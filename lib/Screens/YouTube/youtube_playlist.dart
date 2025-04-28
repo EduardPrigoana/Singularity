@@ -1,9 +1,7 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:logging/logging.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:singularity/CustomWidgets/bouncy_playlist_header_scroll_view.dart';
 import 'package:singularity/CustomWidgets/copy_clipboard.dart';
 import 'package:singularity/CustomWidgets/download_button.dart';
@@ -146,23 +144,6 @@ class _YouTubePlaylistState extends State<YouTubePlaylist> {
                   MultiDownloadButton(
                     data: searchedList,
                     playlistName: playlistName,
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.share_rounded),
-                    tooltip: AppLocalizations.of(context)!.share,
-                    onPressed: () {
-                      if (!isSharePopupShown) {
-                        isSharePopupShown = true;
-
-                        Share.share(
-                          'https://youtube.com/playlist?list=${widget.playlistId}',
-                        ).whenComplete(() {
-                          Timer(const Duration(milliseconds: 500), () {
-                            isSharePopupShown = false;
-                          });
-                        });
-                      }
-                    },
                   ),
                   PlaylistPopupMenu(
                     data: searchedList,

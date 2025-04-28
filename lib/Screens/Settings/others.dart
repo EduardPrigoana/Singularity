@@ -4,8 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive/hive.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:singularity/CustomWidgets/box_switch_tile.dart';
 import 'package:singularity/CustomWidgets/gradient_containers.dart';
 import 'package:singularity/CustomWidgets/snackbar.dart';
@@ -699,27 +697,6 @@ class _OthersPageState extends State<OthersPage> {
                   () {},
                 );
               },
-            ),
-            ListTile(
-              title: Text(
-                AppLocalizations.of(
-                  context,
-                )!
-                    .shareLogs,
-              ),
-              subtitle: Text(
-                AppLocalizations.of(
-                  context,
-                )!
-                    .shareLogsSub,
-              ),
-              onTap: () async {
-                final Directory tempDir = await getTemporaryDirectory();
-                final files = <XFile>[XFile('${tempDir.path}/logs/logs.txt')];
-                Share.shareXFiles(files);
-              },
-              dense: true,
-              isThreeLine: true,
             ),
           ],
         ),

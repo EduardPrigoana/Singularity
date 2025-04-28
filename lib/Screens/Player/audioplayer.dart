@@ -22,7 +22,6 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:singularity/CustomWidgets/add_playlist.dart';
 import 'package:singularity/CustomWidgets/animated_text.dart';
 import 'package:singularity/CustomWidgets/copy_clipboard.dart';
@@ -255,24 +254,6 @@ class _PlayScreenState extends State<PlayScreen> {
                         // ),
                         tooltip: AppLocalizations.of(context)!.lyrics,
                         onPressed: () => cardKey.currentState!.toggleCard(),
-                      ),
-                    if (!offline)
-                      IconButton(
-                        icon: const Icon(Icons.share_rounded),
-                        tooltip: AppLocalizations.of(context)!.share,
-                        onPressed: () async {
-                          if (!isSharePopupShown) {
-                            isSharePopupShown = true;
-
-                            await Share.share(
-                              mediaItem.extras!['perma_url'].toString(),
-                            ).whenComplete(() {
-                              Timer(const Duration(milliseconds: 600), () {
-                                isSharePopupShown = false;
-                              });
-                            });
-                          }
-                        },
                       ),
                     IconButton(
                       icon: const Icon(
