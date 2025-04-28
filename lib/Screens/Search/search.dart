@@ -658,15 +658,7 @@ class _SearchPageState extends State<SearchPage> {
                                                                         as Map,
                                                                     icon:
                                                                         'download',
-                                                                  ),
-                                                                  LikeButton(
-                                                                    mediaItem:
-                                                                        null,
-                                                                    data: items[
-                                                                            index]
-                                                                        as Map,
-                                                                  ),
-                                                                  YtSongTileTrailingMenu(
+                                                                  ),                                                                  YtSongTileTrailingMenu(
                                                                     data: items[
                                                                             index]
                                                                         as Map,
@@ -687,12 +679,12 @@ class _SearchPageState extends State<SearchPage> {
                                                                         icon:
                                                                             'download',
                                                                       ),
-                                                                      LikeButton(
-                                                                        mediaItem:
-                                                                            null,
-                                                                        data: items[index]
-                                                                            as Map,
-                                                                      ),
+                                                                      // LikeButton(
+                                                                      //   mediaItem:
+                                                                      //       null,
+                                                                      //   data: items[index]
+                                                                      //       as Map,
+                                                                      // ),
                                                                       SongTileTrailingMenu(
                                                                         data: items[index]
                                                                             as Map,

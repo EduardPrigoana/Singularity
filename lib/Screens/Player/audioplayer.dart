@@ -41,7 +41,6 @@ import 'package:singularity/Helpers/mediaitem_converter.dart';
 import 'package:singularity/Screens/Common/song_list.dart';
 import 'package:singularity/utils.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class PlayScreen extends StatefulWidget {
   const PlayScreen({super.key});
@@ -309,16 +308,6 @@ class _PlayScreenState extends State<PlayScreen> {
                             },
                           );
                         }
-                        if (value == 3) {
-                          launchUrl(
-                            Uri.parse(
-                              mediaItem.genre == 'YouTube'
-                                  ? 'https://youtube.com/watch?v=${mediaItem.id}'
-                                  : 'https://www.youtube.com/results?search_query=${mediaItem.title} by ${mediaItem.artist}',
-                            ),
-                            mode: LaunchMode.externalApplication,
-                          );
-                        }
                         if (value == 1) {
                           showDialog(
                             context: context,
@@ -513,29 +502,6 @@ class _PlayScreenState extends State<PlayScreen> {
                                     ],
                                   ),
                                 ),
-                              PopupMenuItem(
-                                value: 3,
-                                child: Row(
-                                  children: [
-                                    Icon(
-                                      MdiIcons.youtube,
-                                      color: Theme.of(context).iconTheme.color,
-                                    ),
-                                    const SizedBox(width: 10.0),
-                                    Text(
-                                      mediaItem.genre == 'YouTube'
-                                          ? AppLocalizations.of(
-                                              context,
-                                            )!
-                                              .watchVideo
-                                          : AppLocalizations.of(
-                                              context,
-                                            )!
-                                              .searchVideo,
-                                    ),
-                                  ],
-                                ),
-                              ),
                               PopupMenuItem(
                                 value: 10,
                                 child: Row(

@@ -11,7 +11,6 @@ import 'package:singularity/Screens/Search/search.dart';
 import 'package:singularity/Screens/YouTube/youtube_playlist.dart';
 import 'package:singularity/Services/yt_music.dart';
 import 'package:singularity/utils.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class SongTileTrailingMenu extends StatefulWidget {
   final Map data;
@@ -272,19 +271,6 @@ class _YtSongTileTrailingMenuState extends State<YtSongTileTrailingMenu> {
             ],
           ),
         ),
-        PopupMenuItem(
-          value: 4,
-          child: Row(
-            children: [
-              Icon(
-                Icons.video_library_rounded,
-                color: Theme.of(context).iconTheme.color,
-              ),
-              const SizedBox(width: 10.0),
-              Text(AppLocalizations.of(context)!.watchVideo),
-            ],
-          ),
-        ),
         if (widget.data.containsKey('albumId'))
           PopupMenuItem(
             value: 6,
@@ -330,12 +316,6 @@ class _YtSongTileTrailingMenuState extends State<YtSongTileTrailingMenu> {
               AddToPlaylist().addToPlaylist(context, mediaItem);
             }
           });
-        }
-        if (value == 4) {
-          launchUrl(
-            Uri.parse('https://youtube.com/watch?v=${widget.data["id"]}'),
-            mode: LaunchMode.externalApplication,
-          );
         }
         if (value == 6) {
           Navigator.push(

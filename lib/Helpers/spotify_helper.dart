@@ -2,7 +2,6 @@ import 'package:app_links/app_links.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:logging/logging.dart';
 import 'package:singularity/APIs/spotify_api.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 Future<String?> retriveAccessToken() async {
   String? accessToken = Hive.box('settings')
@@ -82,12 +81,6 @@ Future<void> callSpotifyFunction({
     return await function.call(accessToken);
   }
   if (accessToken == null && forceSign) {
-    launchUrl(
-      Uri.parse(
-        SpotifyApi().requestAuthorization(),
-      ),
-      mode: LaunchMode.externalApplication,
-    );
     final appLinks = AppLinks();
     appLinks.uriLinkStream.listen(
       (uri) async {
