@@ -9,6 +9,7 @@ import 'package:singularity/Helpers/mediaitem_converter.dart';
 import 'package:singularity/Helpers/radio.dart';
 import 'package:singularity/Screens/Common/song_list.dart';
 import 'package:singularity/Screens/Search/search.dart';
+import 'package:singularity/Screens/YouTube/youtube_playlist.dart';
 import 'package:singularity/Services/yt_music.dart';
 import 'package:singularity/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -314,6 +315,20 @@ class _YtSongTileTrailingMenuState extends State<YtSongTileTrailingMenu> {
             ],
           ),
         ),
+        if (widget.data.containsKey('albumId')) 
+        PopupMenuItem(
+          value: 6,
+          child: Row(
+            children: [
+              Icon(
+                Icons.album_sharp,
+                color: Theme.of(context).iconTheme.color,
+              ),
+              const SizedBox(width: 10.0),
+              const Text('Go to Album'),
+            ],
+          ),
+        ),
       ],
       onSelected: (int? value) {
         if (value == 0) {
@@ -354,6 +369,18 @@ class _YtSongTileTrailingMenuState extends State<YtSongTileTrailingMenu> {
         }
         if (value == 5) {
           Share.share('https://youtube.com/watch?v=${widget.data["id"]}');
+        }
+
+        if (value == 6) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => YouTubePlaylist(
+                playlistId: widget.data['albumId'].toString(),
+                type: 'album',
+              ),
+            ),
+          );
         }
       },
     );

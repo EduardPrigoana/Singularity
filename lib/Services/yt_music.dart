@@ -15,7 +15,7 @@ class YtMusicService {
     'alt': 'json',
     'key': 'AIzaSyC9XL3ZjWddXya6X74dJoCTL-WEYFDNX30',
   };
-  
+
   static const userAgent =
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0';
   static const Map<String, String> endpoints = {
@@ -102,8 +102,11 @@ class YtMusicService {
   }
 
   Future<Map> sendRequest(
-      String endpoint, Map body, Map<String, String>? headers,
-      {Map? params,}) async {
+    String endpoint,
+    Map body,
+    Map<String, String>? headers, {
+    Map? params,
+  }) async {
     params ??= {};
     params.addAll(ytmParams);
     final Uri uri = Uri.https(ytmDomain, baseApiEndpoint + endpoint, ytmParams);
@@ -427,6 +430,12 @@ class YtMusicService {
       ) as List?,
     );
 
+    final List menuItems = NavClass.nav(childItem, [
+          NavClass.mRLIR,
+          ...NavClass.menuItems,
+        ]) as List? ??
+        [];
+
     if (title == '' && subtitle == '') return null;
 
     final List<String> subtitleList = subtitle.split('•');
@@ -473,6 +482,19 @@ class YtMusicService {
         if (len > 1) result['artist'] = subtitleList[1].trim();
         if (len > 2) result['album'] = subtitleList[2].trim();
         if (len > 3) result['duration'] = subtitleList[3].trim();
+
+        if (menuItems.length == 9) {
+          final String albumId = NavClass.nav(menuItems, [
+            5,
+            'menuNavigationItemRenderer',
+            'navigationEndpoint',
+            'browseEndpoint',
+            'browseId',
+          ]).toString();
+
+          result['albumId'] = albumId;
+        }
+
       case 'Video':
         if (len > 1) result['artist'] = subtitleList[1].trim();
         if (len > 2) result['views'] = subtitleList[2].trim();
