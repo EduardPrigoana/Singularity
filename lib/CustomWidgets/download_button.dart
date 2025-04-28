@@ -3,7 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive/hive.dart';
 import 'package:singularity/APIs/api.dart';
 import 'package:singularity/CustomWidgets/snackbar.dart';
-import 'package:singularity/Services/download.dart';
+import 'package:singularity/Services/dl/download.dart';
 
 class DownloadButton extends StatefulWidget {
   final Map data;

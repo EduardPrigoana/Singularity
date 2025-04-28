@@ -1,24 +1,20 @@
 # Singularity
 Fork of [Blackhole](https://github.com/BrightDV/BlackHole/).
 
-## Changes
+## todos
+- handle text too long
+- (code cleanup) remove unused stuff
+- Linux
+  - audiotags not working
+  - just_audio not working
 
-### Improvements
-- Better metadata support (replace audiotagger/metadata_god with audiotags)
-  - Cover image, song metadata works with youtube downloads as well now
-- Better Artist Search (Goes directly to the artist page (whenever possible) when clicking "View Artist" )
-- Fix Perms and notification related issues for Android 13+
-- Dependency Cleanup (removed some unsed ones and upgraded most)
+## Improvements
+- Better metadata support
+- Easier navigation
+- Several bug fixes
 - Minimal and upgraded dependencies
-- Upgraded Flutter, Gradle etc
-- Better Build System using nix
+- Better build system
 
-### Stuff Removed
-- Modified the Home Page, removed lots of stuff
-- Removed Spotify related stuff
-- Removed Trending Songs, Top Charts etc from Home and Search Page
-- Dependency Cleanup (removed some unsed ones and upgraded most)
-- Android Only, Removed other platform related code
 
 ## Download
 [Github Release](https://github.com/atinba/Singularity/releases/latest)
@@ -32,7 +28,6 @@ Fork of [Blackhole](https://github.com/BrightDV/BlackHole/).
 - Trending Songs
 - Artist and Genre Radios
 - Support 15+ music languages
-- Local and Global Top Spotify songs
 - Add Songs to Favorite
 - Playlists support
 - Import Playlists from Spotify & YouTube
