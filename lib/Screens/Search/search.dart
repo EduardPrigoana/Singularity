@@ -7,7 +7,6 @@ import 'package:singularity/CustomWidgets/download_button.dart';
 import 'package:singularity/CustomWidgets/empty_screen.dart';
 import 'package:singularity/CustomWidgets/gradient_containers.dart';
 import 'package:singularity/CustomWidgets/image_card.dart';
-import 'package:singularity/CustomWidgets/like_button.dart';
 import 'package:singularity/CustomWidgets/media_tile.dart';
 import 'package:singularity/CustomWidgets/search_bar.dart' as searchbar;
 import 'package:singularity/CustomWidgets/snackbar.dart';
@@ -658,7 +657,8 @@ class _SearchPageState extends State<SearchPage> {
                                                                         as Map,
                                                                     icon:
                                                                         'download',
-                                                                  ),                                                                  YtSongTileTrailingMenu(
+                                                                  ),
+                                                                  YtSongTileTrailingMenu(
                                                                     data: items[
                                                                             index]
                                                                         as Map,

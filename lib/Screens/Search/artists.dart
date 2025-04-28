@@ -9,7 +9,6 @@ import 'package:singularity/CustomWidgets/empty_screen.dart';
 import 'package:singularity/CustomWidgets/gradient_containers.dart';
 import 'package:singularity/CustomWidgets/horizontal_albumlist.dart';
 import 'package:singularity/CustomWidgets/image_card.dart';
-import 'package:singularity/CustomWidgets/like_button.dart';
 import 'package:singularity/CustomWidgets/playlist_popupmenu.dart';
 import 'package:singularity/CustomWidgets/snackbar.dart';
 import 'package:singularity/CustomWidgets/song_tile_trailing_menu.dart';
