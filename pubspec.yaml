@@ -13,7 +13,7 @@ environment:
 dependencies:
   app_links: ^6.4.0
   audio_service: ^0.18.12
-  audiotags: ^1.4.4
+  audiotags: ^1.4.5
   cached_network_image: ^3.3.1
   carousel_slider: ^5.0.0
   cupertino_icons: ^1.0.6
@@ -36,6 +36,8 @@ dependencies:
   # html_unescape: ^2.0.0
   just_audio: ^0.9.36
   just_audio_media_kit: ^2.1.0
+  media_kit_libs_linux: any
+  media_kit_libs_audio: ^1.0.5 # Native audio dependencies.
   logging: ^1.2.0
   marquee: ^2.2.3
   material_design_icons_flutter: ^7.0.7296

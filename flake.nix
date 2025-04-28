@@ -60,6 +60,8 @@
             gtk3
             pkg-config
             xdg-user-dirs
+            mpv-unwrapped.dev
+            mpv-unwrapped
           ];
 
           LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath [vulkan-loader libGL]}";
