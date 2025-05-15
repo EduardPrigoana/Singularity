@@ -23,7 +23,7 @@
         platformVersions = ["35" "34" "33" "31"];
         abiVersions = [];
         includeNDK = true;
-        ndkVersions = ["25.1.8937393" "26.1.10909125"];
+        ndkVersions = [ "27.2.12479018" "26.3.11579264" "25.1.8937393"];
         cmakeVersions = ["3.22.1"];
         includeSystemImages = false;
         includeEmulator = false;
@@ -41,19 +41,43 @@
       };
 
       androidSdk = androidComposition.androidsdk;
+          patchedFlutter = pkgs.flutter.override (prev: rec {
+            flutter = prev.flutter.overrideAttrs (prevAttrs: {
+              patches = prevAttrs.patches ++ [
+                # This patch is needed to avoid the Kotlin Gradle plugin writing to the store.
+                (pkgs.writeText "kotlin-fix.patch" ''
+                  --- a/packages/flutter_tools/gradle/build.gradle.kts
+                  +++ b/packages/flutter_tools/gradle/build.gradle.kts
+                  @@ -4,6 +4,8 @@
+
+                   import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
+                  +gradle.startParameter.projectCacheDir = layout.buildDirectory.dir("cache").get().asFile
+                  +
+                   plugins {
+                       `java-gradle-plugin`
+                       groovy
+                '')
+              ];
+              passthru = prevAttrs.passthru // {
+                sdk = flutter;
+              };
+            });
+          });
+
     in {
       devShell = with pkgs;
         mkShell rec {
           ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
           ANDROID_HOME = "${androidSdk}/libexec/android-sdk";
           JAVA_HOME = jdk17.home;
-          FLUTTER_ROOT = flutter;
+          FLUTTER_ROOT = patchedFlutter;
           DART_ROOT = "${flutter}/bin/cache/dart-sdk";
           GRADLE_OPTS = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${androidSdk}/libexec/android-sdk/build-tools/34.0.0/aapt2";
           QT_QPA_PLATFORM = "wayland;xcb";
 
           buildInputs = [
-            flutter
+            patchedFlutter
             androidSdk
             gradle
             jdk17
