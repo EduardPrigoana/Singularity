@@ -4,7 +4,6 @@ Fork of [Blackhole](https://github.com/BrightDV/BlackHole/).
 > The main aim of this app is to fetch music for offline listening, so I’ll prioritize features related to that and might remove other features if they’re not needed. I wouldn’t recommend using this as your main player. I’d suggest using VLC, Retro Music, or just search GitHub—there are many great music players out there.
 
 ## Todos
-- compileSdk issue
 - handle text too long
 - (code cleanup) remove unused stuff
 - better log handling?

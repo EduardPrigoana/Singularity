@@ -41,29 +41,7 @@
       };
 
       androidSdk = androidComposition.androidsdk;
-          patchedFlutter = pkgs.flutter.override (prev: rec {
-            flutter = prev.flutter.overrideAttrs (prevAttrs: {
-              patches = prevAttrs.patches ++ [
-                # This patch is needed to avoid the Kotlin Gradle plugin writing to the store.
-                (pkgs.writeText "kotlin-fix.patch" ''
-                  --- a/packages/flutter_tools/gradle/build.gradle.kts
-                  +++ b/packages/flutter_tools/gradle/build.gradle.kts
-                  @@ -4,6 +4,8 @@
 
-                   import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
-                  +gradle.startParameter.projectCacheDir = layout.buildDirectory.dir("cache").get().asFile
-                  +
-                   plugins {
-                       `java-gradle-plugin`
-                       groovy
-                '')
-              ];
-              passthru = prevAttrs.passthru // {
-                sdk = flutter;
-              };
-            });
-          });
 
     in {
       devShell = with pkgs;
@@ -71,13 +49,13 @@
           ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
           ANDROID_HOME = "${androidSdk}/libexec/android-sdk";
           JAVA_HOME = jdk17.home;
-          FLUTTER_ROOT = patchedFlutter;
+          FLUTTER_ROOT = flutter;
           DART_ROOT = "${flutter}/bin/cache/dart-sdk";
           GRADLE_OPTS = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${androidSdk}/libexec/android-sdk/build-tools/34.0.0/aapt2";
           QT_QPA_PLATFORM = "wayland;xcb";
 
           buildInputs = [
-            patchedFlutter
+            flutter
             androidSdk
             gradle
             jdk17
