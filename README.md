@@ -7,12 +7,12 @@ Fork of [Blackhole](https://github.com/BrightDV/BlackHole/).
 - handle text too long
 - (code cleanup) remove unused stuff
 - better log handling?
-- Remove everything spotify related
 - Linux
   - audiotags not working
   - just_audio not working
 
 ## Improvements
+- High-res support (using https://dab.yeet.su/)
 - Better metadata support
 - Better navigation
 - Better YT support
@@ -34,7 +34,7 @@ Fork of [Blackhole](https://github.com/BrightDV/BlackHole/).
 - Support 15+ music languages
 - Add Songs to Favorite
 - Playlists support
-- Import Playlists from Spotify & YouTube
+- Import Playlists from YouTube
 - Import/Export Playlists as JSON File
 - Share Playlists
 - Sleep timer

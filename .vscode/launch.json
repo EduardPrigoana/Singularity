@@ -20,7 +20,7 @@
                 "--device-user=0"
             ],
             "flutterMode": "debug",
-            "deviceId": "",
+            "deviceId": "a6b43082",
         },
         {
             "name": "Linux",
