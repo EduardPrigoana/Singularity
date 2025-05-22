@@ -680,24 +680,6 @@ class _OthersPageState extends State<OthersPage> {
                 );
               },
             ),
-            ListTile(
-              title: const Text(
-                'Clear Spotify data',
-              ),
-              subtitle: const Text(
-                'Clear data like token, etc, in order to refetch them',
-              ),
-              dense: true,
-              onTap: () async {
-                Hive.box('settings').delete('spotifyAccessToken');
-                Hive.box('settings').delete('spotifyRefreshToken');
-                Hive.box('settings').delete('spotifyTokenExpireAt');
-                Hive.box('settings').delete('spotifyAppCode');
-                setState(
-                  () {},
-                );
-              },
-            ),
           ],
         ),
       ),

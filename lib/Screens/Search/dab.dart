@@ -90,8 +90,7 @@ class DABSearchPage extends StatelessWidget {
                 ),
               ],
             ),
-            onTap: () {
-            },
+            onTap: () {},
           );
         },
       ),

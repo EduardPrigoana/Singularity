@@ -5,7 +5,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart';
 import 'package:logging/logging.dart';
 import 'package:singularity/APIs/api.dart';
-import 'package:singularity/APIs/spotify_api.dart';
 import 'package:singularity/CustomWidgets/gradient_containers.dart';
 import 'package:singularity/Helpers/matcher.dart';
 import 'package:singularity/Helpers/playlist.dart';
@@ -26,25 +25,6 @@ class SearchAddPlaylist {
       return {};
     } catch (e) {
       Logger.root.severe('Error while adding YT playlist: $e');
-      return {};
-    }
-  }
-
-  static Future<Map> addSpotifyPlaylist(
-    String title,
-    String accessToken,
-    String playlistId,
-  ) async {
-    try {
-      final List tracks =
-          await SpotifyApi().getAllTracksOfPlaylist(accessToken, playlistId);
-      return {
-        'title': title,
-        'count': tracks.length,
-        'tracks': tracks,
-      };
-    } catch (e) {
-      Logger.root.severe('Error while adding Spotify playlist: $e');
       return {};
     }
   }
@@ -152,43 +132,6 @@ class SearchAddPlaylist {
               addMapToPlaylist(playName, songMap);
             }
           });
-        }
-      } catch (e) {
-        Logger.root.severe('Error in $done: $e');
-      }
-    }
-  }
-
-  static Stream<Map> spotifySongsAdder(String playName, List tracks) async* {
-    int done = 0;
-    for (final track in tracks) {
-      String? trackName;
-      String? artistName;
-      try {
-        trackName = track['track']['name'].toString();
-        artistName = (track['track']['artists'] as List)
-            .map((e) => e['name'])
-            .toList()
-            .join(', ');
-        yield {'done': ++done, 'name': '$trackName - $artistName'};
-      } catch (e) {
-        yield {'done': ++done, 'name': ''};
-      }
-      try {
-        final Map data = await SaavnAPI().fetchSongSearchResults(
-          searchQuery: '$trackName - $artistName',
-          count: 3,
-        );
-        final List result = data['songs'] as List;
-        final index = findBestMatch(
-          result,
-          {
-            'title': trackName,
-            'artist': artistName,
-          },
-        );
-        if (index != -1) {
-          addMapToPlaylist(playName, result[index] as Map);
         }
       } catch (e) {
         Logger.root.severe('Error in $done: $e');

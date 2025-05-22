@@ -3,16 +3,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:logging/logging.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:singularity/APIs/spotify_api.dart';
 import 'package:singularity/CustomWidgets/gradient_containers.dart';
-import 'package:singularity/CustomWidgets/image_card.dart';
 import 'package:singularity/CustomWidgets/snackbar.dart';
 import 'package:singularity/CustomWidgets/textinput_dialog.dart';
 import 'package:singularity/Helpers/import_export_playlist.dart';
 import 'package:singularity/Helpers/playlist.dart';
 import 'package:singularity/Helpers/search_add_playlist.dart';
-import 'package:singularity/Helpers/spotify_helper.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ImportPlaylist extends StatelessWidget {
   ImportPlaylist({super.key});
@@ -26,12 +22,6 @@ class ImportPlaylist extends StatelessWidget {
     switch (type) {
       case 'file':
         importFile(
-          context,
-          playlistNames,
-          settingsBox,
-        );
-      case 'spotify':
-        connectToSpotify(
           context,
           playlistNames,
           settingsBox,
@@ -83,7 +73,6 @@ class ImportPlaylist extends StatelessWidget {
               title: Text(
                 [
                   AppLocalizations.of(context)!.importFile,
-                  AppLocalizations.of(context)!.importSpotify,
                   AppLocalizations.of(context)!.importYt,
                   AppLocalizations.of(context)!.importJioSaavn,
                   AppLocalizations.of(context)!.importResso,
@@ -95,7 +84,6 @@ class ImportPlaylist extends StatelessWidget {
                   child: Icon(
                     [
                       MdiIcons.import,
-                      MdiIcons.spotify,
                       MdiIcons.youtube,
                       Icons.music_note_rounded,
                       Icons.music_note_rounded,
@@ -108,7 +96,6 @@ class ImportPlaylist extends StatelessWidget {
                 _triggerImport(
                   type: [
                     'file',
-                    'spotify',
                     'youtube',
                     'jiosaavn',
                     'resso',
@@ -130,30 +117,6 @@ Future<void> importFile(
   Box settingsBox,
 ) async {
   await importFilePlaylist(context, playlistNames);
-}
-
-Future<void> connectToSpotify(
-  BuildContext context,
-  List playlistNames,
-  Box settingsBox,
-) async {
-  final String? accessToken = await retriveAccessToken();
-
-  if (accessToken == null) {
-    launchUrl(
-      Uri.parse(
-        SpotifyApi().requestAuthorization(),
-      ),
-      mode: LaunchMode.externalApplication,
-    );
-  } else {
-    await fetchPlaylists(
-      accessToken,
-      context,
-      playlistNames,
-      settingsBox,
-    );
-  }
 }
 
 Future<void> importYt(
@@ -253,79 +216,6 @@ Future<void> importResso(
   );
 }
 
-Future<void> importSpotify(
-  BuildContext context,
-  String accessToken,
-  String playlistId,
-  String playlistName,
-  Box settingsBox,
-  List playlistNames,
-) async {
-  final Map data = await SearchAddPlaylist.addSpotifyPlaylist(
-    playlistName,
-    accessToken,
-    playlistId,
-  );
-  if (data.isNotEmpty &&
-      data['tracks'] != null &&
-      (data['tracks'] as List).isNotEmpty) {
-    String playName = data['title'].toString();
-    while (playlistNames.contains(playName) || await Hive.boxExists(playName)) {
-      // ignore: use_string_buffers
-      playName = '$playName (1)';
-    }
-    playlistNames.add(playName);
-    settingsBox.put(
-      'playlistNames',
-      playlistNames,
-    );
-
-    await SearchAddPlaylist.showProgress(
-      data['count'] as int,
-      context,
-      SearchAddPlaylist.spotifySongsAdder(
-        playName,
-        data['tracks'] as List,
-      ),
-    );
-  } else {
-    Logger.root.severe(
-      'Failed to import Spotify playlist. Data is empty.',
-    );
-    ShowSnackBar().showSnackBar(
-      context,
-      AppLocalizations.of(context)!.failedImport,
-    );
-  }
-}
-
-Future<void> importSpotifyViaLink(
-  BuildContext context,
-  List playlistNames,
-  Box settingsBox,
-  String accessToken,
-) async {
-  showTextInputDialog(
-    context: context,
-    title: AppLocalizations.of(context)!.enterPlaylistLink,
-    initialText: '',
-    keyboardType: TextInputType.url,
-    onSubmitted: (String value, BuildContext ctxt) async {
-      Navigator.pop(ctxt);
-      final String playlistId = value.split('?')[0].split('/').last;
-      final playlistName = AppLocalizations.of(context)!.spotifyPublic;
-      await importSpotify(
-        context,
-        accessToken,
-        playlistId,
-        playlistName,
-        settingsBox,
-        playlistNames,
-      );
-    },
-  );
-}
-
 Future<void> importJioSaavn(
   BuildContext context,
   List playlistNames,
@@ -356,101 +246,4 @@ Future<void> importJioSaavn(
       }
     },
   );
-}
-
-Future<void> fetchPlaylists(
-  String accessToken,
-  BuildContext context,
-  List playlistNames,
-  Box settingsBox,
-) async {
-  final List spotifyPlaylists =
-      await SpotifyApi().getUserPlaylists(accessToken);
-  showModalBottomSheet(
-    backgroundColor: Colors.transparent,
-    context: context,
-    builder: (BuildContext contxt) {
-      return BottomGradientContainer(
-        child: ListView.builder(
-          shrinkWrap: true,
-          physics: const BouncingScrollPhysics(),
-          padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-          itemCount: spotifyPlaylists.length + 1,
-          itemBuilder: (ctxt, idx) {
-            if (idx == 0) {
-              return ListTile(
-                title: Text(
-                  AppLocalizations.of(context)!.importPublicPlaylist,
-                ),
-                leading: Card(
-                  margin: EdgeInsets.zero,
-                  elevation: 0,
-                  color: Colors.transparent,
-                  child: SizedBox.square(
-                    dimension: 50,
-                    child: Center(
-                      child: Icon(
-                        Icons.add_rounded,
-                        color: Theme.of(context).iconTheme.color,
-                      ),
-                    ),
-                  ),
-                ),
-                onTap: () async {
-                  await importSpotifyViaLink(
-                    context,
-                    playlistNames,
-                    settingsBox,
-                    accessToken,
-                  );
-                  Navigator.pop(context);
-                },
-              );
-            }
-
-            final String playName = spotifyPlaylists[idx - 1]['name']
-                .toString()
-                .replaceAll('/', ' ');
-            final int playTotal =
-                spotifyPlaylists[idx - 1]['tracks']['total'] as int;
-            return playTotal == 0
-                ? const SizedBox()
-                : ListTile(
-                    title: Text(playName),
-                    subtitle: Text(
-                      playTotal == 1
-                          ? '$playTotal ${AppLocalizations.of(context)!.song}'
-                          : '$playTotal ${AppLocalizations.of(context)!.songs}',
-                    ),
-                    leading: imageCard(
-                      imageUrl:
-                          (spotifyPlaylists[idx - 1]['images'] as List).isEmpty
-                              ? ''
-                              : spotifyPlaylists[idx - 1]['images'][0]['url']
-                                  .toString(),
-                    ),
-                    onTap: () async {
-                      Navigator.pop(context);
-                      final String playName = spotifyPlaylists[idx - 1]['name']
-                          .toString()
-                          .replaceAll('/', ' ');
-                      final String playlistId =
-                          spotifyPlaylists[idx - 1]['id'].toString();
-
-                      importSpotify(
-                        context,
-                        accessToken,
-                        playlistId,
-                        playName,
-                        settingsBox,
-                        playlistNames,
-                      );
-                    },
-                  );
-          },
-        ),
-      );
-    },
-  );
-  return;
 }

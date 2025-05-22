@@ -3,9 +3,6 @@ import 'dart:convert';
 import 'package:audiotags/audiotags.dart';
 import 'package:http/http.dart';
 import 'package:logging/logging.dart';
-import 'package:singularity/APIs/spotify_api.dart';
-import 'package:singularity/Helpers/matcher.dart';
-import 'package:singularity/Helpers/spotify_helper.dart';
 
 // ignore: avoid_classes_with_only_static_members
 class Lyrics {
@@ -27,7 +24,6 @@ class Lyrics {
 
     if (iteration == 0) {
       Logger.root.info('Getting Synced Lyrics');
-      // final res = await getSpotifyLyrics(title, artist);
       final res = await getLrclibLyrics(title, artist, album, duration);
       result['lyrics'] = res['lyrics']!;
       result['type'] = res['type']!;
@@ -147,110 +143,6 @@ class Lyrics {
       }
     }
     return result;
-  }
-
-  static Future<Map<String, String>> getSpotifyLyrics(
-    String title,
-    String artist,
-  ) async {
-    final Map<String, String> result = {
-      'lyrics': '',
-      'type': 'text',
-      'source': 'Spotify',
-    };
-    await callSpotifyFunction(
-      function: (String accessToken) async {
-        final value = await SpotifyApi().searchTrack(
-          accessToken: accessToken,
-          query: '$title - $artist',
-          limit: 1,
-        );
-        try {
-          // Logger.root.info(jsonEncode(value['tracks']['items'][0]));
-          if (value['tracks']['items'].length == 0) {
-            Logger.root.info('No song found');
-            return result;
-          }
-          String title2 = '';
-          String artist2 = '';
-          try {
-            title2 = value['tracks']['items'][0]['name'].toString();
-            artist2 =
-                value['tracks']['items'][0]['artists'][0]['name'].toString();
-          } catch (e) {
-            Logger.root.severe(
-              'Error in extracting artist/title in getSpotifyLyrics for $title - $artist',
-              e,
-            );
-          }
-          final trackId = value['tracks']['items'][0]['id'].toString();
-          if (matchSongs(
-            title: title,
-            artist: artist,
-            title2: title2,
-            artist2: artist2,
-          ).matched) {
-            final Map<String, String> res =
-                await getSpotifyLyricsFromId(trackId);
-            result['lyrics'] = res['lyrics']!;
-            result['type'] = res['type']!;
-            result['source'] = res['source']!;
-          } else {
-            Logger.root.info('Song not matched');
-          }
-        } catch (e) {
-          Logger.root.severe('Error in getSpotifyLyrics', e);
-        }
-      },
-      forceSign: false,
-    );
-    return result;
-  }
-
-  static Future<Map<String, String>> getSpotifyLyricsFromId(
-    String trackId,
-  ) async {
-    final Map<String, String> result = {
-      'lyrics': '',
-      'type': 'text',
-      'source': 'Spotify',
-    };
-    try {
-      final Uri lyricsUrl =
-          Uri.https('spotify-lyric-api-984e7b4face0.herokuapp.com', '/', {
-        'trackid': trackId,
-        'format': 'lrc',
-      });
-      final Response res =
-          await get(lyricsUrl, headers: {'Accept': 'application/json'});
-
-      if (res.statusCode == 200) {
-        final Map lyricsData =
-            await json.decode(utf8.decode(res.bodyBytes)) as Map;
-        if (lyricsData['error'] == false) {
-          final List lines = await lyricsData['lines'] as List;
-          if (lyricsData['syncType'] == 'LINE_SYNCED') {
-            result['lyrics'] = lines
-                .map((e) => '[${e["timeTag"]}]${e["words"]}')
-                .toList()
-                .join('\n');
-            result['type'] = 'lrc';
-          } else {
-            result['lyrics'] = lines.map((e) => e['words']).toList().join('\n');
-            result['type'] = 'text';
-          }
-        }
-      } else {
-        Logger.root.severe(
-          'getSpotifyLyricsFromId returned ${res.statusCode}',
-          res.body,
-        );
-      }
-      return result;
-    } catch (e) {
-      Logger.root.severe('Error in getSpotifyLyrics', e);
-      return result;
-    }
   }
 
   static Future<String> getGoogleLyrics({
