@@ -1,4 +1,3 @@
-import 'package:app_links/app_links.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:logging/logging.dart';
 import 'package:singularity/APIs/spotify_api.dart';
@@ -80,30 +79,5 @@ Future<void> callSpotifyFunction({
   if (accessToken != null && function != null) {
     return await function.call(accessToken);
   }
-  if (accessToken == null && forceSign) {
-    final appLinks = AppLinks();
-    appLinks.uriLinkStream.listen(
-      (uri) async {
-        final link = uri.toString();
-        if (link.contains('code=')) {
-          final code = link.split('code=')[1];
-          Hive.box('settings').put('spotifyAppCode', code);
-          final currentTime = DateTime.now().millisecondsSinceEpoch / 1000;
-          final List<String> data =
-              await SpotifyApi().getAccessToken(code: code);
-          if (data.isNotEmpty) {
-            Hive.box('settings').put('spotifyAccessToken', data[0]);
-            Hive.box('settings').put('spotifyRefreshToken', data[1]);
-            Hive.box('settings').put(
-              'spotifyTokenExpireAt',
-              currentTime + int.parse(data[2]),
-            );
-            if (function != null) {
-              return await function.call(data[0]);
-            }
-          }
-        }
-      },
-    );
-  }
+  if (accessToken == null && forceSign) {}
 }

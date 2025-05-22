@@ -1,4 +1,3 @@
-import 'package:app_links/app_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -146,33 +145,6 @@ Future<void> connectToSpotify(
         SpotifyApi().requestAuthorization(),
       ),
       mode: LaunchMode.externalApplication,
-    );
-    final appLinks = AppLinks();
-    appLinks.uriLinkStream.listen(
-      (uri) async {
-        final link = uri.toString();
-        if (link.contains('code=')) {
-          final code = link.split('code=')[1];
-          settingsBox.put('spotifyAppCode', code);
-          final currentTime = DateTime.now().millisecondsSinceEpoch / 1000;
-          final List<String> data =
-              await SpotifyApi().getAccessToken(code: code);
-          if (data.isNotEmpty) {
-            settingsBox.put('spotifyAccessToken', data[0]);
-            settingsBox.put('spotifyRefreshToken', data[1]);
-            settingsBox.put(
-              'spotifyTokenExpireAt',
-              currentTime + int.parse(data[2]),
-            );
-            await fetchPlaylists(
-              data[0],
-              context,
-              playlistNames,
-              settingsBox,
-            );
-          }
-        }
-      },
     );
   } else {
     await fetchPlaylists(

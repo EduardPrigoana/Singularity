@@ -104,7 +104,6 @@ class AppTheme {
           borderRadius: BorderRadius.circular(7.0),
         ),
       ),
-      dialogBackgroundColor: currentTheme.getCardColor(),
       progressIndicatorTheme: const ProgressIndicatorThemeData()
           .copyWith(color: currentTheme.currentColor()),
       iconTheme: const IconThemeData(
@@ -118,6 +117,8 @@ class AppTheme {
             secondary: currentTheme.currentColor(),
             brightness: Brightness.dark,
           ),
+      dialogTheme:
+          DialogThemeData(backgroundColor: currentTheme.getCardColor()),
     );
   }
 }
