@@ -5,6 +5,7 @@ Fork of [Blackhole](https://github.com/BrightDV/BlackHole/).
 
 ## Improvements
 - High-res support (using https://dab.yeet.su/)
+- Apple Lyrics Support
 - Better metadata support
 - Better navigation
 - Better YT support
@@ -38,10 +39,10 @@ Check it yourself :)
 
 ## Thanks To
 
-- Ankit Sangwan – Creator of this app  
-- [BrightDV](https://github.com/BrightDV/)  
-- [DAB Music Player](https://dab.yeet.su/) – For high-res support
-
+- Ankit Sangwan - Creator of this app  
+- [BrightDV](https://github.com/BrightDV/) - [Blackhole](https://github.com/BrightDV/BlackHole/)  
+- [DAB Music Player](https://dab.yeet.su/) - For high-res support
+- [paxsenix0](https://github.com/paxsenix0) - Access to Lyrics API
 
 ## Disclaimer
 ```
