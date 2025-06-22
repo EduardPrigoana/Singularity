@@ -1,16 +1,14 @@
 import 'dart:io';
 
-// import 'package:ffmpeg_kit_flutter_audio/ffmpeg_kit.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart';
 import 'package:logging/logging.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
-// import 'package:singularity/CustomWidgets/snackbar.dart';
 import 'package:singularity/Services/dl/dl_utils.dart';
+import 'package:singularity/Services/dl/lyrics.dart';
 import 'package:singularity/Services/youtube_services.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 
@@ -412,7 +410,9 @@ class Download with ChangeNotifier {
         await file.writeAsBytes(bytes);
 
         final coverBytes = await getCover(data, coverPath);
-        data['lyrics'] = await getLyrics(data);
+        // data['lyrics'] = await getLyrics(data);
+        data['lyrics'] =
+            await getAppleLyrics('${data['title']} ${data['artist']}');
         writeTags(filepath!, data, coverBytes);
 
         Logger.root.info('Closing connection & notifying listeners');

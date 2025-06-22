@@ -58,12 +58,13 @@ class Lyrics {
         result['type'] = 'text';
         result['source'] = 'Musixmatch';
         if (result['lyrics'] == '') {
-          Logger.root
-              .info('Lyrics not found on Musixmatch, searching on Google');
-          result['lyrics'] =
-              await getGoogleLyrics(title: title, artist: artist);
-          result['type'] = 'text';
-          result['source'] = 'Google';
+          Logger.root.info(
+            'Lyrics not found on Musixmatch, NOT searching on Google, it sucks',
+          );
+          result['lyrics'] = '';
+          // await getGoogleLyrics(title: title, artist: artist);
+          // result['type'] = 'text';
+          // result['source'] = 'Google';
         }
       }
     }
