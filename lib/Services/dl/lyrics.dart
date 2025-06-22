@@ -8,14 +8,16 @@ String toLrcTimestamp(int milliseconds) {
   return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}.${ms.toString().padLeft(2, '0')}';
 }
 
-String formatSyllableLyrics(List<dynamic> lines) {
+String formatSyllableLyrics(List<dynamic> lines, bool multiPersonWordByWord) {
   final syncedLyrics = StringBuffer();
 
   for (final line in lines) {
     final timestamp = line['timestamp'] as int;
     syncedLyrics.write('[${toLrcTimestamp(timestamp)}]');
-    syncedLyrics.write(line['oppositeTurn'] == true ? 'v2:' : 'v1:');
 
+    if (multiPersonWordByWord) {
+      syncedLyrics.write(line['oppositeTurn'] == true ? 'v2:' : 'v1:');
+    }
     for (final syllable in line['text'] as List<dynamic>) {
       final beginTs = '<${toLrcTimestamp(syllable['timestamp'] as int)}>';
       final endTs = '<${toLrcTimestamp(syllable['endtime'] as int)}>';
@@ -30,7 +32,7 @@ String formatSyllableLyrics(List<dynamic> lines) {
       syncedLyrics.write(endTs);
     }
 
-    if (line['background'] == true) {
+    if (line['background'] == true && multiPersonWordByWord) {
       syncedLyrics.write('\n[bg:');
       for (final syllable in line['backgroundText'] as List<dynamic>) {
         final beginTs = '<${toLrcTimestamp(syllable['timestamp'] as int)}>';
@@ -72,7 +74,7 @@ String formatLyrics(String apiResponse) {
     final type = data['type'] as String;
 
     if (type == 'Syllable') {
-      return formatSyllableLyrics(lines);
+      return formatSyllableLyrics(lines, false);
     } else if (type == 'Line') {
       return formatLineLyrics(lines);
     }
@@ -81,7 +83,7 @@ String formatLyrics(String apiResponse) {
   } catch (e) {
     try {
       final data = json.decode(apiResponse) as List<dynamic>;
-      return formatSyllableLyrics(data);
+      return formatSyllableLyrics(data, false);
     } catch (e) {
       return apiResponse;
     }
