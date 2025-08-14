@@ -32,14 +32,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final useOldHomePage = Hive.box('settings').get(
+      'oldHomePage',
+      defaultValue: false,
+    ) as bool;
 
-  final useOldHomePage = Hive.box('settings').get(
-    'oldHomePage',
-    defaultValue: false,
-  ) as bool;
+    final homePg = useOldHomePage
+        ? SaavnHomePage()
+        : const DownloadedSongs(showPlaylists: true);
 
-  final homePg = useOldHomePage ? SaavnHomePage() : const DownloadedSongs(showPlaylists: true);
-    
     final double screenWidth = MediaQuery.sizeOf(context).width;
     final bool rotated = MediaQuery.sizeOf(context).height < screenWidth;
     return SafeArea(

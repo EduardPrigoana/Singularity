@@ -1,19 +1,20 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert';
 import 'package:logging/logging.dart';
 import 'package:singularity/CustomWidgets/snackbar.dart';
 import 'package:singularity/Services/dab/dab_utils.dart';
 
 class DabTrack {
-  final String id,
-      title,
-      artist,
-      artistId,
-      albumTitle,
-      albumId,
-      albumCover,
-      genre;
+  final String id;
+  final String title;
+  final String artist;
+  final String artistId;
+  final String albumTitle;
+  final String albumId;
+  final String albumCover;
+  final String genre;
 
   DabTrack({
     required this.id,
@@ -39,7 +40,12 @@ class DabTrack {
 }
 
 class DabAlbum {
-  final String id, title, artist, artistId, albumCover, genre;
+  final String id;
+  final String title;
+  final String artist;
+  final String artistId;
+  final String albumCover;
+  final String genre;
 
   DabAlbum({
     required this.id,
@@ -77,7 +83,7 @@ class DabService {
       }
 
       final data = json.decode(response.body);
-      final albums = (data['albums'] as List);
+      final albums = data['albums'] as List;
       final result = albums
           .map((album) => DabAlbum.fromJson(album as Map<String, dynamic>))
           .toList();
@@ -102,7 +108,7 @@ class DabService {
       }
 
       final data = json.decode(response.body);
-      final tracks = (data['album']['tracks'] as List);
+      final tracks = data['album']['tracks'] as List;
       final result = tracks
           .map((track) => DabTrack.fromJson(track as Map<String, dynamic>))
           .toList();
@@ -172,7 +178,7 @@ class TrackTile extends StatelessWidget {
     Navigator.push(context, MaterialPageRoute(builder: (_) => page));
   }
 
-  void _download(BuildContext context) async {
+  Future<void> _download(BuildContext context) async {
     try {
       Logger.root.info('Starting download for track: ${track.title}');
       await dabDL(track);
@@ -238,7 +244,8 @@ class DABSearchPage extends StatelessWidget {
 }
 
 class DABArtistPage extends StatefulWidget {
-  final String artistId, artistName;
+  final String artistId;
+  final String artistName;
 
   const DABArtistPage(
       {super.key, required this.artistId, required this.artistName});
@@ -257,7 +264,7 @@ class _DABArtistPageState extends State<DABArtistPage> {
     _loadData();
   }
 
-  void _loadData() async {
+  Future<void> _loadData() async {
     Logger.root.info('Loading albums for artist: ${widget.artistName}');
     final data = await DabService.fetchArtistAlbums(widget.artistId);
     setState(() {
@@ -298,7 +305,10 @@ class _DABArtistPageState extends State<DABArtistPage> {
 }
 
 class DABAlbumPage extends StatefulWidget {
-  final String albumId, albumTitle, artist, albumCover;
+  final String albumId;
+  final String albumTitle;
+  final String artist;
+  final String albumCover;
 
   const DABAlbumPage({
     super.key,
@@ -322,7 +332,7 @@ class _DABAlbumPageState extends State<DABAlbumPage> {
     _loadData();
   }
 
-  void _loadData() async {
+  Future<void> _loadData() async {
     Logger.root.info('Loading tracks for album: ${widget.albumTitle}');
     final data = await DabService.fetchAlbumTracks(widget.albumId);
     setState(() {
