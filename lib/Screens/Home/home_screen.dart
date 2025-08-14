@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:hive/hive.dart';
 import 'package:singularity/CustomWidgets/drawer.dart';
+import 'package:singularity/Screens/Home/saavn.dart';
 import 'package:singularity/Screens/LocalMusic/downed_songs.dart';
 import 'package:singularity/Screens/Search/search.dart';
 
@@ -30,6 +32,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+  final useOldHomePage = Hive.box('settings').get(
+    'oldHomePage',
+    defaultValue: false,
+  ) as bool;
+
+  final homePg = useOldHomePage ? SaavnHomePage() : const DownloadedSongs(showPlaylists: true);
+    
     final double screenWidth = MediaQuery.sizeOf(context).width;
     final bool rotated = MediaQuery.sizeOf(context).height < screenWidth;
     return SafeArea(
@@ -126,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ];
             },
-            body: const DownloadedSongs(showPlaylists: true),
+            body: homePg,
           ),
           if (!rotated)
             homeDrawer(

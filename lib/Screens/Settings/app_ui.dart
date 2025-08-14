@@ -920,6 +920,14 @@ class _AppUIPageState extends State<AppUIPage> {
               defaultValue: false,
               isThreeLine: true,
             ),
+            const BoxSwitchTile(
+              title: Text(
+                'Use Old Homepage (Works after restarting app)',
+              ),
+              keyName: 'oldHomePage',
+              defaultValue: false,
+              isThreeLine: false,
+            ),
           ],
         ),
       ),
