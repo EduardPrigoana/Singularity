@@ -76,13 +76,13 @@ Map<String, dynamic> dataFromDabTrack(DabTrack track) {
     'artist': track.artist,
     'album_artist': track.artist, // You can customize this if needed
     'album': track.albumTitle,
-    'year': track.releaseDate.year.toString(),
+    // 'year': track.releaseDate.year.toString(),
     // 'lyrics': '', // Placeholder, add actual lyrics if available
     // 'trackNumber': '1', // Placeholder, adjust if you have this info
     // 'trackTotal': '1',  // Placeholder
     // 'discNumber': '1',  // Placeholder
     // 'discTotal': '1',   // Placeholder
-    'duration': track.durationSeconds.toString(),
+    // 'duration': track.durationSeconds.toString(),
     // 'genre': track.genre, // Uncomment and use if needed
   };
 }
