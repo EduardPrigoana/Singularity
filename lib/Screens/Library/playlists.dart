@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:logging/logging.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -10,6 +9,7 @@ import 'package:singularity/CustomWidgets/textinput_dialog.dart';
 import 'package:singularity/Helpers/import_export_playlist.dart';
 import 'package:singularity/Screens/Library/import.dart';
 import 'package:singularity/Screens/Library/liked.dart';
+import 'package:singularity/localization/app_localizations.dart';
 
 class PlaylistScreen extends StatefulWidget {
   @override

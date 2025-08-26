@@ -9,7 +9,6 @@ import 'package:flip_card/flip_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_lyric/lyric_ui/lyric_ui.dart';
 import 'package:flutter_lyric/lyric_ui/ui_netease.dart';
 import 'package:flutter_lyric/lyrics_model_builder.dart';
@@ -38,6 +37,7 @@ import 'package:singularity/Helpers/dominant_color.dart';
 import 'package:singularity/Helpers/lyrics.dart';
 import 'package:singularity/Helpers/mediaitem_converter.dart';
 import 'package:singularity/Screens/Common/song_list.dart';
+import 'package:singularity/localization/app_localizations.dart';
 import 'package:singularity/utils.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 

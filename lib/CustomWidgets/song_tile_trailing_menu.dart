@@ -1,7 +1,6 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:singularity/CustomWidgets/add_playlist.dart';
 import 'package:singularity/Helpers/add_mediaitem_to_queue.dart';
 import 'package:singularity/Helpers/mediaitem_converter.dart';
@@ -10,6 +9,7 @@ import 'package:singularity/Screens/Common/song_list.dart';
 import 'package:singularity/Screens/Search/search.dart';
 import 'package:singularity/Screens/YouTube/youtube_playlist.dart';
 import 'package:singularity/Services/yt_music.dart';
+import 'package:singularity/localization/app_localizations.dart';
 import 'package:singularity/utils.dart';
 
 class SongTileTrailingMenu extends StatefulWidget {

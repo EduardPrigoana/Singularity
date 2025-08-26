@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive/hive.dart';
 import 'package:logging/logging.dart';
 import 'package:singularity/APIs/api.dart';
@@ -23,6 +22,7 @@ import 'package:singularity/Services/dab/dab_utils.dart';
 import 'package:singularity/Services/player_service.dart';
 import 'package:singularity/Services/youtube_services.dart';
 import 'package:singularity/Services/yt_music.dart';
+import 'package:singularity/localization/app_localizations.dart';
 
 class SearchPage extends StatefulWidget {
   final String query;

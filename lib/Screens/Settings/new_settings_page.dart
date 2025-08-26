@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:singularity/CustomWidgets/drawer.dart';
@@ -11,6 +10,7 @@ import 'package:singularity/Screens/Settings/download.dart';
 import 'package:singularity/Screens/Settings/music_playback.dart';
 import 'package:singularity/Screens/Settings/others.dart';
 import 'package:singularity/Screens/Settings/theme.dart';
+import 'package:singularity/localization/app_localizations.dart';
 
 class NewSettingsPage extends StatefulWidget {
   final Function? callback;

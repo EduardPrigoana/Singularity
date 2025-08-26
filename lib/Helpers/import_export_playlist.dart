@@ -2,13 +2,13 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive/hive.dart';
 import 'package:logging/logging.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:singularity/CustomWidgets/snackbar.dart';
 import 'package:singularity/Helpers/picker.dart';
 import 'package:singularity/Helpers/songs_count.dart';
+import 'package:singularity/localization/app_localizations.dart';
 
 Future<void> exportPlaylist(
   BuildContext context,

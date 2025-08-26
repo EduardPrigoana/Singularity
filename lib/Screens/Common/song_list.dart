@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:logging/logging.dart';
 import 'package:singularity/APIs/api.dart';
 import 'package:singularity/CustomWidgets/bouncy_playlist_header_scroll_view.dart';
@@ -18,6 +17,7 @@ import 'package:singularity/Models/image_quality.dart';
 import 'package:singularity/Models/url_image_generator.dart';
 import 'package:singularity/Screens/Shows/show.dart';
 import 'package:singularity/Services/player_service.dart';
+import 'package:singularity/localization/app_localizations.dart';
 
 class SongsListPage extends StatefulWidget {
   final Map listItem;

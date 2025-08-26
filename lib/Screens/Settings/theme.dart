@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 import 'package:singularity/CustomWidgets/box_switch_tile.dart';
@@ -8,6 +7,7 @@ import 'package:singularity/CustomWidgets/popup.dart';
 import 'package:singularity/CustomWidgets/snackbar.dart';
 import 'package:singularity/CustomWidgets/textinput_dialog.dart';
 import 'package:singularity/Helpers/config.dart';
+import 'package:singularity/localization/app_localizations.dart';
 
 class ThemePage extends StatefulWidget {
   final Function? callback;

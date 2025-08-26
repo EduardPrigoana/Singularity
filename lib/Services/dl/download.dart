@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart';
 import 'package:logging/logging.dart';
@@ -10,6 +9,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:singularity/Services/dl/dl_utils.dart';
 import 'package:singularity/Services/dl/lyrics.dart';
 import 'package:singularity/Services/youtube_services.dart';
+import 'package:singularity/localization/app_localizations.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 
 class Download with ChangeNotifier {

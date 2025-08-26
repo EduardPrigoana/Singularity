@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:singularity/CustomWidgets/snackbar.dart';
 import 'package:singularity/CustomWidgets/textinput_dialog.dart';
 import 'package:singularity/Helpers/audio_query.dart';
 import 'package:singularity/Screens/LocalMusic/downed_songs.dart';
+import 'package:singularity/localization/app_localizations.dart';
 
 class LocalPlaylists extends StatefulWidget {
   final List<PlaylistModel> playlistDetails;

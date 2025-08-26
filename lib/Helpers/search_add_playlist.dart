@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart';
 import 'package:logging/logging.dart';
 import 'package:singularity/APIs/api.dart';
@@ -10,6 +9,7 @@ import 'package:singularity/Helpers/matcher.dart';
 import 'package:singularity/Helpers/playlist.dart';
 import 'package:singularity/Services/youtube_services.dart';
 import 'package:singularity/Services/yt_music.dart';
+import 'package:singularity/localization/app_localizations.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 
 // ignore: avoid_classes_with_only_static_members

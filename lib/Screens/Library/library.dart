@@ -1,12 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:singularity/CustomWidgets/drawer.dart';
 import 'package:singularity/Screens/Library/liked.dart';
 import 'package:singularity/Screens/LocalMusic/downed_songs.dart';
 import 'package:singularity/Screens/LocalMusic/downed_songs_desktop.dart';
+import 'package:singularity/localization/app_localizations.dart';
 
 class LibraryPage extends StatefulWidget {
   const LibraryPage({super.key});

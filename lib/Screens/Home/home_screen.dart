@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive/hive.dart';
 import 'package:singularity/CustomWidgets/drawer.dart';
 import 'package:singularity/Screens/Home/saavn.dart';
 import 'package:singularity/Screens/LocalMusic/downed_songs.dart';
 import 'package:singularity/Screens/Search/search.dart';
+import 'package:singularity/localization/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({

@@ -1,9 +1,9 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get_it/get_it.dart';
 import 'package:singularity/CustomWidgets/snackbar.dart';
 import 'package:singularity/Screens/Player/audioplayer.dart';
+import 'package:singularity/localization/app_localizations.dart';
 
 void addToNowPlaying({
   required BuildContext context,

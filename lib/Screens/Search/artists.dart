@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:singularity/APIs/api.dart';
 import 'package:singularity/CustomWidgets/artist_like_button.dart';
 import 'package:singularity/CustomWidgets/bouncy_sliver_scroll_view.dart';
@@ -15,6 +14,7 @@ import 'package:singularity/CustomWidgets/song_tile_trailing_menu.dart';
 import 'package:singularity/Models/url_image_generator.dart';
 import 'package:singularity/Screens/Common/song_list.dart';
 import 'package:singularity/Services/player_service.dart';
+import 'package:singularity/localization/app_localizations.dart';
 
 class ArtistSearchPage extends StatefulWidget {
   final Map data;

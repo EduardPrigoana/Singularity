@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive/hive.dart';
 import 'package:singularity/CustomWidgets/box_switch_tile.dart';
 import 'package:singularity/CustomWidgets/gradient_containers.dart';
@@ -10,6 +9,7 @@ import 'package:singularity/CustomWidgets/snackbar.dart';
 import 'package:singularity/CustomWidgets/textinput_dialog.dart';
 import 'package:singularity/Helpers/picker.dart';
 import 'package:singularity/constants/languagecodes.dart';
+import 'package:singularity/localization/app_localizations.dart';
 import 'package:singularity/main.dart';
 
 class OthersPage extends StatefulWidget {

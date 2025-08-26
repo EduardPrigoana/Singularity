@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive/hive.dart';
 import 'package:singularity/CustomWidgets/collage.dart';
 import 'package:singularity/CustomWidgets/custom_physics.dart';
@@ -16,6 +15,7 @@ import 'package:singularity/CustomWidgets/song_tile_trailing_menu.dart';
 import 'package:singularity/Helpers/songs_count.dart' as songs_count;
 import 'package:singularity/Screens/Library/show_songs.dart';
 import 'package:singularity/Services/player_service.dart';
+import 'package:singularity/localization/app_localizations.dart';
 // import 'package:path_provider/path_provider.dart';
 
 final ValueNotifier<bool> selectMode = ValueNotifier<bool>(false);

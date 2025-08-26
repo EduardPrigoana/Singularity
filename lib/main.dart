@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -21,6 +20,7 @@ import 'package:singularity/Screens/Common/routes.dart';
 import 'package:singularity/Screens/Player/audioplayer.dart';
 import 'package:singularity/constants/constants.dart';
 import 'package:singularity/constants/languagecodes.dart';
+import 'package:singularity/localization/app_localizations.dart';
 import 'package:singularity/providers/audio_service_provider.dart';
 import 'package:singularity/theme/app_theme.dart';
 import 'package:sizer/sizer.dart';

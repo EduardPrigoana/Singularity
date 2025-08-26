@@ -5,7 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive/hive.dart';
 import 'package:logging/logging.dart';
 // import 'package:path_provider/path_provider.dart';
@@ -20,6 +19,7 @@ import 'package:singularity/CustomWidgets/snackbar.dart';
 import 'package:singularity/Helpers/picker.dart';
 import 'package:singularity/Screens/Library/liked.dart';
 import 'package:singularity/Services/player_service.dart';
+import 'package:singularity/localization/app_localizations.dart';
 
 class Downloads extends StatefulWidget {
   const Downloads({super.key});

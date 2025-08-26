@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:singularity/APIs/api.dart';
 import 'package:singularity/CustomWidgets/bouncy_sliver_scroll_view.dart';
 import 'package:singularity/CustomWidgets/copy_clipboard.dart';
@@ -9,6 +8,7 @@ import 'package:singularity/CustomWidgets/gradient_containers.dart';
 import 'package:singularity/CustomWidgets/image_card.dart';
 import 'package:singularity/Screens/Common/song_list.dart';
 import 'package:singularity/Screens/Search/artists.dart';
+import 'package:singularity/localization/app_localizations.dart';
 
 class AlbumSearchPage extends StatefulWidget {
   final String query;

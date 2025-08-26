@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive/hive.dart';
 import 'package:singularity/CustomWidgets/gradient_containers.dart';
+import 'package:singularity/localization/app_localizations.dart';
 
 class Stats extends StatelessWidget {
   const Stats({super.key});

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:singularity/CustomWidgets/collage.dart';
 import 'package:singularity/CustomWidgets/horizontal_albumlist.dart';
@@ -8,6 +7,7 @@ import 'package:singularity/CustomWidgets/on_hover.dart';
 import 'package:singularity/Screens/Library/liked.dart';
 import 'package:singularity/Screens/Search/artists.dart';
 import 'package:singularity/Services/player_service.dart';
+import 'package:singularity/localization/app_localizations.dart';
 
 bool fetched = false;
 List lists = ['recent', 'playlist'];
