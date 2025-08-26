@@ -1,10 +1,9 @@
-import 'dart:io';
 import 'dart:isolate';
 
 import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:logging/logging.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:singularity/Helpers/hive.dart';
 import 'package:singularity/Screens/Player/audioplayer.dart';
 import 'package:singularity/Services/youtube_services.dart';
 
@@ -20,9 +19,9 @@ Future<void> startBackgroundProcessing() async {
     if (isolateSendPort == null) {
       Logger.root.info('setting isolateSendPort');
       isolateSendPort = message as SendPort;
-      final appDocumentDirectoryPath =
-          (await getApplicationDocumentsDirectory()).path;
-      isolateSendPort?.send(appDocumentDirectoryPath);
+
+      final hiveDir = await getHiveDirectory();
+      isolateSendPort?.send(hiveDir);
     } else {
       await audioHandler.customAction('refreshLink', {'newData': message});
     }
@@ -37,12 +36,7 @@ Future<void> _backgroundProcess(SendPort sendPort) async {
 
   await for (final message in isolateReceivePort) {
     if (!hiveInit) {
-      String path = message.toString();
-      if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-        path += '/Singularity/Database';
-      } else if (Platform.isIOS) {
-        path += '/Database';
-      }
+      final String path = message.toString();
       Hive.init(path);
       await Hive.openBox('ytlinkcache');
       await Hive.openBox('settings');
