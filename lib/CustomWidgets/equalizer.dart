@@ -5,6 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 import 'package:singularity/Screens/Player/audioplayer.dart';
+import 'package:singularity/localization/app_localizations.dart';
 
 class Equalizer extends StatefulWidget {
   const Equalizer({super.key});
@@ -32,7 +33,7 @@ class _EqualizerState extends State<Equalizer> {
             SwitchListTile(
               title: Text(AppLocalizations.of(context)!.equalizer),
               value: enabled,
-              activeColor: Theme.of(context).colorScheme.secondary,
+              activeThumbColor: Theme.of(context).colorScheme.secondary,
               onChanged: (value) {
                 enabled = value;
                 Hive.box('settings').put('setEqualizer', value);

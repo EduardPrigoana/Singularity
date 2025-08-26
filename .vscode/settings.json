@@ -1,4 +1,4 @@
 {
-    "dart.flutterSdkPath": "/nix/store/0xngadg7j9945w05qzwjiz1l5angzp18-flutter-wrapped-3.27.4-sdk-links",
-    "dart.sdkPath": "/nix/store/0xngadg7j9945w05qzwjiz1l5angzp18-flutter-wrapped-3.27.4-sdk-links/bin/cache/dart-sdk/bin",
+    "dart.flutterSdkPath": "/nix/store/f9yg5q5iihyb2wfa2f1wyv4q7cbydyvw-flutter-wrapped-3.35.1-sdk-links",
+    "dart.sdkPath": "/nix/store/f9yg5q5iihyb2wfa2f1wyv4q7cbydyvw-flutter-wrapped-3.35.1-sdk-links/bin/cache/dart-sdk/bin",
 }

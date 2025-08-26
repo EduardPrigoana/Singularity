@@ -44,38 +44,54 @@
 
 
     in {
-      devShell = with pkgs;
-        mkShell rec {
-          ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
-          ANDROID_HOME = "${androidSdk}/libexec/android-sdk";
-          JAVA_HOME = jdk17.home;
-          FLUTTER_ROOT = flutter;
-          DART_ROOT = "${flutter}/bin/cache/dart-sdk";
-          GRADLE_OPTS = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${androidSdk}/libexec/android-sdk/build-tools/34.0.0/aapt2";
-          QT_QPA_PLATFORM = "wayland;xcb";
+  devShell = with pkgs;
+    mkShell rec {
+      ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
+      ANDROID_HOME = "${androidSdk}/libexec/android-sdk";
+      JAVA_HOME = jdk17.home;
+      FLUTTER_ROOT = "${flutter}";
+      DART_ROOT = "${flutter}/bin/cache/dart-sdk";
+      GRADLE_OPTS = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${androidSdk}/libexec/android-sdk/build-tools/34.0.0/aapt2";
+      QT_QPA_PLATFORM = "wayland;xcb";
 
-          buildInputs = [
-            flutter
-            androidSdk
-            gradle
-            jdk17
-            gtk3
-            pkg-config
-            xdg-user-dirs
-            mpv-unwrapped.dev
-            mpv-unwrapped
-          ];
+      buildInputs = [
+        flutter
+        androidSdk
+        gradle
+        jdk17
+        gtk3
+        pkg-config
+        xdg-user-dirs
+        mpv-unwrapped.dev
+        mpv-unwrapped
 
-          LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath [vulkan-loader libGL]}";
-          # Globally installed packages, which are installed through `dart pub global activate package_name`,
-          # are located in the `$PUB_CACHE/bin` directory.
-          shellHook = ''
-            if [ -z "$PUB_CACHE" ]; then
-              export PATH="$PATH:$HOME/.pub-cache/bin"
-            else
-              export PATH="$PATH:$PUB_CACHE/bin"
-            fi
-          '';
-        };
+        rustc
+        cargo
+        rustfmt
+        rust-analyzer
+        clippy
+        rustup
+        # cbindgen                   # generates C headers from Rust
+        # llvmPackages.libclang      # libclang used by dart:ffigen
+      ];
+
+      LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath [vulkan-loader libGL]}";
+
+      # Globally installed dart packages live in $PUB_CACHE/bin or ~/.pub-cache/bin
+      shellHook = ''
+        # make cargo-installed binaries available in the shell
+        export PATH="$HOME/.cargo/bin:$PATH"
+
+        if [ -z "$PUB_CACHE" ]; then
+          export PATH="$PATH:$HOME/.pub-cache/bin"
+        else
+          export PATH="$PATH:$PUB_CACHE/bin"
+        fi
+
+        # Helpful LD_LIBRARY_PATH for desktop builds so Dart can find the Rust .so files
+        # (adjust the paths to match your build output layout if different)
+        export LD_LIBRARY_PATH="$(pwd)/build/linux/x64/debug/bundle/lib:$(pwd)/build/linux/x64/release/bundle/lib:$LD_LIBRARY_PATH"
+      '';
+    };
     });
 }
