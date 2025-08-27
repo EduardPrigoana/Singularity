@@ -6,20 +6,22 @@ import 'package:logging/logging.dart';
 import 'package:singularity/Screens/Search/dab.dart';
 import 'package:singularity/Services/dl/dl_utils.dart';
 
-Future<Map<String, dynamic>> dabSearch(
-  String query, {
-  int offset = 0,
-  String type = 'track',
-}) async {
-  final uri = Uri.https('dab.yeet.su', '/api/search', {
-    'q': query,
-    'offset': '$offset',
-    'type': type,
-  });
-  final res = await http.get(uri);
-  if (res.statusCode != 200) throw Exception('Status ${res.statusCode}');
-  return json.decode(res.body) as Map<String, dynamic>;
-}
+// Replaced by Rust
+
+// Future<Map<String, dynamic>> dabSearch(
+//   String query, {
+//   int offset = 0,
+//   String type = 'track',
+// }) async {
+//   final uri = Uri.https('dab.yeet.su', '/api/search', {
+//     'q': query,
+//     'offset': '$offset',
+//     'type': type,
+//   });
+//   final res = await http.get(uri);
+//   if (res.statusCode != 200) throw Exception('Status ${res.statusCode}');
+//   return json.decode(res.body) as Map<String, dynamic>;
+// }
 
 Future<List<int>> dabDownload(String trackId) async {
   try {

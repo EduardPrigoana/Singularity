@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:logging/logging.dart';
@@ -18,11 +20,12 @@ import 'package:singularity/Screens/Search/artists.dart';
 import 'package:singularity/Screens/Search/dab.dart';
 import 'package:singularity/Screens/YouTube/youtube_artist.dart';
 import 'package:singularity/Screens/YouTube/youtube_playlist.dart';
-import 'package:singularity/Services/dab/dab_utils.dart';
+// import 'package:singularity/Services/dab/dab_utils.dart';
 import 'package:singularity/Services/player_service.dart';
 import 'package:singularity/Services/youtube_services.dart';
 import 'package:singularity/Services/yt_music.dart';
 import 'package:singularity/localization/app_localizations.dart';
+import 'package:singularity/src/rust/api/dab/search.dart';
 
 class SearchPage extends StatefulWidget {
   final String query;
@@ -126,13 +129,17 @@ class _SearchPageState extends State<SearchPage> {
         });
       case 'dab':
         Logger.root.info('calling dab search');
-        dabSearch(query == '' ? widget.query : query).then((resp) {
-          setState(() {
-            dabTracks = resp['tracks'] as List<dynamic>;
+
+        if (query != '') {
+        rustDabSearch(query: query == '' ? widget.query : query).then((value) {
+          final json = jsonDecode(value);
+                    setState(() {
+            dabTracks = json['tracks'] as List<dynamic>;
 
             fetched = true;
           });
         });
+        }
 
       default:
         Logger.root.info('calling saavn search');
