@@ -128,17 +128,18 @@ class _SearchPageState extends State<SearchPage> {
           });
         });
       case 'dab':
-        Logger.root.info('calling dab search');
+        if (query != '' || widget.query != '') {
+          Logger.root.info('calling dab search');
 
-        if (query != '') {
-        rustDabSearch(query: query == '' ? widget.query : query).then((value) {
-          final json = jsonDecode(value);
-                    setState(() {
-            dabTracks = json['tracks'] as List<dynamic>;
+          rustDabSearch(query: query == '' ? widget.query : query)
+              .then((value) {
+            final json = jsonDecode(value);
+            setState(() {
+              dabTracks = json['tracks'] as List<dynamic>;
 
-            fetched = true;
+              fetched = true;
+            });
           });
-        });
         }
 
       default:

@@ -664,7 +664,7 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
       _player!.seek(
         Duration.zero,
         index: _player!.shuffleModeEnabled
-            ? _player!.shuffleIndices![index]
+            ? _player!.shuffleIndices[index]
             : index,
       );
     } else {
@@ -727,7 +727,7 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
   @override
   Future<void> updateMediaItem(MediaItem mediaItem) async {
     final index = queue.value.indexWhere((item) => item.id == mediaItem.id);
-    _mediaItemExpando[_player!.sequence![index]] = mediaItem;
+    _mediaItemExpando[_player!.sequence[index]] = mediaItem;
   }
 
   @override
@@ -791,7 +791,7 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
     _player!.seek(
       Duration.zero,
       index:
-          _player!.shuffleModeEnabled ? _player!.shuffleIndices![index] : index,
+          _player!.shuffleModeEnabled ? _player!.shuffleIndices[index] : index,
     );
   }
 

@@ -13,11 +13,9 @@ const hiveBoxes = [
   {'name': 'ytlinkcache', 'limit': true},
 ];
 
-
 Future<String> getHiveDirectory() async {
   return '${(await getApplicationSupportDirectory()).path}/Database';
 }
-
 
 Future<void> hiveInit() async {
   final String hiveDir = await getHiveDirectory();
