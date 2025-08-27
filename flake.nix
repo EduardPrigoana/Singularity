@@ -65,12 +65,13 @@
         mpv-unwrapped.dev
         mpv-unwrapped
 
-        rustc
-        cargo
-        rustfmt
-        rust-analyzer
-        clippy
+        # rustc
+        # cargo
+        # rustfmt
+        # rust-analyzer
+        # clippy
         rustup
+        openssl
         # cbindgen                   # generates C headers from Rust
         # llvmPackages.libclang      # libclang used by dart:ffigen
       ];
