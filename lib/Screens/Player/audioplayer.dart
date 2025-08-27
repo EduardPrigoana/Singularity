@@ -33,7 +33,7 @@ import 'package:singularity/CustomWidgets/textinput_dialog.dart';
 import 'package:singularity/Helpers/audio_query.dart';
 import 'package:singularity/Helpers/audio_service_helper.dart';
 import 'package:singularity/Helpers/config.dart';
-import 'package:singularity/Helpers/dominant_color.dart';
+// import 'package:singularity/Helpers/dominant_color.dart';
 import 'package:singularity/Helpers/lyrics.dart';
 import 'package:singularity/Helpers/mediaitem_converter.dart';
 import 'package:singularity/Screens/Common/song_list.dart';
@@ -204,27 +204,27 @@ class _PlayScreenState extends State<PlayScreen> {
           if (mediaItem == null) return const SizedBox();
           final offline =
               !mediaItem.extras!['url'].toString().startsWith('http');
-          if (mediaItem.artUri != null && mediaItem.artUri.toString() != '') {
-            mediaItem.artUri.toString().startsWith('file')
-                ? getColors(
-                    imageProvider: FileImage(
-                      File(
-                        mediaItem.artUri!.toFilePath(),
-                      ),
-                    ),
-                    // useDominantAndDarkerColors: gradientType == 'halfLight' ||
-                    //     gradientType == 'fullLight' ||
-                    //     gradientType == 'fullMix',
-                  ).then((value) => updateBackgroundColors(value))
-                : getColors(
-                    imageProvider: CachedNetworkImageProvider(
-                      mediaItem.artUri.toString(),
-                    ),
-                    // useDominantAndDarkerColors: gradientType == 'halfLight' ||
-                    //     gradientType == 'fullLight' ||
-                    //     gradientType == 'fullMix',
-                  ).then((value) => updateBackgroundColors(value));
-          }
+          // if (mediaItem.artUri != null && mediaItem.artUri.toString() != '') {
+          //   mediaItem.artUri.toString().startsWith('file')
+          //       ? getColors(
+          //           imageProvider: FileImage(
+          //             File(
+          //               mediaItem.artUri!.toFilePath(),
+          //             ),
+          //           ),
+          //           // useDominantAndDarkerColors: gradientType == 'halfLight' ||
+          //           //     gradientType == 'fullLight' ||
+          //           //     gradientType == 'fullMix',
+          //         ).then((value) => updateBackgroundColors(value))
+          //       : getColors(
+          //           imageProvider: CachedNetworkImageProvider(
+          //             mediaItem.artUri.toString(),
+          //           ),
+          //           // useDominantAndDarkerColors: gradientType == 'halfLight' ||
+          //           //     gradientType == 'fullLight' ||
+          //           //     gradientType == 'fullMix',
+          //         ).then((value) => updateBackgroundColors(value));
+          // }
           return ValueListenableBuilder(
             valueListenable: gradientColor,
             child: SafeArea(

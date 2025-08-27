@@ -1,14 +1,14 @@
-import 'dart:io';
+// import 'dart:io';
 
 import 'package:audio_service/audio_service.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:singularity/CustomWidgets/gradient_containers.dart';
 import 'package:singularity/CustomWidgets/image_card.dart';
 import 'package:singularity/Helpers/config.dart';
-import 'package:singularity/Helpers/dominant_color.dart';
+// import 'package:singularity/Helpers/dominant_color.dart';
 import 'package:singularity/Screens/Player/audioplayer.dart';
 
 class MiniPlayer extends StatefulWidget {
@@ -72,23 +72,23 @@ class _MiniPlayerState extends State<MiniPlayer> {
               ) as bool ||
               rotated;
 
-          if (mediaItem != null) {
-            if (mediaItem.artUri != null && mediaItem.artUri.toString() != '') {
-              mediaItem.artUri.toString().startsWith('file')
-                  ? getColors(
-                      imageProvider: FileImage(
-                        File(
-                          mediaItem.artUri!.toFilePath(),
-                        ),
-                      ),
-                    ).then((value) => updateBackgroundColors(value))
-                  : getColors(
-                      imageProvider: CachedNetworkImageProvider(
-                        mediaItem.artUri.toString(),
-                      ),
-                    ).then((value) => updateBackgroundColors(value));
-            }
-          }
+          // if (mediaItem != null) {
+          //   if (mediaItem.artUri != null && mediaItem.artUri.toString() != '') {
+          //     mediaItem.artUri.toString().startsWith('file')
+          //         ? getColors(
+          //             imageProvider: FileImage(
+          //               File(
+          //                 mediaItem.artUri!.toFilePath(),
+          //               ),
+          //             ),
+          //           ).then((value) => updateBackgroundColors(value))
+          //         : getColors(
+          //             imageProvider: CachedNetworkImageProvider(
+          //               mediaItem.artUri.toString(),
+          //             ),
+          //           ).then((value) => updateBackgroundColors(value));
+          //   }
+          // }
 
           return Dismissible(
             key: const Key('miniplayer'),
