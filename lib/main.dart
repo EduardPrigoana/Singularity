@@ -15,6 +15,7 @@ import 'package:singularity/Screens/Player/audioplayer.dart';
 import 'package:singularity/constants/languagecodes.dart';
 import 'package:singularity/localization/app_localizations.dart';
 import 'package:singularity/providers/audio_service_provider.dart';
+import 'package:singularity/src/rust/api/simple.dart';
 import 'package:singularity/src/rust/frb_generated.dart';
 import 'package:singularity/theme/app_theme.dart';
 import 'package:sizer/sizer.dart';
@@ -23,13 +24,13 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await RustLib.init();
+  helloRust();
+
   await hiveInit();
   await startService();
 
   runApp(MyApp());
 }
-
-
 
 Future<void> startService() async {
   await initializeLogging();

@@ -1,6 +1,7 @@
 #[flutter_rust_bridge::frb(sync)] // Synchronous mode for simplicity of the demo
-pub fn greet(name: String) -> String {
-    format!("Hello, {name}!")
+pub fn hello_rust() {
+    // format!("Hello from Rust!");
+    println!("Hello from rust")
 }
 
 #[flutter_rust_bridge::frb(init)]

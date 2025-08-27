@@ -6,5 +6,4 @@
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 import 'package:singularity/src/rust/frb_generated.dart';
 
-String greet({required String name}) =>
-    RustLib.instance.api.crateApiSimpleGreet(name: name);
+void helloRust() => RustLib.instance.api.crateApiSimpleHelloRust();
