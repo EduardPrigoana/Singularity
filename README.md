@@ -1,7 +1,7 @@
 > [!IMPORTANT]  
 > # Not actively working on it.  
 > If anyone is interested in contributing, help with Rust integration would be nice.  
-> See the [contribution guidelines](https://github.com/atinba/Singularity?tab=contributing-ov-file) for details about setup etc.  
+> See the [CONTRIBUTING.md](CONTRIBUTING.md) for details about setup etc.  
 
 
 
