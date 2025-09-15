@@ -1,7 +1,16 @@
+> [!IMPORTANT]  
+> # Not actively working on it.  
+> If anyone is interested in contributing, help with Rust integration would be nice.  
+> See the [contribution guidelines](https://github.com/atinba/Singularity?tab=contributing-ov-file) for details about setup etc.  
+
+
+
 # Singularity
 Fork of [Blackhole](https://github.com/BrightDV/BlackHole/).
 
-> The main aim of this app is to fetch music for offline listening, so I’ll prioritize features related to that and might remove other features if they’re not needed. I wouldn’t recommend using this as your main player. I’d suggest using VLC, Oto Music, or just search GitHub—there are many great music players out there.
+> [!WARNING] 
+> The main aim of this app is to fetch music for offline listening, so I’ll prioritize features related to that and will remove other features if they’re not needed.
+> Don't use this as your main music player. I’d suggest using VLC, Oto Music etc.
 
 ## Improvements
 - High-res support (using https://dab.yeet.su/)
